@@ -1,0 +1,17 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.38 · GITHUB PLANA
+
+ESTRUCTURA
+- Todos los HTML y recursos están en la raíz.
+- Un solo CSS: efleet-4.4.38.css
+- Un solo JS:  efleet-4.4.38.js
+- Los nombres físicos llevan versión para impedir que Service Workers/caches antiguos entreguen CSS de otra versión.
+
+GEOCERCA
+- El mapa queda al final del módulo.
+- Filtros de Usuario, Rol, Desde y Hasta incluidos junto al mapa.
+- Botón Pantalla completa muestra filtros + seguimiento + mapa.
+- Se mantienen hogar, círculo azul del radio, GPS real, línea GPS↔domicilio y distancia.
+- CSS de controles reforzado sin depender de la clase del <html>, evitando controles dinámicos sin estilo.
+- Al cargar se retiran registros/caches de Service Worker heredados y, si el CSS no cargó, se reintenta el mismo único archivo CSS.
+
+No requiere cambios en SQL, Android ni flotas-api respecto de flotas-api 4.4.22.
