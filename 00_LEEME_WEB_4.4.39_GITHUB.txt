@@ -1,0 +1,15 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.39 · GITHUB PLANA
+
+CAMBIO PRINCIPAL
+- Geocerca: KPI circulares se pintan en la primera carga, sin recargar la página.
+- Los anillos porcentuales ahora son SVG directo, no conic-gradient dependiente de repaint.
+- La consulta secundaria de Usuarios ya NO bloquea el render de KPI/analítica.
+- El catálogo de Usuarios se completa en segundo plano y actualiza los selectores sin recargar.
+
+SE MANTIENE
+- Estructura plana para GitHub.
+- Un solo CSS: efleet-4.4.39.css
+- Un solo JS: efleet-4.4.39.js
+- 34 HTML en raíz.
+- Geocerca: mapa al final, pantalla completa, filtros, domicilio, radio azul, GPS real, línea y distancia.
+- Compatible con flotas-api 4.4.22. No requiere SQL ni Android.
