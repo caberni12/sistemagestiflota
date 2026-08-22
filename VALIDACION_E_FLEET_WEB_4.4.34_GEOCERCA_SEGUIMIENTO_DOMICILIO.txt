@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.34 · GEOCERCA SEGUIMIENTO DOMICILIO
+E-FLEET WEB 4.4.35 · GEOCERCA SEGUIMIENTO DOMICILIO
 
 HTML revisados: 34
 CSS runtime: ['efleet.css']
@@ -14,9 +14,9 @@ JS runtime: ['efleet.js']
 [OK] Version SW
 
 VALIDACION HTML
-[OK] Todos los HTML llaman efleet.css?v=4.4.34 y efleet.js?v=4.4.34
+[OK] Todos los HTML llaman efleet.css?v=4.4.35 y efleet.js?v=4.4.35
 
-CAMBIOS 4.4.34
+CAMBIOS 4.4.35
 - Selector de usuario directamente sobre el mapa de Geocerca.
 - Al filtrar, el mapa muestra solamente hogar/domicilio y GPS de la persona seleccionada.
 - Marcador de hogar independiente.

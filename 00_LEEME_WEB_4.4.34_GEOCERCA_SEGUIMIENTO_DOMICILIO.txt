@@ -1,4 +1,4 @@
-E-FLEET MANAGEMENT SYSTEM · WEB 4.4.34 · ASSETS UNIFICADOS
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.35 · ASSETS UNIFICADOS
 
 OBJETIVO
 - Un solo CSS fisico para toda la Web: efleet.css
@@ -16,8 +16,8 @@ ARQUITECTURA
 REGLA PARA VERSIONES FUTURAS
 No agregar CSS o JS nuevos a los HTML. Toda correccion Web debe entrar en efleet.css o efleet.js.
 Los HTML deben conservar exclusivamente:
-  <link rel="stylesheet" href="efleet.css?v=4.4.34">
-  <script src="efleet.js?v=4.4.34"></script>
+  <link rel="stylesheet" href="efleet.css?v=4.4.35">
+  <script src="efleet.js?v=4.4.35"></script>
 
 BASE FUNCIONAL
 - Geo Local / Check-in / disponibilidad Ruta de R8.2.92 conservados.
@@ -27,7 +27,7 @@ BASE FUNCIONAL
 - Aislamiento multiempresa no se modifica en esta version Web.
 
 
-NUEVO 4.4.34
+NUEVO 4.4.35
 - Geocerca permite filtrar/seguir una persona directamente encima del mapa.
 - Al filtrar: muestra solo hogar + GPS de esa persona.
 - Traza línea azul GPS ↔ domicilio.

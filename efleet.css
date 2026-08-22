@@ -1,4 +1,4 @@
-/* E-fleet Management System Web 4.4.34 · CSS UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
+/* E-fleet Management System Web 4.4.35 · CSS UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
 /* Regla: todos los HTML cargan exclusivamente efleet.css. */
 
 /* ===== efleet-palette.4386.css · GLOBAL ===== */
@@ -8390,8 +8390,8 @@ html.ef-page-geo-local-admin, .ef-page-geo-local-admin body{max-width:100%;overf
 .ef-group-index .sgf-legal-link{color:inherit;text-decoration:none}
 
 
-/* ===== efleet-geocerca-seguimiento.4434.css · GLOBAL ===== */
-/* E-fleet Web 4.4.34 · filtro individual + hogar + GPS + distancia */
+/* ===== efleet-geocerca-seguimiento.4435.css · GLOBAL ===== */
+/* E-fleet Web 4.4.35 · filtro individual + hogar + GPS + distancia */
 .ef-page-geocerca .geocerca-map-filterbar{
   display:grid;grid-template-columns:minmax(240px,420px) auto 1fr;gap:12px;align-items:end;
   margin:0 0 12px;padding:12px 14px;border:1px solid #cfe4f7;border-radius:15px;background:#f5faff;
@@ -8415,3 +8415,36 @@ html.ef-page-geo-local-admin, .ef-page-geo-local-admin body{max-width:100%;overf
 .ef-page-geocerca .geocerca-distancia-detalle{display:block!important;margin-top:5px!important;padding:7px 9px!important;border-radius:10px!important;background:#eef7ff!important;color:#0757b5!important;border:1px solid #b9d8f4!important;font-weight:700!important}
 @media(max-width:900px){.ef-page-geocerca .geocerca-map-filterbar{grid-template-columns:1fr auto}.ef-page-geocerca .geocerca-map-filterbar>small{grid-column:1/-1}.ef-page-geocerca .geocerca-seguimiento-panel{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.ef-page-geocerca .geocerca-map-filterbar{grid-template-columns:1fr}.ef-page-geocerca .geocerca-map-filterbar .btn{width:100%}.ef-page-geocerca .geocerca-seguimiento-metricas{width:100%;display:grid;grid-template-columns:1fr 1fr}.ef-page-geocerca .geocerca-seguimiento-metricas>b{min-width:0}}
+
+
+/* ===== 4.4.35 · MENU LATERAL CLARO DEFINITIVO ===== */
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral){
+  background:linear-gradient(180deg,#eef8ff 0%,#dceffc 100%)!important;
+  color:#123a57!important;
+  border-right:1px solid #bfd8e9!important;
+  box-shadow:14px 0 34px rgba(29,78,116,.16)!important;
+}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.sidebar button,.menu-lateral a,.menu-lateral button,.marca-menu strong,.usuario-menu b,.preferencias-rapidas-menu b){color:#123a57!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.marca-menu span,.usuario-menu small,.etiqueta-menu,.preferencias-rapidas-menu small,.modo-auto-oficina-menu small){color:#55768d!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .menu-lateral .boton-modulo{color:#17456b!important;background:transparent!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .menu-lateral .boton-modulo i{background:#d0e8f8!important;color:#17456b!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .menu-lateral .boton-modulo:hover{background:#cfe8fa!important;color:#0d3655!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .menu-lateral .boton-modulo.activo{background:#f59e0b!important;color:#fff!important;box-shadow:0 7px 18px rgba(245,158,11,.24)!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .menu-lateral .boton-modulo.activo i{background:rgba(255,255,255,.22)!important;color:#fff!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.marca-menu,.pie-menu,.preferencias-rapidas-menu,.preferencias-rapidas-cuerpo,.modo-auto-oficina-menu){border-color:#bfd8e9!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .pie-menu{background:rgba(255,255,255,.34)!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .cerrar-menu{background:#fff!important;border-color:#bfd8e9!important;color:#17456b!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .preferencias-rapidas-menu{background:rgba(255,255,255,.46)!important}
+html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .cerrar-sesion{background:#fff1f2!important;color:#b42335!important}
+
+/* Geocerca: el filtro individual debe ser evidente */
+.ef-page-geocerca [data-geocerca-map-persona]{font-weight:750}
+.ef-page-geocerca .geocerca-map-principal.usuario-filtrado .fleet-map{outline:2px solid rgba(22,119,255,.18);outline-offset:-2px}
+
+/* 4.4.35 · prioridad sobre reglas heredadas negras de los tres grupos */
+html.ef-group-standard:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral),
+html.ef-group-index:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral),
+html.ef-group-main:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral){background:linear-gradient(180deg,#eef8ff 0%,#dceffc 100%)!important;color:#123a57!important}
+html.ef-group-standard:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button),
+html.ef-group-index:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button),
+html.ef-group-main:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button){color:#123a57!important}

@@ -1,8 +1,8 @@
-/* E-fleet Management System Web 4.4.34 · JAVASCRIPT UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
+/* E-fleet Management System Web 4.4.35 · JAVASCRIPT UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
 /* El mismo archivo actua como bundle de aplicacion y Service Worker segun el contexto. */
 if(typeof document==='undefined'){
-const SGF_CACHE='efleet-static-4.4.34-assets-unificados';
-const PRECACHE=["./","./efleet.css?v=4.4.34","./efleet.js?v=4.4.34","./logo.svg","./logo-e-fleet.png","./logo-e-fleet-doc.jpg","./efleet-mark-compact.png","./favicon-efleet.png","./actualizaciones-app.html","./alertas.html","./auditoria.html","./checkin-aprobaciones.html","./checkin-historial.html","./checkin-vehicular.html","./combustible.html","./conductores.html","./conexiones-en-linea.html","./configuracion.html","./documentos.html","./empresa.html","./geo-local-admin.html","./geo-local.html","./geocerca.html","./historial.html","./index.html","./kpi-geo-locales.html","./main.html","./malla-turnos.html","./mantenciones.html","./mapa-geo-local.html","./notificaciones.html","./oficina-virtual.html","./operaciones.html","./panel-principal.html","./politica-privacidad.html","./reportes.html","./rutas.html","./terminos-condiciones.html","./ubicacion-tiempo-real.html","./usuarios.html","./vehiculos.html"];
+const SGF_CACHE='efleet-static-4.4.35-assets-unificados';
+const PRECACHE=["./","./efleet.css?v=4.4.35","./efleet.js?v=4.4.35","./logo.svg","./logo-e-fleet.png","./logo-e-fleet-doc.jpg","./efleet-mark-compact.png","./favicon-efleet.png","./actualizaciones-app.html","./alertas.html","./auditoria.html","./checkin-aprobaciones.html","./checkin-historial.html","./checkin-vehicular.html","./combustible.html","./conductores.html","./conexiones-en-linea.html","./configuracion.html","./documentos.html","./empresa.html","./geo-local-admin.html","./geo-local.html","./geocerca.html","./historial.html","./index.html","./kpi-geo-locales.html","./main.html","./malla-turnos.html","./mantenciones.html","./mapa-geo-local.html","./notificaciones.html","./oficina-virtual.html","./operaciones.html","./panel-principal.html","./politica-privacidad.html","./reportes.html","./rutas.html","./terminos-condiciones.html","./ubicacion-tiempo-real.html","./usuarios.html","./vehiculos.html"];
 
 self.addEventListener('install',event=>{event.waitUntil(caches.open(SGF_CACHE).then(async cache=>{for(const url of PRECACHE){try{await cache.add(new Request(url,{cache:'reload'}));}catch(_){}}}).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>(k.startsWith('sgf-static-')||k.startsWith('efleet-static-'))&&k!==SGF_CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
@@ -12,7 +12,7 @@ async function staleStatic(req){const cache=await caches.open(SGF_CACHE),cached=
 self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin)return;if(url.pathname.includes('/functions/v1/'))return;if(req.mode==='navigate'||req.destination==='document'){event.respondWith(networkFirst(req));return;}if(['script','style','image','font'].includes(req.destination)||/\.(?:js|css|svg|png|jpg|jpeg|webp|ico)$/i.test(url.pathname))event.respondWith(staleStatic(req));});
 }else{
 'use strict';
-const EFLEET_WEB_VERSION='4.4.34';
+const EFLEET_WEB_VERSION='4.4.35';
 const EFLEET_PAGE=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const EFLEET_STANDARD=new Set(["actualizaciones-app.html","alertas.html","auditoria.html","checkin-aprobaciones.html","checkin-historial.html","checkin-vehicular.html","combustible.html","conductores.html","conexiones-en-linea.html","configuracion.html","documentos.html","empresa.html","geocerca.html","historial.html","mantenciones.html","notificaciones.html","oficina-virtual.html","operaciones.html","panel-principal.html","reportes.html","rutas.html","ubicacion-tiempo-real.html","usuarios.html","vehiculos.html"]);
 const EFLEET_MODULE_META={"actualizaciones-app.html":{"seccion":"appUpdates","titulo":"Actualización de Aplicación"},"alertas.html":{"seccion":"alerts","titulo":"Alertas"},"auditoria.html":{"seccion":"audit","titulo":"Auditor\\u00eda"},"checkin-aprobaciones.html":{"seccion":"checkinApprovals","titulo":"Aprobación de check-ins"},"checkin-historial.html":{"seccion":"checkinHistory","titulo":"Historial de check-in"},"checkin-vehicular.html":{"seccion":"checkin","titulo":"Check-in vehicular"},"combustible.html":{"seccion":"fuel","titulo":"Combustible"},"conductores.html":{"seccion":"drivers","titulo":"Conductores"},"conexiones-en-linea.html":{"seccion":"connections","titulo":"Conexiones en línea"},"configuracion.html":{"seccion":"settings","titulo":"Configuraci\\u00f3n"},"documentos.html":{"seccion":"documents","titulo":"Documentos"},"empresa.html":{"seccion":"company","titulo":"Empresa"},"geocerca.html":{"seccion":"geofence","titulo":"Geocerca"},"historial.html":{"seccion":"history","titulo":"Historial"},"mantenciones.html":{"seccion":"maintenance","titulo":"Mantenciones"},"notificaciones.html":{"seccion":"notifications","titulo":"Notificaciones"},"oficina-virtual.html":{"seccion":"office","titulo":"NEXO IA"},"operaciones.html":{"seccion":"operations","titulo":"Operaciones"},"panel-principal.html":{"seccion":"dashboard","titulo":"Panel principal"},"reportes.html":{"seccion":"reports","titulo":"Reportes"},"rutas.html":{"seccion":"routes","titulo":"Rutas asignadas"},"ubicacion-tiempo-real.html":{"seccion":"gps","titulo":"Ubicaci\\u00f3n en tiempo real"},"usuarios.html":{"seccion":"users","titulo":"Usuarios"},"vehiculos.html":{"seccion":"vehicles","titulo":"Veh\\u00edculos"}};
@@ -6660,6 +6660,7 @@ module.exports = QRCode;
       bindSection();
       if(section==='gps')setTimeout(initMap,40);
       if(section==='connections')setTimeout(initConnectionsMap,40);
+      if(section==='geofence')setTimeout(initGeocercaMap,40);
       actualizarEstadoSincronizacionVisible(textoActualizacionSeccion(section));
       window.scrollTo({top:0,behavior:'auto'});
       return true;
@@ -6676,6 +6677,7 @@ module.exports = QRCode;
       bindSection();
       if (section==='gps') setTimeout(initMap,80);
       if (section==='connections') setTimeout(initConnectionsMap,80);
+      if (section==='geofence') setTimeout(initGeocercaMap,80);
       actualizarEstadoSincronizacionVisible(textoActualizacionSeccion(section));
       if(embeddedMode)postParent({tipo:'flotas:modulo-listo',usuario:currentUser,seccion:section,actualizadoEn:estadoSincronizacionModulos[section]?.time||0});
     } catch (error) {
@@ -8683,10 +8685,19 @@ module.exports = QRCode;
     const decimales=m<10000?2:1;
     return `${number((m/1000).toFixed(decimales))} km`;
   }
-  function geocercaFilaEsPersona(row,personaId){
+  function geocercaClavesPersona(personaId){
     const id=String(personaId||'').trim();
-    if(!id)return true;
-    return [row?.USUARIO_ID,row?.usuario_id,row?.PERSONA_ID,row?.persona_id].some(v=>String(v||'').trim()===id);
+    const claves=new Set(id?[id]:[]);
+    const catalogo=Array.isArray(window.__geocercaPersonasCatalogo)?window.__geocercaPersonasCatalogo:[];
+    const p=catalogo.find(x=>[x?.ID,x?.USUARIO_ID,x?.CONDUCTOR_ID].some(v=>String(v||'').trim()===id));
+    if(p){[p.ID,p.USUARIO_ID,p.CONDUCTOR_ID].forEach(v=>{const k=String(v||'').trim();if(k)claves.add(k);});}
+    return claves;
+  }
+  function geocercaFilaEsPersona(row,personaId){
+    const claves=geocercaClavesPersona(personaId);
+    if(!claves.size)return true;
+    return [row?.USUARIO_ID,row?.usuario_id,row?.PERSONA_ID,row?.persona_id,row?.CONDUCTOR_ID,row?.conductor_id]
+      .some(v=>claves.has(String(v||'').trim()));
   }
   function geocercaParSeguimiento(mapRows,personaId=''){
     const rows=(Array.isArray(mapRows)?mapRows:[]).filter(r=>geocercaFilaEsPersona(r,personaId));
@@ -8748,16 +8759,32 @@ module.exports = QRCode;
     const summary=dataSeguro.summary||dataSeguro.resumen||{};
     const kpi=dataSeguro.kpi||{};
     const ranking=dataSeguro.ranking||[];
-    const personas=dataSeguro.personas||[];
-    if(!geocercaFiltros.personaId||!Array.isArray(window.__geocercaPersonasCatalogo)||!window.__geocercaPersonasCatalogo.length){
-      window.__geocercaPersonasCatalogo=[...personas];
-    }
-    const personasCatalogo=Array.isArray(window.__geocercaPersonasCatalogo)&&window.__geocercaPersonasCatalogo.length?window.__geocercaPersonasCatalogo:personas;
+    const personas=Array.isArray(dataSeguro.personas)?dataSeguro.personas:[];
+    // 4.4.35: el selector debe listar personas reales aun si el resumen Geo llega
+    // sin catálogo o llega ya filtrado. Se completa desde USUARIOS de la misma empresa.
+    let usuariosCatalogo=[];
+    try{usuariosCatalogo=await cargarListaFormulario('users');}catch(_){usuariosCatalogo=[];}
+    const normalizarPersonaCatalogo=p=>({
+      ID:String(p.ID||p.USUARIO_ID||p.id||''),
+      USUARIO_ID:String(p.USUARIO_ID||p.ID||p.id||''),
+      NOMBRE:p.NOMBRE||p.USUARIO_NOMBRE||p.nombre||p.CORREO||p.correo||'',
+      CORREO:p.CORREO||p.correo||'',
+      ROL_ID:p.ROL_ID||p.rol_id||'',
+      ROL_NOMBRE:p.ROL_NOMBRE||p.rol_nombre||String(p.ROL_ID||p.rol_id||'').replace(/^ROL-/,'').replaceAll('_',' '),
+      CONDUCTOR_ID:String(p.CONDUCTOR_ID||p.conductor_id||'')
+    });
+    const catalogoFusion=[...personas.map(normalizarPersonaCatalogo),...usuariosCatalogo.map(normalizarPersonaCatalogo)]
+      .filter(p=>p.ID)
+      .filter(p=>!['ROL-ADMIN','ROL-GERENCIA','ROL-SYSADMIN'].includes(String(p.ROL_ID||'').toUpperCase()));
+    const porId=new Map();for(const p of catalogoFusion){const prev=porId.get(p.ID)||{};porId.set(p.ID,{...prev,...p,CONDUCTOR_ID:p.CONDUCTOR_ID||prev.CONDUCTOR_ID||''});}
+    const personasCompletas=[...porId.values()].sort((a,b)=>String(a.NOMBRE||a.CORREO||a.ID).localeCompare(String(b.NOMBRE||b.CORREO||b.ID),'es'));
+    if(personasCompletas.length)window.__geocercaPersonasCatalogo=personasCompletas;
+    const personasCatalogo=Array.isArray(window.__geocercaPersonasCatalogo)?window.__geocercaPersonasCatalogo:personasCompletas;
     const graficoDias=dataSeguro.graficoDias||[];
     const graficoTiempo=dataSeguro.graficoTiempo||[];
     const mapRowsResumen=Array.isArray(dataSeguro.mapRows)?dataSeguro.mapRows:(Array.isArray(dataSeguro.MAP_ROWS)?dataSeguro.MAP_ROWS:[]);
     const personaMapaId=String(geocercaFiltros.personaId||'').trim();
-    const personaMapa=personaMapaId?personasCatalogo.find(p=>String(p.ID||p.USUARIO_ID||'')===personaMapaId):null;
+    const personaMapa=personaMapaId?personasCatalogo.find(p=>[p.ID,p.USUARIO_ID,p.CONDUCTOR_ID].some(v=>String(v||'')===personaMapaId)):null;
     const seguimientoPersona=personaMapaId?geocercaParSeguimiento(mapRowsResumen,personaMapaId):null;
     let seguimientoMapaHtml='';
     if(personaMapaId){
@@ -8773,7 +8800,7 @@ module.exports = QRCode;
     }
 
     const personaOpts=personasCatalogo.map(p=>
-      `<option value="${esc(p.ID)}" ${String(geocercaFiltros.personaId)===String(p.ID)?'selected':''}>${esc(p.NOMBRE||p.CORREO||p.ID)} · ${esc(p.ROL_NOMBRE||p.ROL_ID||'Usuario')}</option>`
+      `<option value="${esc(p.ID||p.USUARIO_ID)}" ${String(geocercaFiltros.personaId)===String(p.ID||p.USUARIO_ID)?'selected':''}>${esc(p.NOMBRE||p.CORREO||p.ID||p.USUARIO_ID)} · ${esc(p.ROL_NOMBRE||p.ROL_ID||'Usuario')} · ${esc(p.ID||p.USUARIO_ID)}</option>`
     ).join('');
 
     const roles=[...new Map(personasCatalogo.map(p=>[String(p.ROL_ID||''),p])).values()]
@@ -8986,7 +9013,7 @@ module.exports = QRCode;
       const personaMapaId=String(geocercaFiltros.personaId||'').trim();
       const mapRows=personaMapaId?mapRowsBase.filter(r=>geocercaFilaEsPersona(r,personaMapaId)):mapRowsBase;
 
-      // 4.4.34 · Si se filtra una persona, el mapa muestra exclusivamente
+      // 4.4.35 · Si se filtra una persona, el mapa muestra exclusivamente
       // su domicilio y su última ubicación GPS, manteniendo el radio azul.
       // 4.4.28 · La Geocerca debe ser visualmente inequívoca. Relacionamos
       // el domicilio con la última ubicación GPS de la MISMA persona y calculamos
@@ -12497,7 +12524,7 @@ module.exports = QRCode;
 /* sgf-performance.4431.js adaptado a assets unificados */
 (()=>{
   'use strict';
-  const VERSION='4.4.34';
+  const VERSION='4.4.35';
   const STATIC_MODULES=[
     'panel-principal.html','rutas.html','operaciones.html','checkin-vehicular.html','vehiculos.html','conductores.html',
     'documentos.html','combustible.html','mantenciones.html','notificaciones.html','alertas.html','ubicacion-tiempo-real.html'
@@ -12524,13 +12551,13 @@ module.exports = QRCode;
   async function registrarSW(){
     try{
       if(!('serviceWorker' in navigator)||!/^https?:$/.test(location.protocol))return;
-      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.34',{scope:'./',updateViaCache:'none'});
+      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.35',{scope:'./',updateViaCache:'none'});
       stats.serviceWorker=true;
       reg.update().catch(()=>{});
     }catch(e){console.debug('[SGF Performance] Service Worker no disponible',e?.message||e);}
   }
   function prefetchEstatico(){
-    link('prefetch','efleet.css?v=4.4.34','style');
+    link('prefetch','efleet.css?v=4.4.35','style');
     STATIC_MODULES.forEach(h=>link('prefetch',h,'document'));
   }
   function esAdmin(user){return ['ROL-SYSADMIN','ROL-ADMIN','ROL-GERENCIA'].includes(String(user?.ROL_ID_CANONICO||user?.ROL_ID||'').toUpperCase());}
@@ -15458,7 +15485,7 @@ window.CONFIGURACION_FLOTAS = Object.freeze({
 /* sgf-performance.4431.js */
 (()=>{
   'use strict';
-  const VERSION='4.4.34';
+  const VERSION='4.4.35';
   const STATIC_MODULES=[
     'panel-principal.html','rutas.html','operaciones.html','checkin-vehicular.html','vehiculos.html','conductores.html',
     'documentos.html','combustible.html','mantenciones.html','notificaciones.html','alertas.html','ubicacion-tiempo-real.html'
@@ -15485,13 +15512,13 @@ window.CONFIGURACION_FLOTAS = Object.freeze({
   async function registrarSW(){
     try{
       if(!('serviceWorker' in navigator)||!/^https?:$/.test(location.protocol))return;
-      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.34',{scope:'./',updateViaCache:'none'});
+      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.35',{scope:'./',updateViaCache:'none'});
       stats.serviceWorker=true;
       reg.update().catch(()=>{});
     }catch(e){console.debug('[SGF Performance] Service Worker no disponible',e?.message||e);}
   }
   function prefetchEstatico(){
-    link('prefetch','efleet.css?v=4.4.34','style');
+    link('prefetch','efleet.css?v=4.4.35','style');
     STATIC_MODULES.forEach(h=>link('prefetch',h,'document'));
   }
   function esAdmin(user){return ['ROL-SYSADMIN','ROL-ADMIN','ROL-GERENCIA'].includes(String(user?.ROL_ID_CANONICO||user?.ROL_ID||'').toUpperCase());}
@@ -19068,7 +19095,7 @@ function esAvisoSilencioso(item){return String(item?.CATEGORIA_EMERGENTE||item?.
 /* sgf-performance.4431.js */
 (()=>{
   'use strict';
-  const VERSION='4.4.34';
+  const VERSION='4.4.35';
   const STATIC_MODULES=[
     'panel-principal.html','rutas.html','operaciones.html','checkin-vehicular.html','vehiculos.html','conductores.html',
     'documentos.html','combustible.html','mantenciones.html','notificaciones.html','alertas.html','ubicacion-tiempo-real.html'
@@ -19095,13 +19122,13 @@ function esAvisoSilencioso(item){return String(item?.CATEGORIA_EMERGENTE||item?.
   async function registrarSW(){
     try{
       if(!('serviceWorker' in navigator)||!/^https?:$/.test(location.protocol))return;
-      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.34',{scope:'./',updateViaCache:'none'});
+      const reg=await navigator.serviceWorker.register('./efleet.js?sw=4.4.35',{scope:'./',updateViaCache:'none'});
       stats.serviceWorker=true;
       reg.update().catch(()=>{});
     }catch(e){console.debug('[SGF Performance] Service Worker no disponible',e?.message||e);}
   }
   function prefetchEstatico(){
-    link('prefetch','efleet.css?v=4.4.34','style');
+    link('prefetch','efleet.css?v=4.4.35','style');
     STATIC_MODULES.forEach(h=>link('prefetch',h,'document'));
   }
   function esAdmin(user){return ['ROL-SYSADMIN','ROL-ADMIN','ROL-GERENCIA'].includes(String(user?.ROL_ID_CANONICO||user?.ROL_ID||'').toUpperCase());}
