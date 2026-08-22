@@ -1,0 +1,28 @@
+E-FLEET WEB 4.4.34 · GEOCERCA SEGUIMIENTO DOMICILIO
+
+HTML revisados: 34
+CSS runtime: ['efleet.css']
+JS runtime: ['efleet.js']
+
+[OK] Filtro usuario mapa
+[OK] Linea distancia
+[OK] Distancia metros km
+[OK] Hogar independiente
+[OK] Radio azul fuerte
+[OK] Un solo CSS
+[OK] Un solo JS
+[OK] Version SW
+
+VALIDACION HTML
+[OK] Todos los HTML llaman efleet.css?v=4.4.34 y efleet.js?v=4.4.34
+
+CAMBIOS 4.4.34
+- Selector de usuario directamente sobre el mapa de Geocerca.
+- Al filtrar, el mapa muestra solamente hogar/domicilio y GPS de la persona seleccionada.
+- Marcador de hogar independiente.
+- Círculo azul visible con el radio configurado.
+- Línea azul entre la posición GPS y el domicilio.
+- Distancia calculada y mostrada en metros o kilómetros.
+- Si GPS es antiguo, se identifica como última ubicación conocida y la línea cambia de estilo.
+- Mantiene aislamiento por empresa: consume exclusivamente los mapRows ya entregados por resumenGeocerca de la empresa activa.
+- Se mantiene la regla Web de un único CSS y un único JS.

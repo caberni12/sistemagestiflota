@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html class="efleet-web ef-group-main ef-page-main" data-efleet-web-version="4.4.34" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta content="#EAF6FF" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Panel principal modular del E-fleet Management System" name="description"/>
+<title>Panel principal · E-fleet Management System</title>
+<link href="favicon-efleet.png" rel="icon" type="image/png"/>
+
+
+
+
+
+ 
+
+
+
+<link href="efleet.css?v=4.4.34" rel="stylesheet"/></head>
+<body class="verificando-sesion">
+<noscript><div class="sin-javascript">Debe habilitar JavaScript para utilizar el sistema.</div></noscript>
+<div class="verificador-sesion" id="verificadorSesion"><img alt="" src="efleet-mark-compact.png"/><div><b>Validando sesión</b><span>Validando empresa, Base de Datos y sesión…</span></div></div>
+<div class="menu-shell" id="menuShell">
+<aside aria-hidden="true" class="menu-lateral" id="menuLateral">
+<header class="marca-menu">
+<img alt="Logotipo de la empresa" id="logoEmpresaMenu" src="efleet-mark-compact.png"/>
+<div><strong id="nombreEmpresaMenu">E-fleet Management System</strong><span>Panel principal</span></div>
+<button aria-label="Cerrar menú" class="boton-icono cerrar-menu" id="cerrarMenu" type="button">×</button>
+</header>
+<nav aria-label="Módulos del sistema" id="navegacionModular"></nav>
+<footer class="pie-menu">
+<div class="usuario-menu"><span id="avatarMenu">US</span><div><b id="nombreUsuarioMenu">Usuario</b><small id="rolUsuarioMenu">Sesión pendiente</small></div></div>
+<details class="preferencias-rapidas-menu">
+<summary><span><b>Preferencias rápidas</b><small>Alertas, voz e IA</small></span><i aria-hidden="true">⌄</i></summary>
+<div class="preferencias-rapidas-cuerpo">
+<label class="modo-auto-oficina-menu" hidden="" id="modoAutoOficinaMenu">
+<span><b>NEXO IA</b><small>Centro Inteligente de Gestión</small></span>
+<input aria-label="Activar modo automático de NEXO IA" id="interruptorModoAutoOficina" type="checkbox"/>
+<i></i>
+</label>
+<label class="modo-auto-oficina-menu" id="vozAsignacionesMenu">
+<span><b>Voz de asignaciones</b><small>La alerta visual siempre permanece</small></span>
+<input aria-label="Activar voz para nuevas rutas y operaciones" id="interruptorVozAsignaciones" type="checkbox"/>
+<i></i>
+</label>
+</div>
+</details>
+<button class="boton-menu-secundario cerrar-sesion" id="cerrarSesionMenu" type="button">↪ Cerrar sesión</button>
+</footer>
+</aside>
+<div class="capa-menu" id="capaMenu"></div>
+<main class="area-modular">
+<header class="barra-modular">
+<div class="titulo-modular">
+<button aria-label="Abrir menú" class="boton-icono abrir-menu" id="abrirMenu" type="button">☰</button>
+<img alt="E-fleet" aria-label="Ir al Panel principal" class="efleet-shell-mark" id="efleetTopHomeLogo" role="button" src="efleet-mark-compact.png" tabindex="0" title="Ir al Panel principal"/>
+<div><span>Sistema / Módulos independientes</span><h1 id="tituloModulo">Panel principal</h1></div>
+</div>
+<div class="acciones-modulares">
+<span class="estado-modular" id="estadoModulo"><i></i><span>Preparando módulo</span></span>
+<button aria-label="Abrir centro de notificaciones" class="boton-icono boton-avisos-menu" id="notificacionesMenu" type="button">🔔<span hidden="" id="contadorAvisosMenu">0</span></button>
+</div>
+</header>
+<aside aria-hidden="true" class="panel-avisos-menu" id="panelAvisosMenu">
+<header><div><span>AVISOS AUTOMÁTICOS</span><h2>Centro de notificaciones</h2></div><button aria-label="Cerrar avisos" class="boton-icono" id="cerrarAvisosMenu" type="button">×</button></header>
+<div class="resumen-avisos-menu"><div><span>Notificaciones</span><b id="totalNotificacionesMenu">0</b></div><div><span>Alertas</span><b id="totalAlertasMenu">0</b></div></div>
+<label class="pausa-avisos-externos-menu" hidden="" id="pausaAvisosExternosMenu">
+<span>
+<b>Pausar avisos fuera de la app</b>
+<small>Las notificaciones y alertas seguirán guardándose en esta bandeja.</small>
+</span>
+<input aria-label="Pausar notificaciones y alertas externas" id="interruptorPausaAvisosExternos" type="checkbox"/>
+<i></i>
+</label>
+<div class="lista-avisos-menu" id="listaAvisosMenu"><p class="sin-avisos-menu">No existen avisos pendientes.</p></div>
+<footer><button data-abrir-avisos="notifications" type="button">Ver notificaciones</button><button data-abrir-avisos="alerts" type="button">Ver alertas</button></footer>
+</aside>
+<div aria-live="polite" class="toast-avisos-menu" id="toastAvisosMenu"></div>
+<section class="contenedor-iframe" id="contenedorIframe">
+<div class="cargando-modulo" id="cargandoModulo"><img alt="" src="efleet-mark-compact.png"/><div><b>Abriendo módulo</b><span>Preparando la sección seleccionada y validando la sesión.</span></div></div>
+<iframe allow="geolocation; camera; wake-lock" id="marcoModulo" referrerpolicy="same-origin" title="Módulo del E-fleet Management System"></iframe>
+</section>
+</main>
+</div>
+
+
+<script src="efleet.js?v=4.4.34"></script></body>
+</html>

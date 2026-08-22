@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="efleet-web ef-group-index ef-page-index" data-efleet-web-version="4.4.34" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta content="#EAF6FF" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Acceso al E-fleet Management System" name="description"/>
+<link crossorigin="" href="https://mykndxvshtfydsetcync.supabase.co" rel="preconnect"/>
+<link href="//mykndxvshtfydsetcync.supabase.co" rel="dns-prefetch"/>
+<title>Iniciar sesión · E-fleet Management System</title>
+<link href="favicon-efleet.png" rel="icon" type="image/png"/>
+
+
+
+
+
+
+
+
+
+
+<link href="efleet.css?v=4.4.34" rel="stylesheet"/></head>
+<body>
+<noscript><div class="aviso-sin-js">Debe habilitar JavaScript para iniciar sesión.</div></noscript>
+<main class="pagina-acceso">
+<section aria-label="Presentación del sistema" class="presentacion-acceso">
+<div class="marca-acceso">
+<img alt="Logotipo de la empresa" id="logoEmpresaAcceso" src="efleet-mark-compact.png"/>
+<div>
+<strong id="nombreEmpresaAcceso">E-fleet Management System</strong>
+<span>Control operacional y seguimiento</span>
+</div>
+</div>
+<div class="mensaje-acceso">
+<span class="etiqueta">PLATAFORMA OPERACIONAL</span>
+<h1>Administración y seguimiento de flotas en un solo lugar.</h1>
+<p>Ingrese con su cuenta para acceder al panel principal y a los módulos autorizados para su perfil.</p>
+</div>
+<div aria-hidden="true" class="resumen-acceso">
+<article><i>⌖</i><div><b>Ubicación</b><span>Seguimiento independiente</span></div></article>
+<article><i>➜</i><div><b>Rutas</b><span>Operación organizada</span></div></article>
+<article><i>▣</i><div><b>Flota</b><span>Información centralizada</span></div></article>
+</div>
+</section>
+<section class="panel-acceso">
+<form class="tarjeta-acceso conexion-empresa-inicial" id="formularioConexionEmpresa" novalidate="">
+<div class="encabezado-formulario encabezado-con-ajuste">
+<div><span class="etiqueta">CONFIGURACIÓN DEL DISPOSITIVO</span><h2>Conectar empresa</h2></div>
+<button aria-label="Ver conexión de empresa" class="icono-ajuste-login" id="abrirConfiguracionEmpresa" title="Configurar conexión" type="button">⚙</button>
+</div>
+<p class="descripcion-conexion-inicial">Este paso se realiza una sola vez. Ingrese el RUT para encontrar internamente la base correspondiente.</p>
+<div class="mensaje-formulario oculto" id="mensajeConexionEmpresa" role="alert"></div>
+<label class="campo">
+<span>RUT de la empresa</span>
+<input autocomplete="organization" id="rutConexionEmpresa" inputmode="text" name="rutEmpresaConexion" placeholder="76.123.456-0" required=""/>
+</label>
+<div aria-live="polite" class="estado-empresa-pendiente" id="estadoEmpresaPendiente" role="status">
+<i>○</i><div><b>Conexión pendiente</b><span>La configuración técnica de Base de Datos permanecerá protegida.</span></div>
+</div>
+<button class="boton-principal" id="botonConexionEmpresa" type="submit">Buscar y conectar</button>
+<small class="detalle-servicio">Solo se mostrará el nombre de la empresa y la confirmación de conexión.</small>
+</form>
+<form class="tarjeta-acceso preconfiguracion oculto" id="formularioPreconfiguracion" novalidate="">
+<div class="encabezado-formulario">
+<span class="etiqueta">PRECONFIGURACIÓN AUTOMÁTICA</span>
+<h2>Configurar el sistema</h2>
+<p>No existen usuarios registrados. Cree la empresa y el primer administrador para comenzar.</p>
+</div>
+<div class="mensaje-formulario oculto" id="mensajePreconfiguracion" role="alert"></div>
+<div class="preconfig-grid">
+<label class="campo campo-completo"><span>Nombre de la empresa</span><input name="nombreEmpresa" placeholder="Ej. Transportes del Sur" required=""/></label>
+<label class="campo"><span>RUT de la empresa</span><input name="rutEmpresa" placeholder="76.000.000-0"/></label>
+<label class="campo"><span>Teléfono de la empresa</span><input autocomplete="tel" name="telefonoEmpresa" placeholder="+56 9 0000 0000"/></label>
+<label class="campo campo-completo"><span>Nombre del administrador</span><input autocomplete="name" name="nombre" placeholder="Nombre completo" required=""/></label>
+<label class="campo"><span>Correo del administrador</span><input autocomplete="username" name="correo" placeholder="administrador@empresa.cl" required="" type="email"/></label>
+<label class="campo"><span>Teléfono del administrador</span><input autocomplete="tel" name="telefono" placeholder="+56 9 0000 0000"/></label>
+<label class="campo"><span>Contraseña</span><input autocomplete="new-password" minlength="8" name="contrasena" placeholder="Mínimo 8 caracteres" required="" type="password"/></label>
+<label class="campo"><span>Confirmar contraseña</span><input autocomplete="new-password" minlength="8" name="contrasenaConfirmacion" placeholder="Repita la contraseña" required="" type="password"/></label>
+</div>
+<label class="aceptacion-preconfig"><input name="confirmacion" required="" type="checkbox" value="SI"/><span>Confirmo que estos datos crearán la cuenta administradora principal.</span></label>
+<button class="boton-principal" id="botonPreconfiguracion" type="submit">Configurar y entrar</button>
+<small class="detalle-servicio">La configuración solo aparece mientras no exista ningún usuario con acceso.</small>
+</form>
+<form class="tarjeta-acceso oculto" id="formularioAcceso" novalidate="">
+<div class="encabezado-formulario">
+<span class="etiqueta">ACCESO SEGURO</span>
+<h2>Iniciar sesión</h2>
+<p>Use el correo y la contraseña registrados en el sistema.</p>
+</div>
+<div class="empresa-conectada-acceso" id="empresaConectadaAcceso">
+<i>✓</i><div><b id="nombreEmpresaConectada">Empresa conectada</b><span id="rutEmpresaConectada">Conexión establecida</span></div>
+</div>
+<div aria-live="polite" class="estado-conexion" id="estadoConexion" role="status">
+<i></i><span>Comprobando conexión…</span>
+</div>
+<div class="mensaje-formulario oculto" id="mensajeFormulario" role="alert"></div>
+<label class="campo">
+<span>Usuario</span>
+<input autocomplete="username" id="correoAcceso" inputmode="email" name="correo" placeholder="Correo electrónico del usuario" required="" type="email"/>
+</label>
+<label class="campo">
+<span>Contraseña</span>
+<div class="campo-contrasena">
+<input autocomplete="current-password" id="contrasenaAcceso" name="contrasena" placeholder="Ingrese su contraseña" required="" type="password"/>
+<button aria-label="Mostrar contraseña" id="mostrarContrasena" type="button">◉</button>
+</div>
+</label>
+<button class="boton-principal" id="botonAcceso" type="submit">Ingresar</button>
+<button class="boton-enlace" id="reintentarConexion" type="button">Comprobar conexión</button>
+<button class="boton-enlace boton-limpiar-conexion" id="limpiarConexionEmpresa" type="button">Limpiar conexión y cambiar empresa</button>
+<small class="detalle-servicio" id="detalleServicio">Preparando servicio de datos…</small>
+</form>
+</section>
+<div class="sgf-legal-links">
+<a class="sgf-legal-link" href="politica-privacidad.html" rel="noopener" target="_blank">Política de Privacidad</a>
+<span aria-hidden="true"> · </span>
+<a class="sgf-legal-link" href="terminos-condiciones.html" rel="noopener" target="_blank">Términos y Condiciones</a>
+</div>
+</main>
+<dialog class="dialogo-conexion-avanzada" id="dialogoConexionAvanzada">
+<form class="conexion-avanzada-form" id="formularioConexionAvanzada" method="dialog">
+<div class="encabezado-formulario">
+<span class="etiqueta">RECUPERACIÓN DE CONEXIÓN</span>
+<h2>Configuración de Base de Datos</h2>
+<p>Use esta opción únicamente para recuperar la configuración empresarial autorizada de Base de Datos.</p>
+</div>
+<div class="mensaje-formulario oculto" id="mensajeConexionAvanzada" role="alert"></div>
+<input id="urlDirectorioAvanzada" name="urlDirectorio" type="hidden"/>
+<label class="aceptacion-preconfig"><input id="confirmarCambioDirectorio" required="" type="checkbox"/><span>Confirmo que deseo aplicar la configuración autorizada de Base de Datos.</span></label>
+<div class="acciones-dialogo-conexion">
+<button class="boton-enlace" id="restaurarDirectorio" type="button">Restaurar configuración de Base de Datos</button>
+<button class="boton-enlace" id="cerrarConexionAvanzada" type="button" value="cancel">Cancelar</button>
+<button class="boton-principal" id="guardarConexionAvanzada" type="submit">Guardar configuración</button>
+</div>
+<small class="detalle-servicio">La configuración queda protegida en este dispositivo y se valida nuevamente antes de iniciar sesión.</small>
+</form>
+</dialog>
+
+
+
+
+<script src="efleet.js?v=4.4.34"></script></body>
+</html>

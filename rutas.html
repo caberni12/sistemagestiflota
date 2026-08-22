@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html class="efleet-web ef-group-standard ef-page-rutas" data-efleet-web-version="4.4.34" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta content="#EAF6FF" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Sistema moderno para gestionar flotas, rutas, conductores y ubicaciones en tiempo real" name="description"/>
+<title>Rutas asignadas · E-fleet Management System</title>
+<link href="favicon-efleet.png" rel="icon" type="image/png"/>
+
+
+
+
+
+
+ 
+
+
+<link href="efleet.css?v=4.4.34" rel="stylesheet"/></head>
+<body class="modo-modulo-iframe">
+
+<noscript><div class="noscript">Debe habilitar JavaScript para utilizar el sistema.</div></noscript>
+<section class="auth-screen" id="authScreen">
+<div aria-hidden="true" class="auth-art">
+<div class="brand hero-brand">
+<img alt="Logotipo de la empresa" id="authCompanyLogo" src="efleet-mark-compact.png"/>
+<div><strong id="authCompanyName">E-fleet Management System</strong><span>Control operacional y seguimiento</span></div>
+</div>
+<div class="hero-copy">
+<span class="eyebrow">CONTROL OPERACIONAL EN TIEMPO REAL</span>
+<h1>Su flota completa, organizada y siempre visible.</h1>
+<p>Rutas, vehículos, conductores y ubicaciones centralizados con acceso seguro según cada perfil.</p>
+</div>
+<div class="hero-preview">
+<div><span>Rutas</span><b>Asignación ágil</b></div><div><span>GPS</span><b>Seguimiento activo</b></div><div><span>Acceso</span><b>Control por permisos</b></div>
+</div>
+</div>
+<div class="auth-panel">
+<div class="backend-pill"><i></i><span id="authBackendLabel">Comprobando conexión…</span></div>
+<form class="auth-card hidden" id="setupForm">
+<div class="auth-heading">
+<span class="eyebrow">PRIMERA INSTALACIÓN</span>
+<h2>Crear administrador inicial</h2>
+<p>La base está vacía. Este formulario crea el primer usuario administrador.</p>
+</div>
+<label class="field"><span>Nombre completo</span><input autocomplete="name" name="nombre" placeholder="Ej. Alejandro Pérez" required=""/></label>
+<label class="field"><span>Correo</span><input autocomplete="email" name="correo" placeholder="administrador@empresa.cl" required="" type="email"/></label>
+<label class="field"><span>Teléfono</span><input autocomplete="tel" name="telefono" placeholder="+56 9 0000 0000"/></label>
+<label class="field"><span>Contraseña inicial</span><input autocomplete="new-password" name="contrasena" placeholder="Letras, números o símbolos" required="" type="password"/></label>
+<p class="helper">Puede elegir cualquier combinación. Se recomienda usar 8 caracteres o más. Distingue mayúsculas y minúsculas.</p>
+<label class="field"><span>Clave de instalación</span><input name="claveInstalacion" placeholder="La generada por instalarSistema()" required="" type="password"/></label>
+<button class="btn primary full" type="submit">Instalar y crear administrador</button>
+<p class="helper">Utilice la clave generada durante la instalación inicial del sistema.</p>
+</form>
+<form class="auth-card hidden" id="loginForm">
+<div class="login-brand"><img alt="" id="loginCompanyLogo" src="efleet-mark-compact.png"/><div><b id="loginCompanyName">E-fleet Management System</b><span>Control operacional</span></div></div>
+<div class="auth-heading">
+<span class="eyebrow">ACCESO SEGURO</span>
+<h2>Bienvenido</h2>
+<p>Ingrese sus credenciales para continuar.</p>
+</div>
+<label class="field"><span>Correo electrónico</span><input autocomplete="username" id="loginEmail" inputmode="email" name="correo" placeholder="nombre@empresa.cl" required="" type="email"/></label>
+<label class="field"><span>Contraseña</span><div class="password-field"><input autocomplete="current-password" id="loginPassword" name="contrasena" placeholder="Ingrese su contraseña" required="" type="password"/><button aria-label="Mostrar contraseña" id="showPassword" type="button">◉</button></div></label>
+<button class="btn primary full login-submit" type="submit">Iniciar sesión</button>
+<button class="link-button login-retry" id="recheckConnection" type="button">Comprobar conexión</button>
+</form>
+<div class="auth-card hidden" id="connectionError">
+<div class="auth-heading"><span class="eyebrow danger-text">CONEXIÓN</span><h2>No fue posible abrir el servicio de datos</h2><p id="connectionErrorText"></p></div>
+<button class="btn primary full" id="retryConnection" type="button">Reintentar</button>
+<button class="btn soft full" id="useLocalMode" type="button">Continuar con almacenamiento local</button>
+</div>
+</div>
+</section>
+<div class="app-shell hidden" id="appShell">
+<aside class="sidebar" id="sidebar">
+<div class="brand sidebar-brand">
+<img alt="Logotipo de la empresa" id="sidebarCompanyLogo" src="efleet-mark-compact.png"/>
+<div><strong id="sidebarCompanyName">E-fleet Management System</strong><span id="sidebarCompanySubtitle">Gestión integral</span></div>
+<button aria-label="Cerrar menú" class="icon-button close-sidebar" id="closeSidebar">×</button>
+</div>
+<nav aria-label="Navegación principal" class="nav" id="nav"></nav>
+<div class="sidebar-footer">
+<div class="backend-card"><span>Información disponible</span><b id="backendName">Base de datos</b><small id="backendDetail">Sincronización activa</small></div>
+<button class="nav-button logout" id="logoutButton"><i>↪</i>Cerrar sesión</button>
+</div>
+</aside>
+<div class="overlay" id="overlay"></div>
+<main class="main-area">
+<header class="topbar">
+<div class="topbar-title"><button aria-label="Abrir menú" class="icon-button mobile-menu" id="openSidebar">☰</button><div><span id="breadcrumb">Sistema / Panel principal</span><h2 id="pageTitle">Panel principal</h2></div></div>
+<div class="topbar-actions">
+<div class="connection-status" id="connectionStatus"><i></i><span>Conectado</span></div>
+<div class="save-status" id="saveStatus"><i></i><span>Sin cambios pendientes</span></div>
+<button aria-label="Abrir notificaciones" class="icon-button notification-button" id="notificationButton" title="Notificaciones">🔔<span hidden="" id="notificationBadge">0</span></button>
+<button class="profile-button" id="profileButton"><span class="avatar" id="userAvatar">AD</span><span><b id="userName">Administrador</b><small id="userRole">Administrador</small></span><i>⌄</i></button>
+</div>
+</header>
+<div class="profile-menu" id="profileMenu"><button data-profile-action="profile">Mi perfil</button><button data-profile-action="password">Cambiar contraseña</button><button data-profile-action="logout">Cerrar sesión</button></div>
+<section aria-live="polite" class="content" id="content"></section>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop">
+<div aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog">
+<header class="modal-header"><div><span class="eyebrow" id="modalEyebrow">REGISTRO</span><h3 id="modalTitle">Nuevo registro</h3></div><button aria-label="Cerrar" class="icon-button" id="closeModal">×</button></header>
+<div id="modalBody"></div>
+</div>
+</div>
+<div class="modal-backdrop" id="qrBackdrop">
+<div aria-modal="true" class="modal qr-modal" role="dialog">
+<header class="modal-header"><div><span class="eyebrow">OPERACIÓN QR</span><h3>Escanear vehículo</h3></div><button aria-label="Cerrar" class="icon-button" id="closeQr">×</button></header>
+<div class="scanner"><video id="qrVideo" muted="" playsinline=""></video><div class="scan-frame"><i></i></div><div class="camera-empty" id="cameraEmpty"><b>▦</b><span>Active la cámara o escriba el código manualmente.</span></div></div>
+<div class="scanner-status" id="scannerStatus"><i></i><span>Cámara detenida</span></div>
+<div class="scanner-controls"><select id="cameraSelect"><option value="">Cámara predeterminada</option></select><button class="btn soft" id="startCamera" type="button">Activar cámara</button><button class="btn soft" id="switchCamera" type="button">Cambiar cámara</button></div>
+<div class="manual-code"><label class="field"><span>Código QR</span><input id="manualQr" placeholder="Ej. VEH-ABCD12"/></label><button class="btn primary" id="validateQr" type="button">Validar</button></div>
+</div>
+</div>
+<div aria-live="polite" class="toast-stack" id="toastStack"></div>
+
+
+
+<script src="efleet.js?v=4.4.34"></script></body>
+</html>
