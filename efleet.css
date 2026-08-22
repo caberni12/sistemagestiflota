@@ -1,4 +1,4 @@
-/* E-fleet Management System Web 4.4.35 · CSS UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
+/* E-fleet Management System Web 4.4.37 · CSS UNICO · GEOCERCA SEGUIMIENTO DOMICILIO */
 /* Regla: todos los HTML cargan exclusivamente efleet.css. */
 
 /* ===== efleet-palette.4386.css · GLOBAL ===== */
@@ -3028,7 +3028,7 @@ html.ef-group-standard:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :w
 .ef-group-standard body.dark :where(input,select,textarea)::placeholder, .ef-group-standard body.oscuro :where(input,select,textarea)::placeholder{color:#aaa!important}
 /* Logo corporativo en toda impresión/PDF generado por el navegador. */
 @media print{
-  .ef-group-standard body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
+  .ef-group-standard body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("../logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
 }
 
 
@@ -4580,7 +4580,7 @@ html.ef-group-index:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :wher
 .ef-group-index body.dark :where(input,select,textarea)::placeholder, .ef-group-index body.oscuro :where(input,select,textarea)::placeholder{color:#aaa!important}
 /* Logo corporativo en toda impresión/PDF generado por el navegador. */
 @media print{
-  .ef-group-index body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
+  .ef-group-index body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("../logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
 }
 
 
@@ -6033,7 +6033,7 @@ html.ef-group-main:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where
 .ef-group-main body.dark :where(input,select,textarea)::placeholder, .ef-group-main body.oscuro :where(input,select,textarea)::placeholder{color:#aaa!important}
 /* Logo corporativo en toda impresión/PDF generado por el navegador. */
 @media print{
-  .ef-group-main body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
+  .ef-group-main body::before{content:"E-fleet Management System";display:block!important;position:fixed;top:3mm;right:8mm;min-height:11mm;padding-left:13mm;background:url("../logo-e-fleet.png") left center/10mm 10mm no-repeat;color:#000!important;font:700 9pt Arial,sans-serif;line-height:11mm;z-index:2147483647}
 }
 
 
@@ -8391,7 +8391,7 @@ html.ef-page-geo-local-admin, .ef-page-geo-local-admin body{max-width:100%;overf
 
 
 /* ===== efleet-geocerca-seguimiento.4435.css · GLOBAL ===== */
-/* E-fleet Web 4.4.35 · filtro individual + hogar + GPS + distancia */
+/* E-fleet Web 4.4.37 · filtro individual + hogar + GPS + distancia */
 .ef-page-geocerca .geocerca-map-filterbar{
   display:grid;grid-template-columns:minmax(240px,420px) auto 1fr;gap:12px;align-items:end;
   margin:0 0 12px;padding:12px 14px;border:1px solid #cfe4f7;border-radius:15px;background:#f5faff;
@@ -8417,7 +8417,7 @@ html.ef-page-geo-local-admin, .ef-page-geo-local-admin body{max-width:100%;overf
 @media(max-width:560px){.ef-page-geocerca .geocerca-map-filterbar{grid-template-columns:1fr}.ef-page-geocerca .geocerca-map-filterbar .btn{width:100%}.ef-page-geocerca .geocerca-seguimiento-metricas{width:100%;display:grid;grid-template-columns:1fr 1fr}.ef-page-geocerca .geocerca-seguimiento-metricas>b{min-width:0}}
 
 
-/* ===== 4.4.35 · MENU LATERAL CLARO DEFINITIVO ===== */
+/* ===== 4.4.37 · MENU LATERAL CLARO DEFINITIVO ===== */
 html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral){
   background:linear-gradient(180deg,#eef8ff 0%,#dceffc 100%)!important;
   color:#123a57!important;
@@ -8441,10 +8441,16 @@ html:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) .cerrar-sesion{backg
 .ef-page-geocerca [data-geocerca-map-persona]{font-weight:750}
 .ef-page-geocerca .geocerca-map-principal.usuario-filtrado .fleet-map{outline:2px solid rgba(22,119,255,.18);outline-offset:-2px}
 
-/* 4.4.35 · prioridad sobre reglas heredadas negras de los tres grupos */
+/* 4.4.37 · prioridad sobre reglas heredadas negras de los tres grupos */
 html.ef-group-standard:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral),
 html.ef-group-index:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral),
 html.ef-group-main:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar,.menu-lateral){background:linear-gradient(180deg,#eef8ff 0%,#dceffc 100%)!important;color:#123a57!important}
 html.ef-group-standard:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button),
 html.ef-group-index:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button),
 html.ef-group-main:not(.tema-oscuro-inicial) body:not(.dark):not(.oscuro) :where(.sidebar a,.menu-lateral a,.sidebar button,.menu-lateral button){color:#123a57!important}
+
+/* Web 4.4.37 · Geocerca domicilio planificado + controles robustos */
+.geocerca-domicilio-planificado{display:block!important;margin-top:5px!important;color:#0b4f8a!important;font-size:.88rem!important;line-height:1.35!important;white-space:normal!important;overflow-wrap:anywhere!important}
+.geocerca-domicilio-planificado b{color:#083b68!important}
+.geocerca-domicilio-planificado.faltante{color:#9a3412!important}
+.ef-page-geocerca .geocerca-map-filterbar select,.ef-page-geocerca .geocerca-filter-grid select,.ef-page-geocerca .geocerca-filter-grid input,.ef-page-geocerca .geocerca-map-filterbar button{font:inherit!important;box-sizing:border-box!important;min-height:40px!important;border:1px solid #cbd5e1!important;border-radius:10px!important;background-color:#fff!important;color:#16324f!important}

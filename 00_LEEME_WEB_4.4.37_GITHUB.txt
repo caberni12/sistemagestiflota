@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM - WEB 4.4.37 PLANA PARA GITHUB
+
+Estructura de despliegue:
+- Todos los archivos van en la raiz del repositorio/publicacion.
+- No existe carpeta assets/.
+- Un solo CSS local: efleet.css
+- Un solo JS local: efleet.js
+- Todos los HTML llaman directamente a efleet.css?v=4.4.37 y efleet.js?v=4.4.37.
+- Se conserva .nojekyll para GitHub Pages.
+
+IMPORTANTE:
+No mover efleet.css ni efleet.js a subcarpetas. Las futuras versiones Web deben conservar esta estructura plana para facilitar publicacion por GitHub.
+
+Esta version conserva las funciones de Web 4.4.36; solo reorganiza la estructura de archivos y actualiza referencias/ruta de cache.
