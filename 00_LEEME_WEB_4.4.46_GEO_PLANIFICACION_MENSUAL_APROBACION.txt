@@ -1,0 +1,16 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.46
+
+GEO PLANIFICADOR MENSUAL CON APROBACIÓN
+- Calendario mensual conectado a Malla de Turnos.
+- Solo días laborales habilitados para planificar.
+- Selector y búsqueda rápida de Locales.
+- Supervisor propio; Administrador/Gerencia pueden seleccionar cualquier Supervisor GEO de su empresa.
+- Flujo BORRADOR → PENDIENTE_APROBACION → APROBADA.
+- Geo Admin muestra bandeja de planificaciones pendientes.
+- Modal de revisión total y aprobación.
+- Reapertura administrativa con motivo y auditoría.
+- Línea de tiempo: inicio, borradores, envío, aprobación y reapertura.
+- Al aprobar, la planificación se materializa automáticamente en las visitas semanales operativas.
+- Todo el flujo queda aislado por empresa_id.
+
+Requiere flotas-api 4.4.25 y SQL 23 R8.2.97.
