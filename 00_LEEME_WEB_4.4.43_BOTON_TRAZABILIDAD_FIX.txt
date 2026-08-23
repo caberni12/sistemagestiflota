@@ -1,0 +1,13 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.43
+HOTFIX · BOTÓN VER TRAZABILIDAD EN ASIGNACIÓN DE RUTA
+
+Corrección:
+- El botón «Ver trazabilidad» sí recibe el clic y ahora abre correctamente la tarjeta.
+- Se corrige un error JavaScript en routeTimelineMarkup: el código del hito ya no se sobrescribe con el objeto de datos del evento.
+- Se separan `code` y `eventData` para Check-in, Ruta y Reasignaciones.
+- Mantiene el orden: Vehículo asignado Check-in -> Check-in aceptado -> Check-in terminado -> Ruta asignada -> Aceptada -> Iniciada -> Completada.
+- Los datos de Check-in siguen viniendo de CHECKIN_TRAZABILIDAD / flotas-api 4.4.24.
+- Hitos inexistentes quedan como Pendiente.
+- Completada mantiene color verde.
+- No requiere SQL nuevo.
+- Cache busting: efleet-4.4.43.js / efleet-4.4.43.css.
