@@ -1,0 +1,9 @@
+E-FLEET WEB 4.4.56 · GEO KPI / GEOCERCA / MAPA
+
+- KPI Geo Locales aplica filtros de fecha y Supervisor automáticamente al cambiar el control.
+- Corrige rangos Desde/Hasta invertidos.
+- KPI Geocerca y KPI Geo Locales son fluidos y no desbordan en escritorio/tablet/móvil.
+- Geocerca aplica filtros al cambiar fecha/persona/rol.
+- Mapa Geo Local ya no pinta posiciones GPS antiguas como tiempo real.
+- El mapa redibuja al actualizar marcadores para evitar vista gris/mal dimensionada.
+- Mantiene aislamiento multiempresa.
