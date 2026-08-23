@@ -1,0 +1,22 @@
+E-fleet Management System · Web 4.4.64 · R8.2.113
+
+Correcciones de identidad empresarial
+- El login mantiene visible la marca E-fleet de la aplicación y, en una tarjeta separada, carga el ícono, nombre y RUT dinámicos de la empresa conectada.
+- La identidad empresarial recibida al iniciar sesión queda guardada con la sesión para que el menú y los módulos la reciban inmediatamente.
+- El shell entrega a cada iframe la empresa activa junto con la sesión autorizada.
+- GEO confirma empresaIdentidad antes de dibujar su interfaz, incluso cuando el usuario ya venía cargado.
+- Geo Planificador de Locales, Geo Planificador Admin, Mapa Geo Local y KPI Geo Locales muestran siempre ícono, nombre y RUT de la empresa vigente.
+- Malla de Turnos comparte el mismo comportamiento de identidad.
+- El ícono empresarial permanece visible en pantalla y tiene marcador neutro si no está configurado.
+- Menú y módulos estándar utilizan el ícono de empresa con nombre accesible correcto.
+- Se corrigieron precarga, caché y redirección para Web 4.4.64.
+
+Separación obligatoria de recursos
+- DIRECCION_ICONO_EMPRESA / ICONO_EMPRESA: encabezados, menú y tarjetas de módulos.
+- DIRECCION_LOGOTIPO / LOGOTIPO: documentos y PDF.
+- Un recurso nunca sustituye al otro.
+
+Compatibilidad
+- Requiere flotas-api 4.4.35.
+- No requiere SQL nuevo.
+- Después de publicar, realizar una recarga forzada (Ctrl+F5).

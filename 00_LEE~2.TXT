@@ -1,0 +1,12 @@
+E-FLEET WEB 4.4.65 · R8.2.114
+
+- Combustible abre directamente el formulario; no muestra lector QR.
+- Vehículo, conductor y contexto se recuperan automáticamente del servidor para el usuario operativo.
+- La carga aparece en tiempo real en la trazabilidad de la Ruta o visita GEO activa.
+- Cuando no existe Ruta ni GEO, se mantiene vinculada al vehículo asignado.
+- Geo Admin y Geo Planificador refrescan los eventos informativos automáticamente.
+- Se quitaron del panel principal las tarjetas “Sesiones abiertas” y “Conduciendo”.
+- El QR continúa disponible en Check-in.
+- La identidad dinámica de empresa se mantiene en Login y módulos GEO, sin reemplazar la marca propia de la aplicación.
+
+Publicar la carpeta completa para asegurar que todos los HTML utilicen efleet-4.4.65.js y efleet-4.4.65.css.
