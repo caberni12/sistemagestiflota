@@ -1,0 +1,7 @@
+E-fleet Management System · Web 4.4.51
+
+Hotfix:
+- Turno de emergencia: compatible con permiso estructural de Supervisor GEO aplicado por flotas-api 4.4.28.
+- PDF Geo: exportador principal con alias global y motor PDF de respaldo local.
+- Si el exportador general no se inicializa, el PDF de planificación se descarga igualmente.
+- Conserva PDF solo para planificación aprobada y turnos de emergencia operativos.
