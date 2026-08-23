@@ -1,0 +1,12 @@
+E-fleet Management System · Web 4.4.63 · R8.2.112
+
+Correcciones:
+- Loader "Abriendo módulo" usa siempre la E oficial de E-fleet; se elimina la casita del cambio entre módulos.
+- Antes de generar PDF se refresca la identidad documental de la empresa activa.
+- PDF general, Check-in y Geo Planificador usan logo corporativo de empresa actualizado.
+- Geo Planificador refresca identidad de empresa al abrir, para mostrar el ícono empresarial vigente.
+- Geo Planificador incorpora LOCAL_REFERENCIA cuando el Local no tiene código; nunca muestra un ID interno como sustituto del código.
+- En tarjetas Geo se muestra "Código / referencia" cuando existe.
+
+Requiere flotas-api 4.4.35 para la entrega robusta del logo corporativo embebible en PDF.
+No requiere SQL nuevo.
