@@ -1,0 +1,9 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.50
+
+GEO PLANIFICADOR · PDF DE PLANIFICACION
+- PDF disponible en planificación mensual únicamente cuando el estado regular es APROBADA.
+- Geo Admin puede generar PDF desde una planificación APROBADA.
+- Los turnos de emergencia del mismo mes se incluyen cronológicamente y quedan marcados como TURNO DE EMERGENCIA.
+- El PDF incluye empresa, Supervisor, mes, aprobador, fecha de aprobación, horario, Local, dirección, hora objetivo, duración y motivo de emergencia.
+- Un turno de emergencia puede generar su PDF operacional por ser una excepción que no requiere aprobación.
+- No requiere SQL nuevo. Requiere flotas-api 4.4.27.
