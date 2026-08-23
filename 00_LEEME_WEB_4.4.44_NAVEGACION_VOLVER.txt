@@ -1,0 +1,21 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.44
+HOTFIX NAVEGACIÓN SECUENCIAL ENTRE MÓDULOS
+
+CAMBIO PRINCIPAL
+- Se incorpora botón ← Volver en la barra superior, al lado izquierdo del menú.
+- Disponible en todos los módulos cargados dentro del shell Web.
+- Cada navegación registra el módulo anterior y permite retroceder uno por uno.
+- El historial dura durante la sesión del navegador y conserva hasta 50 pasos.
+- Si no existe historial pero el usuario está fuera del Panel principal, vuelve al Panel principal.
+- El botón queda deshabilitado únicamente cuando no existe ningún módulo anterior disponible.
+- Respeta permisos: al volver, omite módulos a los que el usuario ya no tenga acceso.
+- No recarga la sesión completa ni usa history.back() del navegador.
+- Atajo opcional: Alt + Flecha izquierda.
+
+BASE
+- Web anterior: 4.4.43 (botón Ver trazabilidad de rutas corregido).
+- flotas-api compatible: 4.4.24, sin cambios.
+- SQL: sin cambios.
+
+PUBLICACIÓN
+Subir el contenido de este ZIP reemplazando la Web anterior y realizar recarga forzada del navegador.
