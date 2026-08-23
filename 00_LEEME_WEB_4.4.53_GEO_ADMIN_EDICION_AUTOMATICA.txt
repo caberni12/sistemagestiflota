@@ -1,0 +1,13 @@
+E-FLEET WEB 4.4.53 · GEO ADMIN EDICIÓN GRANULAR + SINCRONIZACIÓN AUTOMÁTICA
+
+- Geo Admin puede anular solicitudes pendientes.
+- Geo Admin puede eliminar planificaciones futuras sin visitas ejecutadas.
+- Cada dirección/destino editable tiene un botón circular rojo con X.
+- La X elimina solo esa línea al pulsar Guardar cambios; las demás direcciones permanecen intactas.
+- Días pasados y destinos ya visitados quedan bloqueados.
+- Al guardar, aprobar, reabrir, anular o eliminar se actualizan automáticamente las tarjetas y la programación mensual.
+- Se retiraron botones manuales de Recargar/Actualizar/Auto ON del flujo Geo; la sincronización queda interna cada ~2,5 s.
+- Al aprobar una planificación, el Supervisor recibe una alerta emergente urgente con acceso a Ver planificación.
+- PDF moderno mantiene el logo E de E-fleet y elimina textos técnicos internos sobre auditoría/empresa_id.
+- Conserva calendario real, turnos de emergencia y PDF aprobado moderno.
+- Requiere flotas-api 4.4.30.
