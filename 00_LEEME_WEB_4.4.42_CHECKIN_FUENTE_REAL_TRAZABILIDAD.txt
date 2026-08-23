@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.42
+CORRECCIÓN · TRAZABILIDAD DE RUTA DESDE CHECK-IN REAL
+
+Cambios:
+- Corrige el botón «Ver trazabilidad» de Asignación de Ruta.
+- Los hitos de Check-in NO se inventan ni se duplican en historial_rutas.
+- Se leen desde CHECKIN_TRAZABILIDAD entregado por flotas-api 4.4.24.
+- Orden fijo inicial: Vehículo asignado para Check-in -> Check-in aceptado -> Check-in terminado.
+- Después: Ruta asignada -> Aceptada -> Iniciada -> Completada.
+- Si un hito real de Check-in no existe, se muestra Pendiente.
+- Completada conserva indicador verde.
+- Cache busting: efleet-4.4.42.js / efleet-4.4.42.css.
+- Requiere flotas-api 4.4.24 para completar los hitos reales del Check-in.
+- No requiere SQL nuevo.
