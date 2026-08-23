@@ -1,0 +1,10 @@
+E-FLEET WEB 4.4.52 · GEO CALENDARIO REAL + ACTUALIZACIÓN AUTOMÁTICA + PDF MODERNO
+
+- Geo Planificador mensual bloquea automáticamente todos los días anteriores a hoy.
+- Los días pasados permanecen visibles como historial, sin poder seleccionarse, quitarse ni modificarse.
+- Turno de emergencia impide fechas pasadas también desde la interfaz.
+- Sincronización automática de estados de planificación cada ~2,5 s usando un endpoint de revisión liviano; aprobación/reapertura/emergencia se reflejan sin pulsar Recargar.
+- Comunicación inmediata entre pestañas mediante BroadcastChannel cuando está disponible.
+- PDF aprobado rediseñado como documento ejecutivo moderno: cabecera E-fleet, estado, KPI, programación por día, turnos de emergencia destacados y validación electrónica.
+- Conserva motor PDF alternativo y respaldo.
+- Requiere flotas-api 4.4.29.
