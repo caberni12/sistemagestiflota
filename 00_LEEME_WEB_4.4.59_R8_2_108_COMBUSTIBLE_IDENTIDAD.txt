@@ -1,0 +1,8 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.59 · R8.2.108
+
+- Dashboard Combustible: filtros calendario mensual, Top 10/Top N, consumo, gasto, rendimiento y curva mensual.
+- Exportación personalizada PDF/XLSX con identidad documental E-fleet + logo corporativo de empresa.
+- Flujo Combustible reconoce contexto de ruta/operación/visita Geo Local confirmado por servidor.
+- Subtítulo antiguo de Combustible eliminado.
+- Contraste corregido en Aprobaciones de Check-in.
+- Identidad de empresa dinámica: nombre/RUT + icono de encabezado separado del logo corporativo.
