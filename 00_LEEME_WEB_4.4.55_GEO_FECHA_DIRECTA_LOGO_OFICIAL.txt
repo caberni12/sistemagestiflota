@@ -1,0 +1,10 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.55
+
+Cambios:
+- Geo Planificador sin el subtítulo técnico solicitado.
+- La fecha de planificación se aplica directamente al seleccionarla; se elimina el botón Calendario redundante del toolbar principal.
+- PDF Geo usa el logo oficial exacto entregado por el usuario (logo-e-fleet.png / logo-e-fleet-doc.jpg), sin dibujar una E genérica.
+- Si el logo no pudiera cargarse, el PDF no inventa un logotipo alternativo.
+- Mantiene Web 4.4.54 y API 4.4.31 como base funcional.
+
+No requiere SQL nuevo ni cambio de flotas-api.
