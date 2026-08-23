@@ -1,0 +1,10 @@
+E-fleet Management System
+Web 4.4.60 · R8.2.109
+
+HOTFIX IDENTIDAD EN VALIDACIÓN DE SESIÓN
+- La pantalla “Validando sesión” usa siempre la E oficial de E-fleet.
+- No usa el ícono neutro/empresa durante la recarga.
+- El ícono de empresa se aplica después de validar la sesión, en los encabezados internos.
+- Nombre, RUT, logo corporativo e ícono de empresa continúan dinámicos por empresa_id.
+
+Sin cambios de API, Android ni SQL respecto de R8.2.108.
