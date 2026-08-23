@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="efleet-web ef-group-index ef-page-index" data-efleet-web-version="4.4.63" lang="es">
+<html class="efleet-web ef-group-index ef-page-index" data-efleet-web-version="4.4.64" lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
@@ -24,15 +24,15 @@
 
 
 
-<link href="efleet-4.4.63.css" rel="stylesheet"/></head>
+<link href="efleet-4.4.64.css" rel="stylesheet"/></head>
 <body>
 <noscript><div class="aviso-sin-js">Debe habilitar JavaScript para iniciar sesión.</div></noscript>
 <main class="pagina-acceso">
 <section aria-label="Presentación del sistema" class="presentacion-acceso">
 <div class="marca-acceso">
-<img alt="Logotipo de la empresa" id="logoEmpresaAcceso" src="efleet-mark-compact.png"/>
+<img alt="E-fleet" id="logoAplicacionAcceso" src="efleet-mark-compact.png"/>
 <div>
-<strong id="nombreEmpresaAcceso">E-fleet Management System</strong>
+<strong id="nombreAplicacionAcceso">E-fleet Management System</strong>
 <span>Control operacional y seguimiento</span>
 </div>
 </div>
@@ -63,7 +63,7 @@
 <i>○</i><div><b>Conexión pendiente</b><span>La configuración técnica de Base de Datos permanecerá protegida.</span></div>
 </div>
 <button class="boton-principal" id="botonConexionEmpresa" type="submit">Buscar y conectar</button>
-<small class="detalle-servicio">Solo se mostrará el nombre de la empresa y la confirmación de conexión.</small>
+<small class="detalle-servicio">Se mostrarán el ícono, nombre y RUT públicos de la empresa conectada.</small>
 </form>
 <form class="tarjeta-acceso preconfiguracion oculto" id="formularioPreconfiguracion" novalidate="">
 <div class="encabezado-formulario">
@@ -93,7 +93,7 @@
 <p>Use el correo y la contraseña registrados en el sistema.</p>
 </div>
 <div class="empresa-conectada-acceso" id="empresaConectadaAcceso">
-<i>✓</i><div><b id="nombreEmpresaConectada">Empresa conectada</b><span id="rutEmpresaConectada">Conexión establecida</span></div>
+<img alt="Ícono de la empresa conectada" id="iconoEmpresaConectada" src="empresa-icono-neutro.svg"/><div><b id="nombreEmpresaConectada">Empresa conectada</b><span id="rutEmpresaConectada">Conexión establecida</span></div>
 </div>
 <div aria-live="polite" class="estado-conexion" id="estadoConexion" role="status">
 <i></i><span>Comprobando conexión…</span>
@@ -144,5 +144,5 @@
 
 
 
-<script src="efleet-4.4.63.js"></script></body>
+<script src="efleet-4.4.64.js"></script></body>
 </html>
