@@ -1,0 +1,13 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.45
+
+CAMBIO: PANEL PRINCIPAL LIMPIO
+
+Se retiraron únicamente del Panel principal:
+1. Tarjeta «Operaciones de los últimos 7 días».
+2. Acción rápida «Iniciar operación».
+3. Tarjeta «Operaciones recientes / Aún no hay operaciones».
+
+El módulo Operaciones NO se elimina y continúa disponible desde el menú normal.
+No se eliminan registros, permisos ni funciones operacionales.
+Se conserva la navegación ← Volver de Web 4.4.44 y el hotfix de trazabilidad de Web 4.4.43.
+Compatible con flotas-api 4.4.24. No requiere SQL nuevo.
