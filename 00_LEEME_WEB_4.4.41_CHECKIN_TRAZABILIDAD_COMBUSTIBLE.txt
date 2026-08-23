@@ -1,0 +1,32 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.41
+GitHub plano · Geocerca carga automática
+
+CAMBIO PRINCIPAL
+- Geocerca deja de reutilizar la vista HTML cacheada del módulo.
+- Cada vez que se abre Geocerca consulta resumenGeocerca directamente al servidor.
+- KPI circulares, gráficos, catálogo visible y mapa se cargan sin exigir pulsar “Actualizar”.
+- El botón “Actualizar” se conserva únicamente como refresco manual opcional.
+- Se mantiene el render SVG de KPI incorporado en 4.4.39.
+
+ESTRUCTURA WEB
+- Plana para GitHub.
+- Un solo CSS: efleet-4.4.41.css
+- Un solo JS: efleet-4.4.41.js
+- Todos los HTML llaman directamente a esos dos archivos.
+
+COMPATIBILIDAD
+- flotas-api vigente: 4.4.22.
+- No requiere SQL nuevo.
+- No requiere cambio Android para este ajuste Web.
+
+
+E-FLEET WEB 4.4.41 · CHECK-IN / RUTAS / COMBUSTIBLE
+- Check-in: estado sincronizado automáticamente en segundo plano cada ~2,5 s cuando no hay edición activa.
+- Check-in: refresco inmediato al guardar una inspección.
+- Rutas: trazabilidad incorpora Vehículo asignado para Check-in, Check-in aceptado y Check-in terminado.
+- Rutas: etapa Completada resaltada en verde.
+- Combustible: comparación configurable entre mes del año actual y mes del año anterior.
+- Combustible: KPI de gasto, litros, precio promedio y rendimiento.
+- Combustible: exportación comparativa PDF y XLSX.
+- Combustible conductor: asignación activa preseleccionada automáticamente.
+- UI: retirados los textos solicitados y simplificada la advertencia a Configure la base de operaciones.
