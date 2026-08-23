@@ -1,0 +1,14 @@
+E-fleet Management System
+Web 4.4.62 · R8.2.111
+
+KPI COMBUSTIBLE · CONDUCTOR Y BENCINERA
+- Nuevo KPI "Conductor que más carga": totaliza litros por conductor en el período seleccionado.
+- Nuevo KPI "Bencinera con mayor carga": totaliza litros por estación de servicio en el período seleccionado.
+- Dashboard incorpora Top 5 / Top 10 / Top 20 de conductores por litros, con monto y cantidad de cargas.
+- Dashboard incorpora Top 5 / Top 10 / Top 20 de bencineras por litros, con monto, cantidad de cargas y porcentaje del total.
+- Los dos rankings respetan los filtros de mes Desde/Hasta y Vehículo.
+- Los reportes personalizados PDF/XLSX incorporan resumen, Top conductores y Top bencineras.
+- XLSX agrega hojas independientes para Top conductores y Top bencineras.
+- Se conserva toda la funcionalidad de R8.2.110: logos PDF en esquinas opuestas, identidad empresarial dinámica, Combustible, Geo y Android.
+
+Sin cambios de flotas-api, Android ni SQL respecto de R8.2.110.
