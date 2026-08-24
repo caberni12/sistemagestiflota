@@ -1,0 +1,30 @@
+E-FLEET WEB 4.4.73 · R8.2.133
+================================
+HOTFIX: PUNTO DEL USUARIO EN LÍNEA VISIBLE EN EL MAPA DE USUARIOS
+
+Funcionamiento incorporado:
+1. El formulario de creación y edición de usuarios incluye un mapa callejero a color.
+2. Al tocar el mapa se capturan latitud y longitud del punto exacto.
+3. El domicilio se muestra como una casita azul, visible y arrastrable.
+4. Al editar un usuario, su GPS reciente aparece como un punto verde si está en línea.
+5. Si Android pausa brevemente el GPS pero la conexión continúa activa, la última ubicación confiable aparece en ámbar.
+6. El sistema busca por usuario, conductor asociado y dispositivo, tanto en gps_actual como en el historial GPS compatible.
+7. El GPS en línea se actualiza cada 8 segundos sin reemplazar automáticamente el domicilio.
+8. Solo al tocar el punto verde/ámbar o "Usar ubicación en línea" se convierte ese GPS en domicilio.
+9. El backend obtiene la dirección desde las coordenadas seleccionadas.
+10. Dirección, latitud y longitud quedan en el formulario antes de guardar.
+11. El botón "Mi ubicación" sigue usando el GPS del dispositivo del administrador cuando lo autoriza.
+12. La búsqueda escrita de dirección sigue disponible y centra la casita en el resultado.
+13. El radio de domicilio se visualiza alrededor de la casita.
+14. El flujo funciona en navegador de escritorio, navegador móvil y WebView Android.
+15. La consulta puntual de GPS está aislada por empresa_id y no expone la flota completa.
+16. Se utilizan el mapa y los servicios gratuitos ya integrados; no se agrega Waze, Gemini ni un servicio pagado.
+17. La nueva cache/versión 4.4.73 evita reutilizar archivos anteriores.
+
+Requisito de backend:
+- Publicar primero flotas-api 4.5.15. La Web 4.4.73 necesita esa versión para recuperar el GPS actual y el respaldo confiable de Android.
+
+Archivos principales:
+- efleet-4.4.73.css
+- efleet-4.4.73.js
+- usuarios.html
