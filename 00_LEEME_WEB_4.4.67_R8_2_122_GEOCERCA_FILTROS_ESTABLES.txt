@@ -1,0 +1,12 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.68 · R8.2.123
+
+CORRECCION GEOCERCA · FILTROS ESTABLES
+- El catálogo de Usuarios ya no depende únicamente de una hidratación en segundo plano.
+- resumenGeocerca y el catálogo de Usuarios se cargan en paralelo antes de pintar los combobox.
+- La consulta de Usuarios tiene hasta 3 intentos controlados ante fallos transitorios.
+- El catálogo queda aislado por empresa_id; si cambia la empresa activa se descarta el catálogo anterior.
+- Los combobox Persona/Rol ya no provocan recargas automáticas al cambiar.
+- Los filtros se aplican exclusivamente con el botón Aplicar filtros, evitando carreras de render.
+- Los botones Día / 7 días / Mes / Año mantienen su recarga directa.
+- Se conservan los KPI circulares compactos y el marcador de casa de Web 4.4.66.
+- No cambia el contrato de acciones de flotas-api.

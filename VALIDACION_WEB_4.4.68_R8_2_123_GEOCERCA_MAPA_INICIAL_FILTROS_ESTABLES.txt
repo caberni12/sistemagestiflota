@@ -1,0 +1,31 @@
+E-FLEET MANAGEMENT SYSTEM
+VALIDACIÓN WEB 4.4.68 · R8.2.123
+GEOCERCA · MAPA INICIAL COMPLETO + FILTROS ESTABLES
+
+RESULTADO: APROBADA
+
+COMPORTAMIENTO ESPERADO:
+1. Al entrar a Geocerca, resumenGeocerca carga todas las casas/geocercas de la empresa porque Persona y Rol están vacíos.
+2. El mapa se renderiza sin esperar una segunda consulta de Usuarios.
+3. Los combobox se llenan inmediatamente con el catálogo de personas que ya devuelve resumenGeocerca.
+4. Si faltara catálogo, un reintento en segundo plano completa los selectores sin volver a renderizar/borrar el mapa.
+5. Cambiar Persona o Rol no consulta automáticamente.
+6. Día / 7 días / Mes / Año solo preparan fechas; la consulta se ejecuta al pulsar Aplicar filtros.
+7. El domicilio conserva el marcador 🏠 y el nombre visible de la persona; la clave técnica sigue siendo usuario_id dentro de empresa_id.
+
+PRUEBAS:
+[OK] 34 HTML presentes · 34
+[OK] 34 HTML referencian JS 4.4.68
+[OK] 34 HTML referencian CSS 4.4.68
+[OK] Sin assets 4.4.66/4.4.67 en HTML
+[OK] Mapa inicial no espera users
+[OK] Resumen inicial sin Persona/Rol cuando filtros vacíos
+[OK] Combobox Persona desde resumenGeocerca
+[OK] Fallback usuarios con reintento
+[OK] Fallback no re-renderiza mapa
+[OK] Persona/Rol consultan solo al submit
+[OK] Períodos preparan fechas sin go inmediato
+[OK] Casa visible
+[OK] Nombre de usuario priorizado
+[OK] Jerarquía visual explicada
+[OK] Contrato literal API sin pérdidas · 100 acciones literales antes / 100 después; faltan=[]; nuevas=[]

@@ -1,0 +1,18 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.68 · R8.2.123
+GEOCERCA · MAPA INICIAL COMPLETO + FILTROS ESTABLES
+
+CORRECCIONES
+- Al abrir Geocerca, el mapa carga inmediatamente TODAS las casas/geocercas de la empresa activa.
+- La carga inicial no depende de los combobox ni de una segunda consulta de Usuarios.
+- Los combobox Persona/Rol se alimentan primero desde resumenGeocerca, que ya devuelve usuarios operativos por empresa.
+- Si el catálogo requiere completar datos, se hace en segundo plano con reintento sin volver a renderizar ni borrar el mapa.
+- Persona y Rol no ejecutan consultas al cambiar: solo al pulsar Aplicar filtros.
+- Los botones Día / 7 días / Mes / Año preparan las fechas y esperan Aplicar filtros.
+- Se mantienen KPI circulares compactos y el marcador de domicilio con casa 🏠.
+- Identidad canónica de Geocerca: empresa_id + usuario_id; conductor_id es solo relación opcional.
+- No cambia el contrato de flotas-api ni las acciones Web existentes.
+
+USO
+1. Entrar a Geocerca: debe aparecer el mapa completo sin tocar filtros.
+2. Para consulta específica, seleccionar Persona/Rol/período.
+3. Pulsar Aplicar filtros.
