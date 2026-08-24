@@ -1,0 +1,28 @@
+E-FLEET WEB 4.4.72 · R8.2.132
+================================
+MEJORA: MAPA A COLOR Y GPS EN LÍNEA SELECCIONABLE EN USUARIOS
+
+Funcionamiento incorporado:
+1. El formulario de creación y edición de usuarios incluye un mapa callejero a color.
+2. Al tocar el mapa se capturan latitud y longitud del punto exacto.
+3. El domicilio se muestra como una casita azul, visible y arrastrable.
+4. Al editar un usuario, su GPS reciente aparece como un punto verde si está en línea.
+5. El GPS en línea se actualiza cada 8 segundos sin reemplazar automáticamente el domicilio.
+6. Solo al tocar el punto verde o "Usar ubicación en línea" se convierte ese GPS en domicilio.
+7. El backend obtiene la dirección desde las coordenadas seleccionadas.
+8. Dirección, latitud y longitud quedan en el formulario antes de guardar.
+9. El botón "Mi ubicación" sigue usando el GPS del dispositivo del administrador cuando lo autoriza.
+10. La búsqueda escrita de dirección sigue disponible y centra la casita en el resultado.
+11. El radio de domicilio se visualiza alrededor de la casita.
+12. El flujo funciona en navegador de escritorio, navegador móvil y WebView Android.
+13. La consulta puntual de GPS está aislada por empresa_id y no expone la flota completa.
+14. Se utilizan el mapa y los servicios gratuitos ya integrados; no se agrega Waze, Gemini ni un servicio pagado.
+15. La nueva cache/versión 4.4.72 evita reutilizar archivos anteriores.
+
+Requisito de backend:
+- Publicar primero flotas-api 4.5.14, que incorpora ubicacionUsuarioEnLinea y mantiene resolverDireccionDesdeCoordenadas.
+
+Archivos principales:
+- efleet-4.4.72.css
+- efleet-4.4.72.js
+- usuarios.html
