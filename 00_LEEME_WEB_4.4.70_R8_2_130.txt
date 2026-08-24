@@ -1,0 +1,25 @@
+E-FLEET WEB 4.4.70 · R8.2.130
+================================
+CORRECCIÓN: CENTRO DE NOTIFICACIONES
+
+Problema observado:
+- Las notificaciones ocupaban demasiado alto dentro del panel.
+- Los botones inferiores podían quedar tapados/empujados por la lista.
+- En pantallas de menor altura era necesario desplazar el panel completo.
+
+Corrección:
+1. Panel de avisos convertido a layout flex vertical.
+2. Encabezado, KPIs y footer quedan fuera del scroll.
+3. Solo la lista de notificaciones/alertas tiene scroll vertical.
+4. Footer permanece visible siempre.
+5. La lista usa min-height:0 para poder reducirse dentro del panel.
+6. Se elimina el max-height fijo de 390px de la lista mediante override.
+7. Ajuste específico para móviles y pantallas de poca altura.
+8. Se conserva la lógica actual de notificaciones, alertas y permisos.
+9. No cambia flotas-api ni SQL.
+10. Se cambia cache/version a 4.4.70 para evitar reutilizar CSS 4.4.69.
+
+Archivos principales:
+- efleet-4.4.70.css
+- efleet-4.4.70.js
+- main.html

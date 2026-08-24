@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM
+WEB 4.4.69 · R8.2.124
+
+GEOCERCA - CARGA RAIZ USUARIOS
+
+1. Al abrir Geocerca se intenta resumenGeocerca.
+2. Si el resumen falla, la Web NO queda vacia: carga Usuarios y construye las casas directamente.
+3. La entidad es EMPRESA -> USUARIO. El rol solo filtra.
+4. Administrador, Gerencia, Operador, Supervisor, Conductor u otro usuario activo puede tener Geocerca si posee domicilio configurado.
+5. El mapa muestra marcador 🏠, radio y nombre de persona.
+6. Muestra diagnostico visible: usuarios encontrados, casas listas y usuarios con direccion sin coordenadas.
+7. Los combobox no bloquean la carga del mapa.
+
+Publicar junto con flotas-api 4.5.3.

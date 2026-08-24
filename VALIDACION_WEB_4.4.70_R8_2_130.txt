@@ -1,0 +1,16 @@
+VALIDACION WEB 4.4.70 · R8.2.130
+=================================
+[OK] CSS 4.4.70 existe
+[OK] JS 4.4.70 existe
+[OK] assets 4.4.69 eliminados
+[OK] panel abierto usa flex
+[OK] lista usa flex y min-height 0
+[OK] lista sin max-height fijo
+[OK] footer no encoge
+[OK] footer permanece arriba de lista
+[OK] mobile usa 100dvh
+[OK] HTML apunta 4.4.70
+[OK] JS version 4.4.70
+[OK] cache 4.4.70
+
+Validación realizada: estática de estructura, referencias y CSS.
