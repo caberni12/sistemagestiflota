@@ -1,0 +1,25 @@
+E-FLEET WEB 4.4.71 · R8.2.131
+================================
+MEJORA: MAPA DE DOMICILIO EN EL MÓDULO USUARIOS
+
+Funcionamiento incorporado:
+1. El formulario de creación y edición de usuarios incluye un mapa de domicilio.
+2. Al tocar el mapa se capturan latitud y longitud del punto exacto.
+3. El punto se muestra como una casita azul.
+4. La casita puede arrastrarse para corregir la ubicación con mayor precisión.
+5. El backend resuelve automáticamente la dirección desde las coordenadas.
+6. Dirección, latitud y longitud quedan en el formulario antes de guardar.
+7. El botón "Mi ubicación" usa el GPS del dispositivo cuando el usuario lo autoriza.
+8. La búsqueda escrita de dirección sigue disponible y centra la casita en el resultado.
+9. El radio de domicilio se visualiza alrededor de la casita.
+10. El diseño es adaptable para navegador de escritorio, navegador móvil y WebView Android.
+11. Se utilizan el mapa y los servicios gratuitos ya integrados; no se agrega Waze, Gemini ni un servicio pagado.
+12. La nueva cache/version 4.4.71 evita que el navegador reutilice los archivos 4.4.71.
+
+Requisito de backend:
+- Publicar flotas-api 4.5.13 o superior, que incorpora resolverDireccionDesdeCoordenadas y memoria de domicilios aislada por empresa.
+
+Archivos principales:
+- efleet-4.4.71.css
+- efleet-4.4.71.js
+- usuarios.html

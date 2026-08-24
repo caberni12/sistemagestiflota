@@ -1,0 +1,16 @@
+VALIDACIÓN WEB 4.4.71 · R8.2.131
+=================================
+[OK] Mapa incorporado al formulario de Usuarios
+[OK] Selección por toque/clic convierte pantalla a latitud/longitud
+[OK] Casita visible y arrastrable
+[OK] Geocodificación inversa enlazada con resolverDireccionDesdeCoordenadas
+[OK] Dirección, latitud y longitud se envían en create/update
+[OK] SELECCION_MAPA y DIRECCION_CONFIRMADA se envían al backend
+[OK] Botón Mi ubicación usa geolocalización de alta precisión
+[OK] Radio de geocerca acompaña a la casita
+[OK] Responsive para Web y WebView Android
+[OK] Sintaxis JavaScript validada con node --check
+[OK] HTML apunta a CSS y JS físicos 4.4.71
+[OK] Cache y constante de versión actualizadas a 4.4.71
+
+Validación realizada: sintaxis, estructura, referencias, estilos y flujo de datos.
