@@ -1,0 +1,21 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.4.66 · R8.2.121
+GEOCERCA · KPI COMPACTOS + CASA/DOMICILIO
+
+CORRECCIONES
+1. KPI circulares de Geocerca reducidos a tamaño compacto (72 px escritorio / 64 px móvil).
+2. Anillos KPI usan SVG con pathLength + stroke-dashoffset para pintar correctamente desde el primer render.
+3. Se eliminan visualmente las reglas heredadas que agrandaban las tarjetas KPI.
+4. El domicilio se muestra con icono de casa explícito 🏠 y no con el carácter heredado ⌂.
+5. Marcador: "Casa · Nombre de la persona".
+6. El nombre prioriza USUARIO_NOMBRE; CONDUCTOR_NOMBRE queda solo como compatibilidad secundaria.
+7. Selector de persona muestra Nombre + Rol; usuario_id permanece como valor técnico oculto.
+8. El círculo azul continúa representando el radio de geocerca.
+9. El mapa individual mantiene Casa + GPS + línea de distancia.
+10. No cambia el contrato de API: compatible con flotas-api 4.5.2 / R8.2.120.
+
+IDENTIDAD CANONICA GEOCERCA
+EMPRESA (empresa_id) -> USUARIO (usuario_id) -> relaciones operacionales opcionales.
+
+PUBLICACION
+Subir TODO el contenido de esta carpeta reemplazando Web 4.4.65.
+Realizar una recarga forzada del navegador después de publicar.

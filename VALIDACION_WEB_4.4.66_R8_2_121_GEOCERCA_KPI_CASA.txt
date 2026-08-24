@@ -1,0 +1,36 @@
+E-FLEET WEB 4.4.66 · R8.2.121 · VALIDACION GEOCERCA KPI + CASA
+
+RESULTADO: APROBADA
+
+HTML: 34 archivos
+- Todos referencian efleet-4.4.66.js: SI
+- Todos referencian efleet-4.4.66.css: SI
+- Referencias HTML a 4.4.65: 0
+
+GEOCERCA KPI
+- KPI circular SVG usa pathLength + stroke-dashoffset: SI
+- Tamaño escritorio: 72 px
+- Tamaño móvil: 64 px
+- Tarjetas KPI compactas, sin min-height heredado grande: SI
+
+GEOCERCA MAPA
+- Casa/domicilio usa icono explícito 🏠: SI
+- MapaFlotas conserva icono en firma y repinta cambios: SI
+- Etiqueta visible: Casa · Nombre del usuario: SI
+- Nombre prioriza USUARIO_NOMBRE: SI
+- Radio azul de geocerca preservado: SI
+
+USUARIO
+- Selector muestra Nombre + Rol: SI
+- usuario_id continúa como value técnico oculto: SI
+
+CONTRATO API
+- Acciones literales antes: 140
+- Acciones literales después: 140
+- Acciones removidas: 0
+- Acciones agregadas por este cambio: 0
+- Contrato Web/API sin cambios: SI
+
+COMPATIBILIDAD
+- Compatible con flotas-api 4.5.2 / R8.2.120.
+- Cambio exclusivamente Web/UI de Geocerca.
