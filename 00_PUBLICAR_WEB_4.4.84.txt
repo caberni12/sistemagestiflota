@@ -1,0 +1,10 @@
+E-FLEET WEB 4.4.84
+
+1. Suba todos los archivos de esta carpeta al hosting Web.
+2. Verifique que main.html y checkin-vehicular.html carguen:
+   - efleet-4.4.84.css
+   - checklist-ia-4.4.84.css
+   - efleet-4.4.84.js
+   - checklist-ia-4.4.84.js
+3. Limpie caché del navegador/servidor y abra nuevamente la aplicación.
+4. Prueba mínima: QR -> 5 fotos -> nota por voz/texto -> análisis -> confirmar KM -> guardar.

@@ -1,0 +1,19 @@
+E-FLEET WEB 4.4.84 · R8.2.152 · CHECKLIST INTELIGENTE SIN GPS
+
+CAMBIOS PRINCIPALES
+- Check-in con 5 fotografías obligatorias: frontal, trasera, lateral izquierdo,
+  lateral derecho y tablero encendido.
+- Compresión local segura antes de subir.
+- Dictado o texto de anomalías del conductor.
+- OCR/visión asistida para kilometraje, testigos, daños y neumáticos sospechosos.
+- Comparación con la evidencia anterior del mismo vehículo.
+- Confirmación humana del kilometraje antes de guardar.
+- Hallazgos IA pueden dejar el Check-in Pendiente aunque los controles manuales
+  estén conformes.
+- Evidencias siempre vinculadas a empresa_id, vehículo y conductor.
+
+PUBLICACION
+1. Publique primero el SQL R8.2.152.
+2. Publique flotas-api 4.5.16.
+3. Reemplace todo el contenido Web por esta carpeta.
+4. No mezcle efleet-4.4.83 con efleet-4.4.84.
