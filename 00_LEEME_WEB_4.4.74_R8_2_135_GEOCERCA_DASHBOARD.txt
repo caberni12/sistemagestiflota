@@ -1,0 +1,37 @@
+E-FLEET WEB 4.4.74 · R8.2.135
+================================
+CORRECCIÓN FINAL: DASHBOARD DE GEOCERCA Y UBICACIÓN DEL USUARIO
+
+Geocerca:
+1. El dashboard aparece primero al abrir el módulo.
+2. En escritorio, el mapa queda a la izquierda y los KPI compactos a la derecha.
+3. En pantallas pequeñas, mapa y KPI se apilan sin desbordar el contenido.
+4. Los filtros, gráficos, ranking y eventos se muestran debajo del dashboard principal.
+5. El domicilio se identifica con una casita; el GPS actual se muestra como un punto independiente.
+6. Se conserva el círculo azul del radio y, al seguir una persona, la línea GPS ↔ domicilio.
+7. La relación canónica es empresa_id + usuario_id. conductor_id se usa solo como respaldo de registros heredados.
+8. El mapa, KPI, gráficos y tablas usan la misma empresa activa.
+9. El resumen se solicita sin caché para mostrar la información vigente.
+10. El ranking excluye perfiles administrativos y de gerencia.
+11. Ranking y eventos tienen desplazamiento interno y cabecera visible en escritorio.
+12. Se corrigió el selector CSS que apuntaba a table-wrapper, aunque la aplicación genera table-wrap.
+
+Usuarios:
+13. El formulario incluye mapa callejero a color para seleccionar el domicilio exacto.
+14. Al tocar o arrastrar la casita se capturan dirección, latitud y longitud.
+15. El GPS reciente aparece en verde; una última posición confiable retenida aparece en ámbar.
+16. El GPS en línea no reemplaza el domicilio hasta que el operador lo selecciona explícitamente.
+17. El radio configurado acompaña a la casita.
+18. El flujo funciona en navegador de escritorio, navegador móvil y WebView Android.
+
+Compatibilidad:
+- Backend requerido: flotas-api 4.5.15.
+- Android compatible incluido en el paquete completo: 3.5.42 / V482 / R8.2.134.
+- Se mantienen los mapas y servicios gratuitos ya integrados.
+- La caché física 4.4.74 evita reutilizar JavaScript o CSS anteriores.
+
+Archivos principales:
+- efleet-4.4.74.css
+- efleet-4.4.74.js
+- geocerca.html
+- usuarios.html

@@ -1,0 +1,39 @@
+VALIDACIÓN WEB 4.4.74 · R8.2.135
+=================================
+[OK] Dashboard de Geocerca aparece antes del detalle analítico
+[OK] Mapa a la izquierda y KPI a la derecha en escritorio
+[OK] Diseño apilado y estable en tablet/móvil
+[OK] KPI SVG de 72 px en escritorio y 64 px en móvil
+[OK] Filtros, gráficos, ranking y eventos debajo del dashboard
+[OK] Relación canónica empresa_id + usuario_id
+[OK] conductor_id reservado como compatibilidad heredada
+[OK] Casa y ubicación GPS representadas como puntos separados
+[OK] Casita explícita, radio azul y línea GPS ↔ domicilio conservados
+[OK] resumenGeocerca solicitado con cache:false
+[OK] Ranking operativo excluye Administrador, Gerencia y SYSADMIN
+[OK] Selector de tabla corregido a .table-wrap
+[OK] Ranking y eventos con desplazamiento interno en escritorio
+[OK] Mapa incorporado al formulario de Usuarios
+[OK] Selección por toque/clic convierte pantalla a latitud/longitud
+[OK] Casita visible y arrastrable
+[OK] Geocodificación inversa enlazada con resolverDireccionDesdeCoordenadas
+[OK] Dirección, latitud y longitud se envían en create/update
+[OK] SELECCION_MAPA y DIRECCION_CONFIRMADA se envían al backend
+[OK] Botón Mi ubicación usa geolocalización de alta precisión
+[OK] Mapa callejero a color; baldosas sin filtro de escala de grises
+[OK] GPS reciente del usuario aparece como punto verde seleccionable
+[OK] Usuario en línea con pausa GPS de Android conserva punto ámbar hasta 10 minutos
+[OK] Compatibilidad de lectura con gps_actual y tabla histórica gps
+[OK] Búsqueda por usuario_id, conductor asociado y dispositivo
+[OK] Estado visible distingue desconectado, en línea sin GPS, GPS actual y GPS retenido
+[OK] Seleccionar el punto verde captura dirección y coordenadas como domicilio
+[OK] El GPS en línea no reemplaza el domicilio hasta recibir una selección explícita
+[OK] Actualización de GPS cada 8 segundos y temporizador liberado al cerrar el modal
+[OK] Consulta puntual aislada por usuario y empresa_id
+[OK] Radio de geocerca acompaña a la casita
+[OK] Responsive para Web, navegador Android y WebView Android
+[OK] Sintaxis JavaScript validada con node --check
+[OK] HTML apunta a CSS y JS físicos 4.4.74
+[OK] Cache y constante de versión actualizadas a 4.4.74
+
+Validación realizada: sintaxis, estructura, referencias, estilos, identidad y flujo de datos.
