@@ -1,0 +1,24 @@
+PUBLICACION WEB 4.4.76
+======================
+
+1. Verifique que flotas-api 4.5.15 ya este publicada.
+2. Suba TODO el contenido de esta carpeta a la raiz del sitio Web.
+3. Reemplace los archivos anteriores; no mezcle assets de otras versiones.
+4. Elimine cache del hosting/CDN cuando corresponda.
+5. En el navegador realice una recarga forzada.
+6. Compruebe Usuarios, Geocerca, Geo Planificador y Conexiones en linea.
+
+Prueba minima:
+- Abra Geocerca: el mapa debe aparecer primero a la izquierda y los KPI a la derecha.
+- Revise "Visitas, permanencia y eventos": no debe quedar un espacio vacío entre campos y botones.
+- Seleccione Día, 7 días, Mes o Año: el período elegido debe quedar resaltado.
+- Pulse Aplicar filtros y confirme que mapa, KPI, gráficos, ranking y eventos se actualizan juntos.
+- Confirme que domicilio (casita) y GPS actual sean marcadores independientes.
+- Seleccione una persona y verifique radio azul, distancia y linea GPS a domicilio.
+- Confirme que el radio nunca aparezca negro y que no salga fuera del contenedor del mapa.
+- Pruebe un domicilio con radio de 50 m y otro de 1000 m: "Ver mapa" debe encuadrar ambos sin cubrir todo el dashboard.
+- Abra un usuario con domicilio y coordenadas guardadas.
+- Debe aparecer la casita azul.
+- Si el usuario esta conectado con GPS reciente, debe aparecer el punto verde.
+- Si conserva una ultima ubicacion confiable, debe aparecer el punto ambar.
+- Solo seleccionar explicitamente el punto en linea debe copiarlo al domicilio.
