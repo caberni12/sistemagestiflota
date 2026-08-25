@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="efleet-web ef-group-main ef-page-main" data-efleet-web-version="4.4.81" lang="es">
+<html class="efleet-web ef-group-main ef-page-main" data-efleet-web-version="4.4.82" lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
@@ -21,7 +21,7 @@
 
 
 
-<link href="efleet-4.4.81.css" rel="stylesheet"/></head>
+<link href="efleet-4.4.82.css" rel="stylesheet"/></head>
 <body class="verificando-sesion">
 <noscript><div class="sin-javascript">Debe habilitar JavaScript para utilizar el sistema.</div></noscript>
 <div class="verificador-sesion" id="verificadorSesion"><img alt="E-fleet" src="efleet-mark-compact.png"/><div><b>Validando sesión</b><span>Validando empresa, Base de Datos y sesión…</span></div></div>
@@ -67,6 +67,23 @@
 <button aria-label="Abrir centro de notificaciones" class="boton-icono boton-avisos-menu" id="notificacionesMenu" type="button">🔔<span hidden="" id="contadorAvisosMenu">0</span></button>
 </div>
 </header>
+<section class="filtro-avisos-shell" id="barraFiltroAvisosShell" hidden aria-label="Filtro diario de alertas y notificaciones">
+  <div class="filtro-avisos-shell-copy">
+    <span>FILTRO POR FECHA</span>
+    <b id="tituloFiltroAvisosShell">Filtrar avisos por día</b>
+    <small id="estadoFiltroAvisosShell">Seleccione una fecha y presione Aplicar filtro.</small>
+  </div>
+  <label class="filtro-avisos-shell-fecha">
+    <span>Día</span>
+    <input id="fechaFiltroAvisosShell" type="date" aria-label="Fecha para filtrar alertas o notificaciones">
+  </label>
+  <div class="filtro-avisos-shell-acciones">
+    <button class="boton-filtro-shell principal" id="aplicarFiltroAvisosShell" type="button">Aplicar filtro</button>
+    <button class="boton-filtro-shell" id="hoyFiltroAvisosShell" type="button">Hoy</button>
+    <button class="boton-filtro-shell" id="ayerFiltroAvisosShell" type="button">Ayer</button>
+    <button class="boton-filtro-shell" id="todosFiltroAvisosShell" type="button">Ver todos</button>
+  </div>
+</section>
 <aside aria-hidden="true" class="panel-avisos-menu" id="panelAvisosMenu">
 <header><div><span>AVISOS AUTOMÁTICOS</span><h2>Centro de notificaciones</h2></div><button aria-label="Cerrar avisos" class="boton-icono" id="cerrarAvisosMenu" type="button">×</button></header>
 <div class="resumen-avisos-menu"><div><span>Notificaciones</span><b id="totalNotificacionesMenu">0</b></div><div><span>Alertas</span><b id="totalAlertasMenu">0</b></div></div>
@@ -90,5 +107,5 @@
 </div>
 
 
-<script src="efleet-4.4.81.js"></script></body>
+<script src="efleet-4.4.82.js"></script></body>
 </html>
