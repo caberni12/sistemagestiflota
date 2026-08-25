@@ -1,4 +1,4 @@
-VALIDACIÓN WEB 4.4.79 · R8.2.144
+VALIDACIÓN WEB 4.4.80 · R8.2.145
 =================================
 [OK] Filtro de análisis compacto sin espacio horizontal vacío
 [OK] Fechas, persona, rol, período rápido y acción alineados en escritorio
@@ -44,7 +44,7 @@ VALIDACIÓN WEB 4.4.79 · R8.2.144
 [OK] Radio de geocerca acompaña a la casita
 [OK] Responsive para Web, navegador Android y WebView Android
 [OK] Sintaxis JavaScript validada con node --check
-[OK] HTML apunta a CSS y JS físicos 4.4.79
-[OK] Cache y constante de versión actualizadas a 4.4.79
+[OK] HTML apunta a CSS y JS físicos 4.4.80
+[OK] Cache y constante de versión actualizadas a 4.4.80
 
 Validación realizada: sintaxis, estructura, referencias, estilos, identidad y flujo de datos.

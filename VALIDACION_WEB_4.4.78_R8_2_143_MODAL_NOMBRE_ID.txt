@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.79 · R8.2.144
+E-FLEET WEB 4.4.80 · R8.2.145
 MODAL ALERTAS / NOTIFICACIONES · NOMBRE + ID
 
 CAMBIO
@@ -15,5 +15,5 @@ CAMBIO
 - Abrir el modal NO marca automáticamente el aviso como leído.
 
 VALIDACIÓN
-- node --check efleet-4.4.79.js: OK.
+- node --check efleet-4.4.80.js: OK.
 - No se modifica flotas-api ni SQL.

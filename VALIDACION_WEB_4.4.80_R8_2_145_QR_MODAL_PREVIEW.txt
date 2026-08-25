@@ -1,0 +1,12 @@
+E-FLEET WEB 4.4.80 · R8.2.145
+
+CORRECCIÓN QR EN MODAL / ETIQUETA 100 x 50 mm
+- La vista previa ya no muestra el payload QR completo en tipografía gigante.
+- La patente pasa a ser el dato principal visible.
+- Se muestran descripción del vehículo e ID en líneas separadas.
+- El contenido QR completo queda en texto pequeño, sin dominar la etiqueta.
+- El QR queda centrado dentro de un marco cuadrado y no se recorta.
+- La etiqueta mantiene proporción física 2:1 (100 x 50 mm).
+- La impresión conserva el payload QR exacto y usa 34 x 34 mm con margen de seguridad.
+- Diseño adaptable a escritorio y pantallas pequeñas.
+- No cambia flotas-api ni SQL.
