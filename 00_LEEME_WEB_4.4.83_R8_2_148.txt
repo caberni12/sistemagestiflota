@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM
+WEB 4.4.83 · R8.2.148
+
+CAMBIO PRINCIPAL
+- Check-in vehicular incorpora filtro diario visible antes de las tarjetas de asignación.
+- Día por defecto: HOY (America/Santiago).
+- Botones: Aplicar filtro / Hoy / Ayer / Ver todos.
+- Las tarjetas vigentes de otros días no se mezclan con la vista diaria.
+- El mismo filtro se aplica a las inspecciones y contadores de la pantalla Check-in.
+- El filtro es visual: no cancela, no elimina y no altera la vigencia operacional de la asignación.
+- La selección queda persistida por usuario.
+
+PUBLICACION
+Subir el contenido de este ZIP conservando la estructura de archivos.

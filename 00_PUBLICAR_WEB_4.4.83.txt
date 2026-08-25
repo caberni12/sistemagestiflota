@@ -1,0 +1,5 @@
+E-FLEET WEB 4.4.83
+1. Reemplace la Web anterior por el contenido de este paquete.
+2. Verifique que checkin-vehicular.html cargue efleet-4.4.83.css y efleet-4.4.83.js.
+3. Abra Check-in vehicular: el filtro Día debe aparecer antes de las tarjetas.
+4. Por defecto debe mostrar HOY; pruebe Ayer y Ver todos.

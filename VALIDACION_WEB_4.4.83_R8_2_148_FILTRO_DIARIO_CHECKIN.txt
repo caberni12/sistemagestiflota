@@ -1,0 +1,12 @@
+E-FLEET WEB 4.4.83 · R8.2.148
+
+CHECK-IN VEHICULAR · FILTRO DIARIO
+- Filtro visible inmediatamente antes de las tarjetas de asignación.
+- Día por defecto: hoy (America/Santiago).
+- Acciones: Aplicar filtro, Hoy, Ayer y Ver todos.
+- Las tarjetas vigentes de otros días NO se muestran en la vista diaria.
+- Ver todos permite consultar todas las asignaciones vigentes.
+- Las inspecciones y sus KPI de la pantalla usan el mismo filtro de día.
+- El filtro queda guardado por usuario.
+- El filtro solo cambia la VISUALIZACIÓN; no cancela ni elimina asignaciones.
+- Se conservan las reglas de vigencia operativa y empresa_id.

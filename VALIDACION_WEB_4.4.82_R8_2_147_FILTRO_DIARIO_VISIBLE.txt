@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.82 · R8.2.147
+E-FLEET WEB 4.4.83 · R8.2.147
 FILTRO DIARIO VISIBLE EN ALERTAS Y NOTIFICACIONES
 
 CORRECCION
@@ -8,11 +8,11 @@ CORRECCION
 - Controles visibles: selector Día, Aplicar filtro, Hoy, Ayer, Ver todos.
 - El filtro se comparte con la vista interna mediante la misma clave localStorage por usuario/sección.
 - Al aplicar un día, el shell fuerza recarga del módulo para evitar una vista antigua conservada en memoria.
-- Se actualizó la versión interna del shell de 4.4.55 a 4.4.82 para que el iframe reciba la versión vigente.
+- Se actualizó la versión interna del shell de 4.4.55 a 4.4.83 para que el iframe reciba la versión vigente.
 - Se mantienen también los filtros internos de Alertas/Notificaciones para acceso directo a esas páginas.
 
 VALIDACION ESTATICA
-- efleet-4.4.82.js: node --check OK.
+- efleet-4.4.83.js: node --check OK.
 - main.html contiene barraFiltroAvisosShell.
-- Todos los HTML apuntan a efleet-4.4.82.css / efleet-4.4.82.js.
+- Todos los HTML apuntan a efleet-4.4.83.css / efleet-4.4.83.js.
 - No quedan referencias 4.4.81 en HTML/JS/CSS.
