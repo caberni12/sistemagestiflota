@@ -1,0 +1,41 @@
+E-FLEET WEB 4.4.75 · R8.2.136
+================================
+CORRECCIÓN FINAL: FILTROS COMPACTOS Y DASHBOARD DE GEOCERCA
+
+Geocerca:
+1. El bloque "Visitas, permanencia y eventos" utiliza ahora un filtro compacto.
+2. Desde, Hasta, Persona, Rol, Período rápido y Aplicar filtros forman una composición continua, sin el espacio vacío anterior.
+3. Los períodos Día, 7 días, Mes y Año muestran visualmente cuál fue seleccionado.
+4. En tablet los controles se reorganizan en dos filas; en móvil se apilan y conservan botones amplios.
+5. El dashboard aparece primero al abrir el módulo.
+6. En escritorio, el mapa queda a la izquierda y los KPI compactos a la derecha.
+7. En pantallas pequeñas, mapa y KPI se apilan sin desbordar el contenido.
+8. Los filtros, gráficos, ranking y eventos se muestran debajo del dashboard principal.
+9. El domicilio se identifica con una casita; el GPS actual se muestra como un punto independiente.
+10. Se conserva el círculo azul del radio y, al seguir una persona, la línea GPS ↔ domicilio.
+11. La relación canónica es empresa_id + usuario_id. conductor_id se usa solo como respaldo de registros heredados.
+12. El mapa, KPI, gráficos y tablas usan la misma empresa activa.
+13. El resumen se solicita sin caché para mostrar la información vigente.
+14. El ranking excluye perfiles administrativos y de gerencia.
+15. Ranking y eventos tienen desplazamiento interno y cabecera visible en escritorio.
+16. Se corrigió el selector CSS que apuntaba a table-wrapper, aunque la aplicación genera table-wrap.
+
+Usuarios:
+17. El formulario incluye mapa callejero a color para seleccionar el domicilio exacto.
+18. Al tocar o arrastrar la casita se capturan dirección, latitud y longitud.
+19. El GPS reciente aparece en verde; una última posición confiable retenida aparece en ámbar.
+20. El GPS en línea no reemplaza el domicilio hasta que el operador lo selecciona explícitamente.
+21. El radio configurado acompaña a la casita.
+22. El flujo funciona en navegador de escritorio, navegador móvil y WebView Android.
+
+Compatibilidad:
+- Backend requerido: flotas-api 4.5.15.
+- Android compatible incluido en el paquete completo: 3.5.42 / V482 / R8.2.134.
+- Se mantienen los mapas y servicios gratuitos ya integrados.
+- La caché física 4.4.75 evita reutilizar JavaScript o CSS anteriores.
+
+Archivos principales:
+- efleet-4.4.75.css
+- efleet-4.4.75.js
+- geocerca.html
+- usuarios.html
