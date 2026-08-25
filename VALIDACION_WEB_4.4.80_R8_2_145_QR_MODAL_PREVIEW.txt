@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.80 · R8.2.145
+E-FLEET WEB 4.4.81 · R8.2.146
 
 CORRECCIÓN QR EN MODAL / ETIQUETA 100 x 50 mm
 - La vista previa ya no muestra el payload QR completo en tipografía gigante.

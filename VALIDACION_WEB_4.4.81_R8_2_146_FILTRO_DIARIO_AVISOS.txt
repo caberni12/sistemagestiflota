@@ -1,0 +1,15 @@
+E-FLEET WEB 4.4.81 · R8.2.146
+
+CAMBIO
+- Alertas y Notificaciones incorporan filtro diario persistente.
+- Por defecto muestran el día actual (America/Santiago).
+- Controles rápidos: Hoy, Ayer, Ver todo.
+- La selección persiste por usuario y por módulo.
+- El Centro de notificaciones de la campanita también incorpora filtro diario.
+- Al abrir Ver notificaciones / Ver alertas desde la campanita se conserva el día seleccionado.
+- El filtro afecta tarjetas, KPI visibles y tabla/historial del módulo.
+
+VALIDACIÓN
+- JavaScript validado con node --check.
+- Todos los HTML apuntan a efleet-4.4.81.css y efleet-4.4.81.js.
+- No requiere cambios en flotas-api ni SQL.

@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.80 · R8.2.145
+E-FLEET WEB 4.4.81 · R8.2.146
 VALIDACION QR CHECK-IN PDF
 
 - QR del vehículo agregado al PDF/impresión del Check-in.
