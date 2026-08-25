@@ -1,0 +1,9 @@
+E-FLEET WEB 4.4.87 · R8.2.155 · NEXO IA MANTENIMIENTO PREDICTIVO
+
+- Pronóstico por KM actual + historial validado de kilometraje.
+- Promedios robustos 7/30/90 días, tendencia y confianza.
+- Fecha probable y ventana estimada de próxima mantención.
+- Recomendaciones preventivas con contexto de Check-in, testigos, fallas repetidas e historial.
+- Pendientes a 7/14/30 días aunque resten más de 1.000 km.
+- Programación automática bajo reglas seguras del servidor.
+- Conserva Check-in IA por fotos/voz, odómetro automático, tablero/daños y PDF moderno.

@@ -1,0 +1,5 @@
+PUBLICAR WEB 4.4.87 · R8.2.155
+1. Publicar primero SQL 14 y flotas-api 4.5.19.
+2. Reemplazar la Web por esta carpeta completa.
+3. Limpiar caché/service worker si el navegador conserva assets anteriores.
+4. Verificar NEXO IA > Mantenciones predictivas y Check-in IA.
