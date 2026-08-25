@@ -1,0 +1,19 @@
+E-FLEET WEB 4.4.79 · R8.2.144
+MODAL ALERTAS / NOTIFICACIONES · NOMBRE + ID
+
+CAMBIO
+- Al pinchar una alerta o notificación, el modal de detalle conserva la vista ampliada.
+- Las referencias ya no muestran solamente IDs.
+- Vehículo: PATENTE / marca-modelo + ID.
+- Conductor: NOMBRE / RUT cuando está disponible + ID.
+- Ruta: NOMBRE o destino + ID.
+- Operación: nombre/tipo/destino disponible + ID.
+- Check-in: patente + conductor cuando están disponibles + ID.
+- Usuario destinatario: nombre + ID.
+- El modal carga de forma segura los catálogos permitidos y usa datos del propio aviso como respaldo.
+- Si un catálogo no está autorizado para el rol, el detalle sigue abriendo y conserva al menos el ID y el nombre disponible en la alerta/notificación.
+- Abrir el modal NO marca automáticamente el aviso como leído.
+
+VALIDACIÓN
+- node --check efleet-4.4.79.js: OK.
+- No se modifica flotas-api ni SQL.

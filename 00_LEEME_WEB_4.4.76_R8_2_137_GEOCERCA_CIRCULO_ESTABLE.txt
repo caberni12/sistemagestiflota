@@ -1,4 +1,4 @@
-E-FLEET WEB 4.4.76 · R8.2.137
+E-FLEET WEB 4.4.79 · R8.2.144
 ================================
 CORRECCIÓN FINAL: CÍRCULO DE GEOCERCA ESTABLE Y DASHBOARD COMPACTO
 
@@ -36,10 +36,10 @@ Compatibilidad:
 - Backend requerido: flotas-api 4.5.15.
 - Android compatible incluido en el paquete completo: 3.5.42 / V482 / R8.2.134.
 - Se mantienen los mapas y servicios gratuitos ya integrados.
-- La caché física 4.4.76 evita reutilizar JavaScript o CSS anteriores.
+- La caché física 4.4.79 evita reutilizar JavaScript o CSS anteriores.
 
 Archivos principales:
-- efleet-4.4.76.css
-- efleet-4.4.76.js
+- efleet-4.4.79.css
+- efleet-4.4.79.js
 - geocerca.html
 - usuarios.html

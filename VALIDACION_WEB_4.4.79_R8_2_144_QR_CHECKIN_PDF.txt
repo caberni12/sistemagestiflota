@@ -1,0 +1,19 @@
+E-FLEET WEB 4.4.79 · R8.2.144
+VALIDACION QR CHECK-IN PDF
+
+- QR del vehículo agregado al PDF/impresión del Check-in.
+- QR centrado horizontalmente en bloque propio.
+- Tamaño visual QR: 38 mm x 38 mm dentro de marco de 40 mm.
+- Corrección de errores QR: nivel H.
+- Zona de silencio: margen 4 módulos.
+- Render con shape-rendering: crispEdges para evitar suavizado.
+- Bloque protegido contra cortes de página.
+- Código QR y patente visibles debajo del QR.
+- El contenido QR reutiliza QR_CODIGO del vehículo o VEH-{PATENTE}; no crea un formato incompatible.
+- No se modifican flotas-api ni SQL.
+
+VALIDACION VISUAL REALIZADA
+- Muestra A4 renderizada a imagen: OK.
+- Centro geométrico del QR: 105 mm (centro exacto de una hoja A4 de 210 mm).
+- El QR no se deforma y conserva relación 1:1.
+- Lectura automática de la muestra renderizada: OK -> VEH-GLJD30.
