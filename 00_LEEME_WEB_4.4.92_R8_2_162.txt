@@ -1,0 +1,13 @@
+E-FLEET WEB 4.4.92 · R8.2.162
+
+CHECK-IN ODOMETRO TOLERANTE + REVISION HUMANA RAPIDA
+- Los 18 puntos están siempre visibles.
+- NEXO prellena únicamente puntos realmente verificables por fotografía; los demás quedan pendientes.
+- La revisión humana de los 18 puntos es obligatoria antes de guardar.
+- Después del prellenado se habilita “✓ Marcar pendientes como Conforme”; rellena solo respuestas vacías y nunca cambia una falla NEXO.
+- Foto de tablero/odómetro en alta calidad hasta 3072 px / JPEG 0.96.
+- La API puede aceptar una lectura visible/coherente con confianza moderada y consenso entre lecturas.
+- Las 5 evidencias se suben en paralelo y las 4 exteriores se reutilizan si hay que repetir solo el tablero.
+- Barra de progreso por etapas; 100% únicamente con guardado central confirmado y ✓ verde.
+- El cliente mantiene una solicitud estable durante el formulario para reintentos idempotentes.
+- Aislamiento estricto por empresa_id de la sesión activa.

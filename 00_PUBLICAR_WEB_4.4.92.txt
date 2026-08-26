@@ -1,0 +1,8 @@
+E-FLEET WEB 4.4.92 · R8.2.162 · CONFIRMACIÓN KM ODÓMETRO
+
+- NEXO analiza la foto y propone el KM.
+- El valor queda visible pero NO definitivo.
+- Aparece una confirmación separada: el usuario debe confirmar que el KM coincide con la foto.
+- Sin esa confirmación no se envía el Check-in al servidor.
+- Los 18 controles mantienen su revisión humana independiente.
+- Duplicados continúan por sobrescritura/actualización en flotas-api.
