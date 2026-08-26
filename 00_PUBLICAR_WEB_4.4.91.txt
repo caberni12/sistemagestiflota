@@ -1,0 +1,15 @@
+E-FLEET WEB 4.4.91 · R8.2.159 · CHECK-IN ODOMETRO TOLERANTE + MARCADO RAPIDO
+1. NO requiere SQL nuevo; conserva esquema R8.2.156 / incremental 15.
+2. Publicar primero flotas-api 4.5.23 conservando los secretos OpenAI.
+3. Publicar esta carpeta Web 4.4.91 completa.
+4. Limpiar caché/service worker si el navegador conserva assets anteriores.
+
+Correcciones principales:
+- 18 puntos siempre visibles y revisión humana obligatoria 18/18.
+- NEXO prellena solo lo realmente verificable visualmente.
+- “Marcar pendientes como Conforme” se habilita después del análisis IA y no sobrescribe fallas NEXO.
+- Odómetro más tolerante con lectura general + especializada, consenso y lectura única plausible.
+- Al validar el KM, flotas-api actualiza km_actual del vehículo.
+- Reutilización de 4 fotos exteriores si debe repetirse solo tablero.
+- Reintentos idempotentes para no mostrar REGISTRO_DUPLICADO si el Check-in ya existe.
+- Progreso real y ✓ Check-in confirmado únicamente tras persistencia central.
