@@ -1,0 +1,11 @@
+E-FLEET WEB 4.4.94 · R8.2.165
+
+ELIMINACIÓN CONTROLADA DE CHECK-IN + AUDITORÍA
+- Solo Administrador y Gerencia pueden ver y usar “Eliminar Check-in”.
+- Además del rol, se exige el permiso efectivo CHECKIN:ELIMINAR.
+- El botón aparece en el listado de Check-in y dentro del detalle de la inspección.
+- Antes de eliminar se exige un motivo obligatorio.
+- La eliminación es lógica: el Check-in deja de aparecer en los listados normales sin destruir la trazabilidad.
+- La acción queda registrada en Auditoría con usuario, rol, empresa, vehículo/patente, conductor, kilometraje, fecha original, motivo y resumen previo.
+- Si la inspección sostenía una asignación CHECKIN_LISTO, esa asignación vuelve a CHECKIN_PENDIENTE.
+- Se mantienen las mejoras anteriores: odómetro NEXO con confirmación humana, duplicados que sobrescriben sin bloquear y check maestro “Marcar los 18 como Conforme”.

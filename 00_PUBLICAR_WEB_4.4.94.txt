@@ -1,0 +1,9 @@
+PUBLICAR E-FLEET WEB 4.4.94 · R8.2.165
+
+1. Publique primero flotas-api 4.5.28.
+2. Reemplace la Web por el contenido completo de esta carpeta para evitar mezcla de caché.
+3. Verifique con un usuario Administrador y otro Gerencia que aparezca “Eliminar Check-in”.
+4. Verifique con Operador/Conductor que el botón no aparezca.
+5. Elimine un registro de prueba indicando motivo y confirme el evento ELIMINAR_CHECKIN en Auditoría.
+
+No requiere SQL nuevo.
