@@ -1,0 +1,7 @@
+E-FLEET WEB 4.4.88 · R8.2.156
+1. Ejecutar SQL 15 R8.2.156.
+2. Publicar flotas-api 4.5.20.
+3. Publicar esta carpeta Web 4.4.88 completa.
+4. Limpiar caché/service worker si el navegador conserva archivos anteriores.
+
+Incluye NEXO IA Combustible Inteligente, consulta administrativa de documentos y aislamiento estricto por empresa_id.

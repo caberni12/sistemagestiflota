@@ -1,0 +1,9 @@
+E-FLEET WEB 4.4.88 · R8.2.156
+
+- Combustible con 8 KPIs NEXO IA, ranking por vehículo/conductor/estación y análisis de anomalías.
+- KM manual únicamente para Administrador/Gerencia. Demás perfiles: fotografía actual del odómetro.
+- Foto de odómetro solicita cámara; NEXO lee KM y analiza testigos del tablero.
+- Boleta analizada por NEXO/OpenAI y validada nuevamente por reglas matemáticas e historial del backend.
+- NEXO Administrador/Gerencia: consulta de conductores con documentos vencidos y próximos a vencer.
+- Desglose por conductor, documento, vencimiento, días y prioridad.
+- Aislamiento estricto por empresa_id de la sesión activa.
