@@ -1,0 +1,9 @@
+E-FLEET WEB 4.4.97 · R8.2.170
+NEXO IA FLOTANTE GLOBAL
+
+- Botón circular Nexo IA visible sobre todos los módulos Web autenticados.
+- Panel rápido con Chat, Voz, consulta y acceso al Centro Nexo IA.
+- Administrador/Gerencia: acceso rápido “Analizar todo e informar a Gerencia”.
+- NEXO usa flotas-api; las claves OpenAI/Gemini nunca se guardan en Web.
+- No cambia SQL.
+- Mantiene Check-in 18 iconos, 4 fotos exteriores libres + foto 5 odómetro y eliminación Web con Auditoría.

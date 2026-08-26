@@ -1,0 +1,5 @@
+PUBLICAR E-FLEET WEB 4.4.97 · R8.2.170
+
+Subir todos los archivos de esta carpeta.
+Publicar antes flotas-api 4.5.32 para habilitar análisis Nexo OpenAI + Gemini.
+Limpiar caché/PWA anterior si el navegador conserva 4.4.96.
