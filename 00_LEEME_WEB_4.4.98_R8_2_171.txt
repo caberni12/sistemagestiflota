@@ -1,0 +1,8 @@
+E-FLEET WEB 4.4.98 · R8.2.171 · NEXO CHAT FLOTANTE CON PODERES DEL CENTRO
+
+- Botón Nexo IA circular flotante con anillo exterior giratorio y brillo.
+- Chat flotante usa el mismo endpoint, permisos, empresa_id y funciones del Centro Inteligente.
+- Puede responder preguntas, analizar datos, ejecutar análisis integral, generar reportes y revisión segura.
+- Administrador/Gerencia pueden ordenar desde el chat el envío de alertas y notificaciones a Gestión.
+- Alertas/notificaciones de IA son informativas y no bloquean Check-in.
+- OpenAI y Gemini continúan como motores internos coordinados por Nexo IA.
