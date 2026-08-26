@@ -1,0 +1,7 @@
+E-FLEET WEB 4.4.89 · R8.2.157 · HOTFIX CHECK-IN ODOMETRO IA FLUIDO
+1. NO requiere SQL nuevo; conserva el esquema R8.2.156.
+2. Publicar primero flotas-api 4.5.21.
+3. Publicar esta carpeta Web 4.4.89 completa.
+4. Limpiar caché/service worker si el navegador conserva assets 4.4.88.
+
+Correcciones: segundo intento automático de lectura de odómetro, recuperación guiada de quinta fotografía, checklist IA sin 18 selectores manuales para Conductor/Supervisor GEO y combustible determinado por NEXO IA.
