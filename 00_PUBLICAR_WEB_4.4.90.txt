@@ -1,0 +1,12 @@
+E-FLEET WEB 4.4.90 · R8.2.158 · CHECK-IN IA REVISION HUMANA ODOMETRO RAPIDO
+1. NO requiere SQL nuevo; conserva esquema R8.2.156 / incremental 15.
+2. Publicar primero flotas-api 4.5.22.
+3. Publicar esta carpeta Web 4.4.90 completa.
+4. Limpiar caché/service worker si el navegador conserva assets anteriores.
+
+Correcciones principales:
+- 18 puntos siempre visibles y revisión humana obligatoria 18/18.
+- NEXO prellena solo lo realmente verificable visualmente.
+- Odómetro de alta resolución con relecturas especializadas en paralelo.
+- Reutilización de 4 fotos exteriores si debe repetirse solo tablero.
+- Progreso real y ✓ Check-in confirmado únicamente tras persistencia central.

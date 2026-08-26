@@ -1,0 +1,17 @@
+E-FLEET WEB 4.4.90 · R8.2.158
+
+CHECK-IN IA + REVISION HUMANA
+- Los 18 puntos están siempre visibles.
+- NEXO prellena únicamente puntos realmente verificables por fotografía; los demás quedan pendientes.
+- La revisión humana de los 18 puntos es obligatoria antes de guardar.
+- Se conserva trazabilidad IA vs revisión humana en servidor.
+- Foto de tablero/odómetro en alta calidad hasta 3072 px / JPEG 0.96.
+- Las 5 evidencias se suben en paralelo y las 4 exteriores se reutilizan si hay que repetir solo el tablero.
+- Barra de progreso por etapas; 100% únicamente con guardado central confirmado y ✓ verde.
+
+FUNCIONES CONSERVADAS
+- Combustible con KPIs NEXO IA, análisis de boletas, precio, rendimiento y anomalías.
+- KM manual de Combustible únicamente para Administrador/Gerencia; demás perfiles usan cámara.
+- NEXO Administrador/Gerencia consulta documentos de conductores vencidos/próximos.
+- Mantenimiento predictivo, tablero/testigos, daños, voz y PDF de Check-in.
+- Aislamiento estricto por empresa_id de la sesión activa.
