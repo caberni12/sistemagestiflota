@@ -1,0 +1,8 @@
+E-FLEET WEB 4.5.05 · R8.2.183 · HOTFIX CNE MAPA COMBUSTIBLE
+
+- Estaciones oficiales CNE/Bencina en Línea en mapa y panel lateral.
+- Logo de distribuidor y precio del combustible elegido sobre cada estación cuando CNE lo informa.
+- Radio oficial 2 km; detección automática 300 m.
+- Si CNE falla, muestra el error real/token; no lo confunde con “sin estaciones”.
+- Si CNE responde pero el GPS queda fuera del radio, muestra coordenadas, precisión y distancia de la estación oficial más cercana.
+- Precio CNE se propone automáticamente pero permanece editable.

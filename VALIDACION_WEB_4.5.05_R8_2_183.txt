@@ -1,0 +1,7 @@
+VALIDACION WEB 4.5.05 · R8.2.183
+[OK] JS principal parsea con node --check.
+[OK] mapa Combustible usa OpenStreetMap sin CARTO.
+[OK] layout mapa + panel lateral CNE.
+[OK] logos/precios CNE visibles en tarjetas y marcadores.
+[OK] estado vacío distingue error CNE de GPS sin estaciones dentro de 2 km.
+[OK] precio por litro sigue editable.
