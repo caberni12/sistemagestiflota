@@ -1,2 +1,2 @@
-WEB 4.5.09 requiere flotas-api 4.5.47 (o una versión posterior que conserve el mismo contrato CNE).
-La 4.5.47 parte de la 4.5.45 estable y solo corrige la interpretación de precios CNE 1542.000 -> 1542 y expone detalle de precio.
+WEB 4.5.10 requiere flotas-api 4.5.48 (o una versión posterior que conserve el mismo contrato CNE).
+La 4.5.48 parte de la 4.5.45 estable y solo corrige la interpretación de precios CNE 1542.000 -> 1542 y expone detalle de precio.
