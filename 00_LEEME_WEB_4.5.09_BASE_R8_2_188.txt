@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.09 · R8.2.188
+
+HOTFIX COMBUSTIBLE CNE:
+- Mantiene flotas-api 4.5.45 estable, sin cambiar autenticación ni endpoints CNE.
+- Corrige panel derecho vacío: la lista se renderiza siempre, incluso cuando el GPS detecta una estación automáticamente.
+- Modal de combustible adaptado al monitor.
+- Mapa amplio a la izquierda + estaciones oficiales CNE a la derecha, inspirado funcionalmente en Bencina en Línea.
+- Panel derecho muestra logo/marca, precio del combustible seleccionado, distancia, dirección, estado, precios 93/95/97/DI y acciones Seleccionar/Mapa/Navegar.
+- Selector rápido 93/95/97/DI sincronizado con el tipo de combustible del formulario.
+- El precio CNE se propone automáticamente pero sigue editable.
+
+NO CAMBIAR flotas-api 4.5.45 si ya está funcionando.
