@@ -1,0 +1,5 @@
+R8.2.186
+
+NO DESPLEGAR UNA NUEVA flotas-api POR ESTE CAMBIO.
+Mantener flotas-api 4.5.45 RESTAURADA CNE FUNCIONAL, que ya usa el flujo probado de CNE.
+Esta entrega corrige solamente la Web y el panel lateral del modal Combustible.
