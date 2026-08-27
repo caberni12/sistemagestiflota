@@ -1,0 +1,1 @@
+﻿Publicar todos los archivos de esta carpeta. Después realizar recarga forzada/limpieza de Service Worker si existe caché anterior.

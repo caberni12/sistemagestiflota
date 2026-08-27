@@ -1,0 +1,2 @@
+﻿flotas-api mínima requerida: 4.5.50
+CNE_API_TOKEN debe contener el token CNE sin prefijo Bearer.
