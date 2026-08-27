@@ -1,0 +1,4 @@
+PUBLICACION WEB 4.5.04
+Suba todos los archivos de esta carpeta al hosting Web sustituyendo la versión anterior.
+Realice recarga forzada/limpieza del Service Worker para evitar assets de la versión anterior en caché.
+La credencial CNE NO va en Web: configure CNE_API_TOKEN en Supabase Edge Function Secrets.

@@ -1,8 +1,8 @@
-E-FLEET WEB 4.5.02 · R8.2.180
-
-Cambios:
-- Combustible muestra varias estaciones cercanas en tarjetas profesionales.
-- Identidad visual por marca: COPEC, Shell, Aramco, Petrobras, Terpel, Enex y genérica.
-- Cada tarjeta ofrece Seleccionar, Mapa y Navegar.
-- Los pines del mapa usan la sigla visual devuelta por flotas-api.
-- NEXO mantiene el chat global; preguntas libres son resueltas por Gemini desde flotas-api 4.5.41.
+E-FLEET WEB 4.5.04 · R8.2.182
+Combustible CNE / Bencina en Línea oficial
+- búsqueda GPS de estaciones hasta 2 km;
+- múltiples opciones ordenadas por distancia;
+- logo, marca, dirección y precio oficial cuando CNE lo informa;
+- el precio CNE se propone automáticamente y PRECIO_LITRO queda editable;
+- se conserva auditoría de referencia CNE y diferencia;
+- NEXO conserva todas sus funciones y acceso directo a Combustible.
