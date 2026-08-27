@@ -1,0 +1,8 @@
+VALIDACION WEB 4.4.99 · R8.2.175
+[OK] efleet-4.4.99.js pasa node --check
+[OK] checklist-ia-4.4.99.js pasa node --check
+[OK] nexo-floating-4.4.99.js pasa node --check
+[OK] Nexo flotante conserva anillo giratorio y añade gesto orbital ocasional respetando prefers-reduced-motion
+[OK] Nexo flotante renderiza documentos encontrados y permite previsualizar PDF/imágenes con URL temporal revalidada
+[OK] Referencias de assets 4.4.98 sustituidas por 4.4.99
+[OK] Gemini queda como único motor externo coordinado por NEXO
