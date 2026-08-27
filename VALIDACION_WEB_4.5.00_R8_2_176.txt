@@ -1,0 +1,10 @@
+VALIDACION WEB 4.5.00 · R8.2.176
+[OK] nexo-floating-4.5.00.js sintaxis.
+[OK] efleet-4.5.00.js sintaxis.
+[OK] 0 referencias locales faltantes en HTML.
+[OK] 0 referencias activas a Web 4.4.99.
+[OK] Botones: Documentos de mi flota / Documentos de mis vehículos.
+[OK] Modos rápidos: Licencia por RUT / Papeles por patente.
+[OK] + / − pliega acciones secundarias para no tapar el chat.
+[OK] El flotante renderiza documentos tanto desde respuesta.documentos como desde datos.documentos.
+[OK] Tarjetas PDF muestran botón Ver PDF y vista segura temporal.
