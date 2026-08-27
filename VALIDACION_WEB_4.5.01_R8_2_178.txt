@@ -1,0 +1,9 @@
+VALIDACION WEB 4.5.01 · R8.2.178
+[OK] efleet-4.5.01.js pasa node --check
+[OK] checklist-ia-4.5.01.js pasa node --check
+[OK] acción fuelNearbyStations conectada a buscarPuntosCombustibleCercanos
+[OK] captura GPS no bloqueante
+[OK] búsqueda automática 300 m / ampliada 1 km
+[OK] selección de estación, mapa y navegación
+[OK] campos GPS incluidos en FormData de una carga nueva
+[OK] edición histórica no reemplaza la ubicación original

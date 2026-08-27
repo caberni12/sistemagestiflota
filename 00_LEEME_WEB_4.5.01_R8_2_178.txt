@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.01 · R8.2.178 · COMBUSTIBLE GPS / ESTACIONES CERCANAS
+
+- Mantiene NEXO IA flotante global y Gemini como único proveedor externo de IA.
+- Combustible captura GPS al abrir un registro nuevo.
+- Busca estaciones a 300 m y amplía hasta 1 km.
+- Botón “Buscar puntos de combustible cercanos”.
+- Muestra estaciones en mapa y permite seleccionar/navegar.
+- Guarda coordenadas, precisión, fecha GPS, dirección y estación detectada/seleccionada.
+- No bloquea cargas sin estación; las marca para validación.
+- NEXO/Gemini compara la estación de la boleta con la estación asociada por ubicación.
+- Una diferencia genera revisión y nunca acusación automática de fraude.
+- Toda lectura/escritura operacional conserva empresa_id de la sesión.
