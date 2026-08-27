@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.06 · R8.2.185 · VALIDACION
+
+[OK] JavaScript efleet-4.5.06.js parsea con Node --check.
+[OK] combustible.html referencia efleet-4.5.06.css/js.
+[OK] Modal Combustible agrega clases fuel-modal-open / fuel-modal.
+[OK] Modal escritorio: ancho hasta 97vw, alto hasta 95vh.
+[OK] Mapa CNE se adapta al alto disponible y panel lateral usa scroll propio.
+[OK] Web consume y muestra campos ya devueltos por flotas-api 4.5.45:
+     CODIGO_CNE, MARCA, RAZON_SOCIAL, LOGO_URL, DIRECCION, COMUNA, REGION,
+     EN_MANTENIMIENTO, HORARIO_ATENCION, SERVICIOS, METODOS_PAGO, PRECIOS_CNE.
+[OK] Precio del combustible seleccionado se carga como referencia CNE y permanece editable.
+[OK] No se modifica autenticacion CNE ni flotas-api.

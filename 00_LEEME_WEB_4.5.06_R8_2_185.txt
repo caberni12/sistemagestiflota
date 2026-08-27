@@ -1,0 +1,9 @@
+E-FLEET WEB 4.5.06 · R8.2.185
+
+HOTFIX MODAL COMBUSTIBLE + CNE
+- Modal Informar combustible se adapta al monitor: hasta 97vw / 95vh.
+- Mapa CNE usa el espacio disponible del monitor y crece hasta 820 px de alto en pantallas grandes.
+- Panel lateral muestra información oficial completa ya recibida desde flotas-api 4.5.45: marca/logo, razón social, código CNE, dirección, comuna/región, estado de mantenimiento, horario, precios, servicios y medios de pago.
+- Tarjetas permiten Ver información, Seleccionar, Mapa y Navegar.
+- Precio CNE del combustible elegido continúa cargándose automáticamente y permanece editable.
+- NO cambia la autenticación CNE ni flotas-api. Esta Web está diseñada para flotas-api 4.5.45 restaurada.
