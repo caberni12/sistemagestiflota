@@ -1,0 +1,9 @@
+VALIDACION WEB 4.5.02 · R8.2.180
+[OK] assets 4.5.02 referenciados.
+[OK] NEXO chat libre habilitado para usuarios autenticados.
+[OK] texto de interfaz informa que Gemini responde preguntas generales/fuera de E-fleet.
+[OK] Combustible muestra tarjetas profesionales por estación.
+[OK] insignias visuales por marca y fallback genérico.
+[OK] acciones por tarjeta: Seleccionar, Mapa y Navegar.
+[OK] pines del mapa usan identidad visual devuelta por API.
+[OK] JavaScript parseado correctamente con node --check.
