@@ -1,0 +1,2 @@
+WEB 4.5.08 requiere flotas-api 4.5.46 (o una versión posterior que conserve el mismo contrato CNE).
+La 4.5.46 parte de la 4.5.45 estable y solo corrige la interpretación de precios CNE 1542.000 -> 1542 y expone detalle de precio.

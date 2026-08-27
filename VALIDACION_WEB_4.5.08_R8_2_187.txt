@@ -1,0 +1,11 @@
+E-FLEET WEB 4.5.08 · R8.2.187 · VALIDACION
+
+[OK] efleet-4.5.08.js parsea con Node --check.
+[OK] checklist-ia-4.5.08.js parsea con Node --check.
+[OK] nexo-floating-4.5.08.js parsea con Node --check.
+[OK] HTML no contiene referencias locales faltantes.
+[OK] No quedan referencias a assets 4.5.06.
+[OK] Panel derecho CNE se renderiza siempre, incluso con detección GPS automática.
+[OK] Panel muestra estación, marca/logo, precio seleccionado, distancia, dirección y precios 93/95/97/DI disponibles.
+[OK] Selector rápido 93/95/97/DI sincroniza el tipo de combustible del formulario.
+[OK] Se mantiene flotas-api 4.5.45 sin cambios.

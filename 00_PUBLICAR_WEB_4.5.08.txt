@@ -1,0 +1,5 @@
+PUBLICAR WEB 4.5.08
+1. Reemplazar TODOS los archivos de la Web anterior por esta carpeta.
+2. No mezclar assets 4.5.04 y 4.5.08.
+3. Limpiar caché/Service Worker del navegador después de publicar.
+4. Publicar flotas-api 4.5.44 junto a esta Web para diagnóstico CNE completo.

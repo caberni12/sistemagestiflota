@@ -1,0 +1,10 @@
+E-FLEET WEB 4.5.08 · R8.2.187 · CNE PRECIOS + MAPA FINAL
+
+- Modal Informar combustible adaptable al monitor (hasta 97vw / 95vh).
+- Mapa grande a la izquierda y panel permanente de estaciones CNE a la derecha.
+- Lee precios oficiales 93 / 95 / 97 / DI desde /api/v4/estaciones.
+- Corrige el formato decimal CNE: "1542.000" se interpreta como $1542/L, no $1.542.000.
+- Muestra marca, logo, dirección, comuna, región, distancia, estado, servicios, medios de pago y actualización del precio.
+- El precio seleccionado se precarga pero permanece editable.
+- Radio de búsqueda 2 km; detección automática prioritaria hasta 300 m.
+- Requiere flotas-api 4.5.46 o compatible.
