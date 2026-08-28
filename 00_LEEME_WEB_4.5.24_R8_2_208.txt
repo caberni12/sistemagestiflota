@@ -1,0 +1,7 @@
+E-FLEET WEB 4.5.24 · R8.2.208
+
+Mantenciones incorpora botón “Orden de Trabajo” en la tabla y en las tarjetas de historial para usuarios con permiso de creación/actualización. Al emitir, el backend devuelve el PDF almacenado y el correlativo.
+
+Los buscadores de dirección usan mensajes genéricos de E-fleet; Gemini trabaja internamente solo si la coincidencia inicial es débil.
+
+Despliegue primero flotas-api 4.5.59.

@@ -1,0 +1,6 @@
+VALIDACIÓN WEB 4.5.24 · R8.2.208
+[OK] JavaScript pasa node --check.
+[OK] HTML apunta a efleet-4.5.24.css/js y nexo-floating-4.5.24.js.
+[OK] Orden de Trabajo limpia popup bloqueado de forma segura y abre URL firmada del PDF.
+[OK] Botón visible solo con permisos MANTENCIONES CREAR/ACTUALIZAR.
+[OK] Buscador de direcciones mantiene UI genérica E-fleet.
