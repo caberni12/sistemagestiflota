@@ -1,0 +1,15 @@
+E-FLEET WEB 4.5.26 · R8.2.208 CORREGIDO · NEXO RÁPIDO
+
+CORRECCIÓN CHAT FLOTANTE
+- Los cinco accesos del chat se agruparon en un único botón “Acciones rápidas”.
+- El menú se despliega solo cuando el usuario lo solicita y se cierra al elegir una opción, pulsar Escape o tocar fuera.
+- “Abrir Combustible” ya no navega directamente a combustible.html.
+- Combustible se abre mediante el panel autenticado de E-fleet, conservando la sesión y los permisos del usuario.
+
+El chat flotante solicita modo RAPIDO, conserva un único envío por consulta y espera hasta 55 segundos únicamente para permitir análisis explícitamente complejos. Las respuestas simples terminan antes por el límite interno de la API. Si existe un error de conexión, el texto escrito se restaura.
+
+Mantenciones incorpora botón “Orden de Trabajo” en la tabla y en las tarjetas de historial para usuarios con permiso de creación/actualización. Al emitir, el backend devuelve el PDF almacenado y el correlativo.
+
+Los buscadores de dirección usan mensajes genéricos de E-fleet; Gemini trabaja internamente solo si la coincidencia inicial es débil.
+
+Despliegue primero flotas-api 4.5.60.

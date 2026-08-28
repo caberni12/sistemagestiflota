@@ -1,0 +1,16 @@
+VALIDACIÓN WEB 4.5.26 · R8.2.208
+[OK] JavaScript pasa node --check.
+[OK] HTML apunta a efleet-4.5.26.css/js y nexo-floating-4.5.26.js.
+[OK] Orden de Trabajo limpia popup bloqueado de forma segura y abre URL firmada del PDF.
+[OK] Botón visible solo con permisos MANTENCIONES CREAR/ACTUALIZAR.
+[OK] Buscador de direcciones mantiene UI genérica E-fleet.
+[OK] Oficina Virtual y NEXO flotante solicitan NIVEL_ANALISIS=RAPIDO.
+[OK] officeAsk dispone de 55 segundos de transporte y no repite la consulta automáticamente.
+[OK] Si falla la consulta, el texto escrito vuelve al campo.
+[OK] Los 4 archivos JavaScript pasan node --check.
+[OK] Todas las referencias locales src/href apuntan a archivos existentes.
+[OK] El chat flotante muestra un único botón “Acciones rápidas” en estado cerrado.
+[OK] El desplegable conserva las 5 acciones solicitadas y permanece oculto hasta pulsar el botón.
+[OK] “Abrir Combustible” emite efleet:navegar-modulo con sección fuel.
+[OK] El panel valida sesión y permisos antes de abrir Combustible dentro del iframe autenticado.
+[OK] No queda navegación location.href/assign hacia combustible.html desde el chat.
