@@ -1,0 +1,1 @@
+﻿Publicar todos los archivos de esta carpeta, incluidos los nuevos fuel-brand-*.svg. Después realizar una recarga forzada y limpiar el Service Worker si existe caché anterior.

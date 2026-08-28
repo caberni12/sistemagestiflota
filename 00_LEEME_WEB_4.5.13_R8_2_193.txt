@@ -1,0 +1,17 @@
+﻿E-FLEET WEB 4.5.13 · R8.2.193
+
+Corrección integral del módulo Combustible Web:
+- eliminado el CSS inválido que desplazaba el mapa y ocultaba los filtros;
+- modal sin desbordamiento horizontal;
+- filtros Región / Comuna / Empresa-Marca arriba del mapa;
+- pestañas 93 / 95 / 97 / Diésel arriba;
+- mapa amplio a la izquierda y tarjetas compactas a la derecha;
+- diseño adaptable para escritorio, tablet y teléfono;
+- iconos locales de COPEC, Shell, Aramco, Petrobras, Terpel, Enex, Esso y Arco;
+- ningún marcador depende de una imagen externa que pueda quedar en blanco;
+- etiquetas del mapa visibles al pasar el cursor, enfocar o abrir un marcador;
+- hasta 60 estaciones más cercanas en el mapa para evitar superposición;
+- listado, selección, navegación, precios CNE y detección automática a 300 m preservados;
+- aislamiento multiempresa por empresa_id preservado.
+
+API requerida: flotas-api 4.5.50.
