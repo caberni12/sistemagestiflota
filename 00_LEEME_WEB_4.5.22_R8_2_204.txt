@@ -1,0 +1,4 @@
+E-FLEET WEB 4.5.22 · R8.2.204
+
+Clima actual incorpora filtro Región/Comuna y acciones superiores fijas.
+API requerida: flotas-api 4.5.55.

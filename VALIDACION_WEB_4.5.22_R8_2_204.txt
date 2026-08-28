@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.22 · R8.2.204
+
+CLIMA ACTUAL
+- Barra superior fija en el modal de pronóstico.
+- Filtros por Región y Comuna.
+- Botones Actualizar y Cerrar visibles en la parte superior.
+- "Ubicación actual (GPS)" continúa como opción por defecto.
+
+VALIDACIÓN
+- 34 HTML apuntan a efleet-4.5.22.css/js.
+- JavaScript efleet-4.5.22.js validado con node --check.
+- Referencias locales verificadas; la URL Supabase protocol-relative de index.html no es un archivo local.
