@@ -1,0 +1,8 @@
+PUBLICAR E-FLEET WEB 4.5.23 · R8.2.207
+
+1. Despliegue primero flotas-api 4.5.58.
+2. Suba el contenido completo de la carpeta WEB al hosting, reemplazando la versión anterior.
+3. Verifique que efleet-4.5.23.js, efleet-4.5.23.css y nexo-floating-4.5.23.js queden publicados.
+4. Recargue sin caché la primera vez para activar el nuevo service worker/cache estático.
+
+NEXO: caja limpia al enviar + loader circular + ubicación en tiempo real solo Administración/Gerencia de la empresa activa.

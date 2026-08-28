@@ -1,0 +1,7 @@
+VALIDACIÓN WEB 4.5.23 · R8.2.207
+[OK] JavaScript principal validado con node --check.
+[OK] Chat NEXO limpia textarea al enviar.
+[OK] Loader circular visible durante la consulta.
+[OK] Texto de espera: Consultando Nexo IA · Tu Asistente Virtual.
+[OK] Acceso rápido de ubicación disponible para Administración/Gerencia.
+[OK] Referencias de assets actualizadas a Web 4.5.23.

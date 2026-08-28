@@ -1,0 +1,11 @@
+E-FLEET WEB 4.5.23 · R8.2.207
+
+CAMBIOS NEXO IA
+- Al enviar una consulta, la caja de texto se limpia inmediatamente.
+- Se muestra un loader circular dentro del chat mientras el servidor responde.
+- El mensaje visible de espera es: “Consultando Nexo IA · Tu Asistente Virtual…”.
+- Se eliminan de la interfaz los textos técnicos “mismo núcleo/poderes del Centro Inteligente”.
+- Administrador y Gerencia pueden consultar por NEXO la ubicación en tiempo real de usuarios en línea de su empresa.
+- Operador, Supervisor y Conductor no reciben ubicación de otros usuarios. La consulta se resuelve en flotas-api y nunca se deriva a Gemini.
+
+API requerida/recomendada: flotas-api 4.5.58 · R8.2.207.
