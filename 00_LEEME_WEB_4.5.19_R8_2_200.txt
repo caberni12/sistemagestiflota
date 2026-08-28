@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.19 · R8.2.200
+
+COMBUSTIBLE PREDICTIVO + NEXO IA
+- Conserva el layout legible de Combustible de Web 4.5.18.
+- NEXO IA consulta analisisPredictivoCombustible en flotas-api 4.5.53.
+- Proyecciones de consumo/gasto a 7, 30 y 90 días.
+- Rendimiento y riesgo por vehículo usando cargas históricas reales.
+- Comparación histórica con referencia CNE y oportunidad de ahorro.
+- NEXO recibe el perfil histórico dinámico como contexto para Gemini.
+- No se infiere nivel real de estanque sin sensor.
+
+API REQUERIDA: flotas-api 4.5.53 o superior.

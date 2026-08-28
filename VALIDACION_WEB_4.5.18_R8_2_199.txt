@@ -1,13 +1,13 @@
-VALIDACIÓN E-FLEET WEB 4.5.18 · R8.2.199
+VALIDACIÓN E-FLEET WEB 4.5.19 · R8.2.200
 
 RESULTADO
 - HTML revisados: 35
 - Referencias locales revisadas: 279
 - Referencias locales faltantes: 0
 - Assets principales faltantes: 0
-- node --check efleet-4.5.18.js: OK
-- node --check checklist-ia-4.5.18.js: OK
-- node --check nexo-floating-4.5.18.js: OK
+- node --check efleet-4.5.19.js: OK
+- node --check checklist-ia-4.5.19.js: OK
+- node --check nexo-floating-4.5.19.js: OK
 - Balance de llaves CSS: OK
 
 CAMBIOS VALIDADOS

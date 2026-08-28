@@ -1,0 +1,5 @@
+E-FLEET WEB 4.5.19 · R8.2.200
+1. Publicar todo el contenido conservando los SVG de marcas y archivos versionados.
+2. Desplegar flotas-api 4.5.53.
+3. Hacer Ctrl+F5.
+4. Probar Combustible > NEXO IA · Analizar combustible.

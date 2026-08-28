@@ -1,0 +1,11 @@
+E-FLEET MANAGEMENT SYSTEM
+WEB 4.5.20 · R8.2.202
+
+CAMBIOS COMBUSTIBLE
+- En Registrar carga, el resumen superior muestra patente + marca/modelo del vehículo.
+- Muestra Conductor enlazado.
+- Muestra Usuario que registra la carga.
+- En edición intenta conservar el usuario original desde los campos de trazabilidad del registro.
+- El historial de cargas agrega columna Usuario y mantiene Vehículo con patente/modelo visible.
+- La búsqueda del historial también considera el usuario que registró.
+- No cambia flotas-api: compatible con flotas-api 4.5.53.
