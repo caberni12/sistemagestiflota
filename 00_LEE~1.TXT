@@ -1,12 +1,12 @@
-E-FLEET WEB 4.5.10 · R8.2.189
+E-FLEET WEB 4.5.19 · R8.2.200
 
-HOTFIX COMBUSTIBLE CNE:
-- Mantiene flotas-api 4.5.45 estable, sin cambiar autenticación ni endpoints CNE.
-- Corrige panel derecho vacío: la lista se renderiza siempre, incluso cuando el GPS detecta una estación automáticamente.
-- Modal de combustible adaptado al monitor.
-- Mapa amplio a la izquierda + estaciones oficiales CNE a la derecha, inspirado funcionalmente en Bencina en Línea.
-- Panel derecho muestra logo/marca, precio del combustible seleccionado, distancia, dirección, estado, precios 93/95/97/DI y acciones Seleccionar/Mapa/Navegar.
-- Selector rápido 93/95/97/DI sincronizado con el tipo de combustible del formulario.
-- El precio CNE se propone automáticamente pero sigue editable.
+COMBUSTIBLE PREDICTIVO + NEXO IA
+- Conserva el layout legible de Combustible de Web 4.5.18.
+- NEXO IA consulta analisisPredictivoCombustible en flotas-api 4.5.53.
+- Proyecciones de consumo/gasto a 7, 30 y 90 días.
+- Rendimiento y riesgo por vehículo usando cargas históricas reales.
+- Comparación histórica con referencia CNE y oportunidad de ahorro.
+- NEXO recibe el perfil histórico dinámico como contexto para Gemini.
+- No se infiere nivel real de estanque sin sensor.
 
-NO CAMBIAR flotas-api 4.5.45 si ya está funcionando.
+API REQUERIDA: flotas-api 4.5.53 o superior.

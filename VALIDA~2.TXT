@@ -1,0 +1,12 @@
+VALIDACIÓN E-FLEET WEB 4.5.19 · R8.2.200
+
+OK · HTML producción: 34
+OK · Referencias locales revisadas: 277
+OK · Referencias locales faltantes: 0
+OK · Referencias activas a assets 4.5.18: 0
+OK · Acción fuelPredictive mapea a analisisPredictivoCombustible en los 4 clientes internos del bundle.
+OK · NEXO Combustible muestra proyecciones 7/30/90 días, CNE, riesgos, conductores y estaciones.
+OK · Layout/scroll/NEXO retráctil de Web 4.5.18 se conserva.
+API requerida: flotas-api 4.5.53.
+
+Limitación: no se realizó prueba CNE/Gemini en vivo porque los Secrets no están disponibles en este entorno.

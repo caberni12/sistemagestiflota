@@ -1,5 +1,5 @@
-PUBLICAR E-FLEET WEB 4.5.02 · R8.2.180
-
-Subir todos los archivos de esta carpeta.
-Publicar antes flotas-api 4.5.33 para habilitar análisis Nexo + Gemini.
-Limpiar caché/PWA anterior si el navegador conserva 4.4.96.
+E-FLEET WEB 4.5.19 · R8.2.200
+1. Publicar todo el contenido conservando los SVG de marcas y archivos versionados.
+2. Desplegar flotas-api 4.5.53.
+3. Hacer Ctrl+F5.
+4. Probar Combustible > NEXO IA · Analizar combustible.

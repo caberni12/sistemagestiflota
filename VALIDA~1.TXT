@@ -1,7 +1,26 @@
-VALIDACION WEB 4.5.04 · R8.2.182
-[OK] JavaScript parseado con node --check.
-[OK] assets físicos 4.5.04 referenciados.
-[OK] búsqueda Combustible radio 2 km.
-[OK] selección CNE propone precio automáticamente.
-[OK] PRECIO_LITRO permanece editable.
-[OK] logo CNE soportado en tarjetas.
+VALIDACIÓN E-FLEET WEB 4.5.19 · R8.2.200
+
+RESULTADO
+- HTML revisados: 35
+- Referencias locales revisadas: 279
+- Referencias locales faltantes: 0
+- Assets principales faltantes: 0
+- node --check efleet-4.5.19.js: OK
+- node --check checklist-ia-4.5.19.js: OK
+- node --check nexo-floating-4.5.19.js: OK
+- Balance de llaves CSS: OK
+
+CAMBIOS VALIDADOS
+- Se anula el zoom CSS 85% de R8.2.198 que provocaba espacio vacío a la derecha.
+- Notebook 14": base tipográfica 15 px y densidad compacta sin escalar físicamente la página.
+- Modal Combustible: hasta 98.5vw / 96dvh.
+- Mapa y estaciones: proporción aproximada 70/30, sin columna muerta.
+- Filtros Región/Comuna/Empresa y tabs 93/95/97/DI con tipografía aumentada.
+- Tarjetas CNE, precios, direcciones y botones con tipografía aumentada.
+- Scroll exterior de Combustible conservado; lista lateral mantiene scroll independiente.
+- NEXO retráctil conservado: flecha > oculta hacia la derecha y < devuelve hacia la izquierda.
+- Logos locales CNE conservados.
+- Compatible con flotas-api 4.5.52.
+
+LIMITACIÓN
+- No se realizó login real ni consulta CNE en vivo desde este entorno; esa validación requiere los secrets y sesión del despliegue Supabase.
