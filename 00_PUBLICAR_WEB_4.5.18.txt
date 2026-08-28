@@ -1,0 +1,5 @@
+E-FLEET WEB 4.5.18 · R8.2.199
+1. Reemplace el contenido de la Web por esta carpeta completa.
+2. No mezcle assets 4.5.17 y 4.5.18.
+3. Mantenga flotas-api 4.5.52 desplegada para CNE auto-renovable.
+4. Después de publicar: Ctrl+F5.

@@ -1,0 +1,14 @@
+E-FLEET WEB 4.5.18 · R8.2.199
+
+CORRECCIÓN VISUAL NOTEBOOK 14" / COMBUSTIBLE
+- Se elimina el zoom CSS 85% que dejaba una franja vacía a la derecha.
+- Se mantiene densidad compacta mediante espaciados, conservando tipografía legible.
+- En notebook 14" se fuerza base de 15 px, sin reducir físicamente todo el documento.
+- Modal de Combustible usa hasta 98.5vw y 96dvh.
+- Mapa aproximadamente 70% y panel de estaciones 30%.
+- Filtros, tarjetas, precios y botones aumentan tipografía.
+- En pantallas de poca altura el mapa se ajusta para quedar visible; se conserva scroll.
+- NEXO IA retráctil de R8.2.198 se conserva: > oculta a la derecha y < lo devuelve.
+- Compatible con flotas-api 4.5.52.
+
+Publicar todos los archivos y luego hacer Ctrl+F5.

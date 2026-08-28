@@ -1,4 +1,4 @@
-E-FLEET WEB 4.5.17 · R8.2.198
+E-FLEET WEB 4.5.18 · R8.2.199
 
 API requerida/recomendada: flotas-api 4.5.52
 - CNE con token auto-renovable usando CNE_API_EMAIL + CNE_API_PASSWORD.
