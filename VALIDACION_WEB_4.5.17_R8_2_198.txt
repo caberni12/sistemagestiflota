@@ -1,0 +1,30 @@
+E-FLEET MANAGEMENT SYSTEM · VALIDACIÓN WEB R8.2.198
+Web 4.5.17 · compatible con flotas-api 4.5.52
+
+[OK] 34 HTML presentes.
+[OK] 277 referencias locales verificadas; 0 archivos faltantes.
+[OK] Sin referencias activas a Web 4.5.16 / R8.2.197.
+[OK] combustible.html carga efleet-4.5.17.css / efleet-4.5.17.js / nexo-floating-4.5.17.js.
+[OK] node --check efleet-4.5.17.js.
+[OK] node --check checklist-ia-4.5.17.js.
+[OK] node --check nexo-floating-4.5.17.js.
+[OK] CSS tinycss2: 0 errores de parseo.
+[OK] Scroll vertical restaurado y forzado en modal Combustible.
+[OK] Scrollbar visible y estable en modal, lista CNE y submodal de datos.
+[OK] Mapa mantiene altura útil y se puede alcanzar por desplazamiento.
+[OK] Submodal “Completar datos de carga” conservado.
+[OK] Perfil 85% aplicado a viewports compactos de notebook: 1100–1600 px de ancho y <=950 px de alto.
+[OK] Perfil 85% no se activa en móvil/tablet por debajo de 1100 px.
+[OK] NEXO agrega pestaña › para ocultarse hacia la derecha.
+[OK] NEXO oculto deja pestaña ‹ en el borde derecho para restaurarlo hacia la izquierda.
+[OK] Al ocultar NEXO se cierra también su panel flotante.
+[OK] Estado oculto/visible persiste en localStorage entre módulos.
+[OK] NEXO conserva chat, voz, combustible, documentos, alertas y acceso al Centro Inteligente.
+[OK] CNE / Región / Comuna / Empresa-Marca / 93 / 95 / 97 / Diésel conservados.
+[OK] Logos locales de estaciones conservados.
+[OK] GPS y navegación conservados.
+
+Nota técnica:
+- Los navegadores no exponen de forma fiable el tamaño físico de la pantalla en pulgadas. El perfil “14 pulgadas” se implementa por viewport compacto, que es el criterio estable para la Web.
+- La prueba CNE en vivo requiere las credenciales configuradas en Supabase y flotas-api 4.5.52 desplegada.
+- Se intentó validación visual con Chromium headless del entorno, pero ese binario no completó el render por limitaciones del runtime; por ello no se declara una prueba visual automatizada que no haya finalizado.

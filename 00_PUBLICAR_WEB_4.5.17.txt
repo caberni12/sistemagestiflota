@@ -1,0 +1,8 @@
+E-fleet Web 4.5.17 · R8.2.198
+
+1. Publique TODO el contenido de esta carpeta reemplazando la Web anterior.
+2. Mantenga desplegada flotas-api 4.5.52 para CNE con renovación automática del token.
+3. Haga Ctrl+F5 después de publicar.
+4. Pruebe Combustible > Informar carga y confirme que existe scroll vertical.
+5. En una ventana de notebook compacta confirme el perfil 85%.
+6. Pruebe NEXO: › lo oculta hacia la derecha y ‹ lo devuelve hacia la izquierda.

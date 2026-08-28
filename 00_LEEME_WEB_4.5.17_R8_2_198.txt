@@ -1,0 +1,28 @@
+E-FLEET Management System
+WEB 4.5.17 · R8.2.198
+
+CAMBIOS PRINCIPALES
+
+1) COMBUSTIBLE · MAPA CON SCROLL VISIBLE
+- El modal de “Informar carga” vuelve a tener desplazamiento vertical visible.
+- El mapa ya no queda escondido cuando el contenido supera la altura de la pantalla.
+- El mapa conserva filtros Región / Comuna / Empresa-Marca y 93 / 95 / 97 / Diésel.
+- “Completar datos de carga” mantiene el formulario en submodal independiente.
+
+2) PERFIL COMPACTO PARA NOTEBOOK 14"
+- En viewports de notebook compactos (1100–1600 px de ancho y hasta 950 px de alto) la Web se muestra al 85%.
+- CSS no puede conocer las pulgadas físicas con fiabilidad; se usa el tamaño efectivo de la ventana, que cubre el escenario típico de notebook de 14" solicitado.
+- No se aplica en móvil/tablet.
+
+3) NEXO IA RETRÁCTIL
+- Se agregó flecha › junto a NEXO para ocultarlo hacia la derecha.
+- Cuando NEXO está oculto queda una pestaña ‹ en el borde derecho para devolverlo hacia la izquierda.
+- Si se oculta mientras el panel está abierto, el panel se cierra.
+- El estado oculto/visible se recuerda entre módulos mediante almacenamiento local del navegador.
+
+SE CONSERVA
+- CNE con comunas, regiones, marcas y precios mediante flotas-api 4.5.52.
+- Logos locales de estaciones.
+- GPS y navegación.
+- Submodal de datos de carga y reglas de kilometraje por rol.
+- Aislamiento por empresa y contexto operacional existente.
