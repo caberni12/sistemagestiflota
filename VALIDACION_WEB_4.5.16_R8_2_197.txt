@@ -1,0 +1,28 @@
+E-FLEET MANAGEMENT SYSTEM · VALIDACIÓN WEB R8.2.197
+Web 4.5.16 · compatible con flotas-api 4.5.52
+
+[OK] 34 HTML presentes.
+[OK] 0 referencias locales faltantes en HTML.
+[OK] Sin referencias activas a Web 4.5.15 / R8.2.195.
+[OK] combustible.html carga efleet-4.5.16.css / efleet-4.5.16.js.
+[OK] JS: node --check efleet-4.5.16.js.
+[OK] JS: node --check checklist-ia-4.5.16.js.
+[OK] JS: node --check nexo-floating-4.5.16.js.
+[OK] CSS: tinycss2 sin errores de parseo.
+[OK] Mapa principal usa flujo “mapa primero”.
+[OK] Contexto operativo movido al submodal.
+[OK] Fecha, combustible, litros y precio movidos al submodal.
+[OK] Kilometraje movido al submodal, conservando reglas por rol.
+[OK] Boleta, medio de pago, tanque lleno y observaciones movidos al submodal.
+[OK] Botón “Completar datos de carga” abre el submodal.
+[OK] Validación de campos inválidos abre el submodal para corregirlos.
+[OK] Selección de estación actualiza resumen superior y precio CNE.
+[OK] Región / Comuna / Empresa-Marca permanecen sobre el mapa.
+[OK] 93 / 95 / 97 / Diésel permanecen disponibles.
+[OK] Logos locales de COPEC / Shell / Aramco / Petrobras / Terpel / Enex / Esso / Arco conservados.
+[OK] GPS y navegación conservados.
+[OK] API recomendada: flotas-api 4.5.52 con CNE_API_EMAIL + CNE_API_PASSWORD y renovación automática.
+
+Limitación de validación:
+- No se realizó una llamada CNE en vivo ni login real desde este entorno porque las credenciales CNE no están incluidas en el paquete.
+- Se validaron sintaxis, estructura, referencias locales y flujo estático del código.

@@ -1,0 +1,11 @@
+E-fleet Web 4.5.16 · R8.2.197
+
+1. Publicar TODO el contenido de esta carpeta en el hosting Web, reemplazando la versión anterior.
+2. Mantener desplegada flotas-api 4.5.52 para CNE con renovación automática de token.
+3. Hacer recarga forzada del navegador (Ctrl+F5).
+4. Abrir Combustible > Informar carga.
+
+Cambio visual principal:
+- El formulario de datos de carga fue movido a un submodal.
+- El modal principal queda dedicado al mapa, filtros CNE y estaciones.
+- Botón: “Completar datos de carga”.
