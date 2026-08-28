@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM · WEB 4.5.15 · R8.2.195
+
+CORRECCIÓN COMBUSTIBLE CNE
+- Los filtros Región / Comuna / Empresa permanecen arriba.
+- El mapa mantiene mayor ancho y tarjetas laterales compactas.
+- Los marcadores del mapa usan iconos locales por marca; ya no pueden quedar como círculos blancos.
+- Marca desconocida usa icono azul de estación, nunca un punto vacío.
+- Compatible con flotas-api 4.5.51, que normaliza los campos reales de CNE.
+
+PRUEBA
+1. Publique todos los archivos del ZIP.
+2. Publique flotas-api 4.5.51.
+3. Haga Ctrl+F5 una vez.
+4. Abra Combustible > Registrar carga.

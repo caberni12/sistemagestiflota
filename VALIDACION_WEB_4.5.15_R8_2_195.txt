@@ -1,0 +1,47 @@
+E-FLEET MANAGEMENT SYSTEM · VALIDACIÓN R8.2.195
+Web 4.5.15 · flotas-api 4.5.51
+
+[OK] HTML presentes · 34
+[OK] Referencias locales HTML · faltantes=0
+[OK] Sin refs activas 4.5.14
+[OK] Icono SVG copec · fuel-brand-copec.svg
+[OK] Icono SVG shell · fuel-brand-shell.svg
+[OK] Icono SVG aramco · fuel-brand-aramco.svg
+[OK] Icono SVG petrobras · fuel-brand-petrobras.svg
+[OK] Icono SVG terpel · fuel-brand-terpel.svg
+[OK] Icono SVG enex · fuel-brand-enex.svg
+[OK] Icono SVG esso · fuel-brand-esso.svg
+[OK] Icono SVG arco · fuel-brand-arco.svg
+[OK] Icono SVG generic · fuel-brand-generic.svg
+[OK] CSS pin copec background-image !important
+[OK] CSS pin shell background-image !important
+[OK] CSS pin aramco background-image !important
+[OK] CSS pin petrobras background-image !important
+[OK] CSS pin terpel background-image !important
+[OK] CSS pin enex background-image !important
+[OK] CSS pin esso background-image !important
+[OK] CSS pin arco background-image !important
+[OK] CSS pin generic background-image !important
+[OK] JS usa iconos locales en mapa
+[OK] JS tarjetas usan iconos locales
+[OK] JS inferencia marca aun si GENERICO
+[OK] node --check efleet-4.5.15.js
+[OK] node --check checklist-ia-4.5.15.js
+[OK] node --check nexo-floating-4.5.15.js
+[OK] API VERSION 4.5.51
+[OK] API soporte nombre_distribuidor
+[OK] API soporte nombre_comuna
+[OK] API soporte nombre_region
+[OK] API soporte nombre_combustible
+[OK] API soporte CNE_DIAGNOSTICO_CAMPOS
+[OK] API soporte CNE_DIAGNOSTICO_PRECIOS
+[OK] API consulta oficial /api/v4/estaciones
+[OK] API prioriza CNE_API_TOKEN
+[OK] API sin errores de parseo TypeScript · parse_errors=0
+[OK] API sin nuevos errores de tipado vs 4.5.50 · 4.5.51=43 / 4.5.50=43
+
+Total comprobaciones: 38
+OK: 38
+ERROR: 0
+
+Nota: la llamada CNE en vivo depende del secreto CNE_API_TOKEN guardado en Supabase; el token no se incluye en estos ZIP.

@@ -1,0 +1,4 @@
+E-FLEET WEB 4.5.15 · R8.2.195
+
+Para el catálogo CNE completo (marca, comuna, región y precios) desplegar flotas-api 4.5.51 o superior.
+La Web 4.5.15 muestra iconos locales de estaciones y no depende del logo remoto de CNE para los pines.

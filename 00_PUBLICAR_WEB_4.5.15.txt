@@ -1,0 +1,4 @@
+E-fleet Web 4.5.15 · R8.2.195
+Publicar TODO el contenido de esta carpeta en el hosting Web, reemplazando la versión anterior.
+API requerida: flotas-api 4.5.50.
+Luego hacer una recarga forzada del navegador (Ctrl+F5).
