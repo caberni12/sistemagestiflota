@@ -1,0 +1,8 @@
+VALIDACION WEB 4.5.38 · R8.2.224
+- node --check efleet-4.5.38.js: OK
+- Todos los HTML apuntan al bundle físico 4.5.38: OK
+- No quedan referencias HTML al bundle físico 4.5.32: OK
+- Mapa Navegación tiene remontaje automático de contenedor: OK
+- CSS específico de baldosas Navegación: OK
+- Navegación universal por rol: conservada
+- SQL: no requerido

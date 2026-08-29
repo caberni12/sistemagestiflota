@@ -1,0 +1,20 @@
+E-FLEET WEB 4.5.39 · R8.2.225
+NAVEGACIÓN PERSISTENTE + DIRECCIONES REALES
+
+Cambios:
+- Navegación consulta los motores de direcciones ya integrados en E-fleet mediante flotas-api:
+  memoria local E-fleet -> memoria central -> buscarDireccionesRapido/geocodificarDireccionExacta -> Nominatim/fallbacks configurados.
+- Si el destino llega solo como coordenadas, se ejecuta resolverDireccionDesdeCoordenadas para obtener la dirección real.
+- Se muestra la dirección real del destino en la pantalla de Navegación.
+- La navegación activa se guarda por empresa + usuario en localStorage.
+- Se conservan destino, IDs de ruta/operación/local, última posición, geometría de ruta, ETA base y pasos.
+- Al salir del módulo NO se pierde el viaje.
+- En otros módulos aparece “Navegación activa · Continuar”.
+- Solo “Finalizar” elimina la sesión de navegación.
+- Los parámetros de URL se consumen una sola vez para evitar que un viaje finalizado se reactive al volver al módulo.
+- Navegación continúa habilitada para todos los perfiles autenticados.
+- En Geo Local los botones de navegación ya no dependen del Check-in; llegada/foto/finalización mantienen sus validaciones.
+- Conserva el hotfix de pintura de mapa de Web 4.5.38.
+
+API requerida: flotas-api 4.5.69 (R8.2.226 · corrección Check-in/NEXO).
+SQL: NO REQUIERE SQL NUEVO.

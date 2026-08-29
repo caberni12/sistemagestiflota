@@ -1,0 +1,10 @@
+VALIDACIÓN WEB 4.5.39 · R8.2.225
+- node --check efleet-4.5.39.js: OK
+- 35 HTML cargan efleet-4.5.39.js/css: OK
+- Navegación visible para usuario autenticado: OK
+- Geo Local: navegación independiente de Check-in; acciones de visita conservan validación: OK
+- Dirección destino: motores E-fleet/flotas-api + reverse geocoding: OK
+- Sesión de navegación por empresa/usuario en localStorage: OK
+- Reanudación global desde otros módulos: OK
+- Finalizar navegación limpia sesión: OK
+- SQL nuevo: NO

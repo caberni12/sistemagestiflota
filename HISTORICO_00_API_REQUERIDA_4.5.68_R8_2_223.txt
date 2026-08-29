@@ -1,0 +1,8 @@
+E-FLEET WEB 4.5.37 · R8.2.223
+API mínima requerida: flotas-api 4.5.68
+
+- Navegación Web: MapaFlotas/OSM integrado.
+- Combustible: patente/marca/modelo enriquecidos desde backend.
+- Exceso de velocidad: VELOCIDAD_ADMIN_MENSAJE para Admin/Gerencia.
+
+NO REQUIERE SQL NUEVO.

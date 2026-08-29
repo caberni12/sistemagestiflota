@@ -1,0 +1,10 @@
+PUBLICAR WEB 4.5.39 · R8.2.225
+
+Reemplazar la carpeta WEB completa.
+Los 35 HTML apuntan a:
+- efleet-4.5.39.js
+- efleet-4.5.39.css
+
+La versión usa una nueva clave de caché y conserva el retiro de caches/SW anteriores.
+API mínima requerida: flotas-api 4.5.69.
+No requiere SQL nuevo.

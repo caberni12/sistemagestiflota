@@ -1,0 +1,11 @@
+PUBLICAR WEB 4.5.38 · R8.2.224
+
+Recomendación: reemplazar TODO el contenido Web, no solo navegacion.html.
+La razón es que todos los HTML ahora apuntan a los nuevos archivos físicos:
+- efleet-4.5.38.js
+- efleet-4.5.38.css
+
+No conservar referencias activas a efleet-4.5.32.js/css.
+Después de publicar, una recarga normal debe tomar los nuevos nombres físicos; no depende de borrar manualmente la caché para diferenciar el bundle.
+API mínima: 4.5.68.
+No requiere SQL.

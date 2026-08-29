@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.38 · R8.2.224
+HOTFIX NAVEGACIÓN WEB - MAPA EN BLANCO/CELESTE
+
+Correcciones:
+1. Se cambian los nombres físicos del bundle principal a efleet-4.5.38.js/css para romper caché real de navegador/cPanel.
+2. Navegación remonta automáticamente MapaFlotas si el contenedor fue reconstruido por el shell.
+3. El host recibe las clases de mapa ANTES de instanciar el motor.
+4. CSS específico asegura que baldosas OSM/Esri sean visibles y ocupen todo el mapa.
+5. Se mantiene navegación para todos los perfiles, velocímetro y comportamiento de cámara.
+
+No requiere SQL.
+API requerida: flotas-api 4.5.68 o superior.
