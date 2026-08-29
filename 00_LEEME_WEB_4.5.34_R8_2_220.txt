@@ -1,0 +1,14 @@
+E-FLEET Management System
+WEB 4.5.34 · R8.2.220
+
+CORRECCION NEXO - VISOR DE PDF / DOCUMENTOS
+
+1. El botón "Ver PDF" ya no depende exclusivamente de DOCUMENTO_ID.
+2. Si NEXO entrega URL_TEMPORAL o VISTA_PREVIA.URL, el visor puede abrirla directamente.
+3. Cuando existe DOCUMENTO_ID, NEXO vuelve a validar DOCUMENTOS:VER_ARCHIVO mediante flotas-api antes de mostrar el archivo.
+4. El visor intenta cargar el archivo como Blob para evitar problemas de iframe con URLs firmadas.
+5. Incluye Abrir PDF en pestaña, Descargar y Cerrar.
+6. Si el navegador no permite embeber el PDF, la URL firmada queda como respaldo.
+7. No requiere SQL. API requerida: 4.5.65. Android: sin cambios (3.5.80/V520).
+
+Después de publicar, use Ctrl+F5 para limpiar la caché del navegador.

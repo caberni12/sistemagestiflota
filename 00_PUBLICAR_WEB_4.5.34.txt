@@ -1,0 +1,13 @@
+PUBLICAR WEB 4.5.34 · R8.2.220
+
+1. Reemplace/publice el contenido completo de esta carpeta WEB.
+2. No cambie flotas-api 4.5.65.
+3. No ejecute SQL.
+4. No recompile Android.
+5. Después de publicar, use Ctrl+F5 una vez para limpiar caché.
+
+Prueba recomendada:
+- Abra NEXO IA.
+- Pida un documento PDF autorizado.
+- Pulse "Ver PDF".
+- Debe aparecer el visor y los botones Abrir PDF en pestaña, Descargar y Cerrar.
