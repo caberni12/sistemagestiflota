@@ -1,0 +1,9 @@
+E-FLEET WEB 4.5.36 · R8.2.222
+
+Corrección Combustible:
+- La tarjeta/historial prioriza VEHICULO_PATENTE, VEHICULO_MARCA y VEHICULO_MODELO de la propia carga.
+- El formulario usa el vehículo devuelto por contextoCombustibleActual y no cae al ID técnico cuando existe patente.
+- Se agregó fallback a la lista de vehículos y al historial enriquecido.
+- Nueva clave de caché para evitar que un parche/bundle anterior pise la corrección.
+
+No se eliminaron funciones de CNE, GPS, boleta IA, trazabilidad ni navegación.

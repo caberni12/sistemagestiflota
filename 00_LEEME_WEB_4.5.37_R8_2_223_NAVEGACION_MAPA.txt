@@ -1,0 +1,15 @@
+E-FLEET WEB 4.5.37 · R8.2.223
+
+NAVEGACIÓN
+- Se corrigió el mapa que no se pintaba.
+- El navegador usa MapaFlotas, el mismo motor OSM ya integrado en E-fleet.
+- No depende de descargar MapLibre/OpenFreeMap para mostrar el mapa principal.
+- OSM es proveedor principal y Esri queda como respaldo de baldosas.
+- Cámara heading-up: mapa rota con el rumbo y vuelve a estabilizarse hacia adelante después del giro.
+- Flecha del vehículo permanece en composición frontal y velocímetro usa GPS real.
+- Módulo habilitado para todos los perfiles autenticados.
+- Rutas/Operaciones/Geo Local mantienen Waze y Google Maps como opciones adicionales.
+
+VELOCIDAD ADMIN
+- La categoría VELOCIDAD_ADMIN_MENSAJE no abre tarjeta/toast emergente en Web.
+- La notificación permanece disponible en la bandeja de Administrador/Gerencia.

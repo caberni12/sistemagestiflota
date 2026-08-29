@@ -1,7 +1,7 @@
-/* E-fleet Management System Web 4.5.36 · R8.2.222 · COMBUSTIBLE IDENTIDAD VEHÍCULO RESUELTA */
+/* E-fleet Management System Web 4.5.37 · R8.2.223 · NAVEGACIÓN MAPA WEB + ACCESO UNIVERSAL */
 /* El mismo archivo actua como bundle de aplicacion y Service Worker segun el contexto. */
 if(typeof document==='undefined'){
-const SGF_CACHE='efleet-static-4.5.36-fuel-identity-r8222';
+const SGF_CACHE='efleet-static-4.5.37-navigation-map-r8223';
 const PRECACHE=["./","./efleet-4.5.32.css","./efleet-4.5.32.js","./logo.svg","./logo-e-fleet.png","./logo-e-fleet-doc.jpg","./efleet-mark-compact.png","./favicon-efleet.png","./empresa-icono-neutro.svg","./nexo-ia-fab.png","./nexo-floating-4.5.35.js","./actualizaciones-app.html","./alertas.html","./auditoria.html","./checkin-aprobaciones.html","./checkin-historial.html","./checkin-vehicular.html","./combustible.html","./conductores.html","./conexiones-en-linea.html","./configuracion.html","./documentos.html","./empresa.html","./geo-local-admin.html","./geo-local.html","./geocerca.html","./historial.html","./index.html","./kpi-geo-locales.html","./main.html","./malla-turnos.html","./mantenciones.html","./mapa-geo-local.html","./notificaciones.html","./navegacion.html","./oficina-virtual.html","./operaciones.html","./panel-principal.html","./politica-privacidad.html","./reportes.html","./rutas.html","./terminos-condiciones.html","./ubicacion-tiempo-real.html","./usuarios.html","./vehiculos.html"];
 
 self.addEventListener('install',event=>{event.waitUntil(caches.open(SGF_CACHE).then(async cache=>{for(const url of PRECACHE){try{await cache.add(new Request(url,{cache:'reload'}));}catch(_){}}}).then(()=>self.skipWaiting()));});
@@ -12,7 +12,7 @@ async function staleStatic(req){const cache=await caches.open(SGF_CACHE),cached=
 self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin)return;if(url.pathname.includes('/functions/v1/'))return;if(req.mode==='navigate'||req.destination==='document'){event.respondWith(networkFirst(req));return;}if(['script','style','image','font'].includes(req.destination)||/\.(?:js|css|svg|png|jpg|jpeg|webp|ico)$/i.test(url.pathname))event.respondWith(staleStatic(req));});
 }else{
 'use strict';
-const EFLEET_WEB_VERSION='4.5.36';
+const EFLEET_WEB_VERSION='4.5.37';
 /* 4.4.41 · recuperación temprana de CSS + retiro definitivo de caches/SW heredados.
    Se usan nombres físicos versionados para que un Service Worker antiguo con ignoreSearch
    no pueda devolver un efleet.css de otra versión. Sigue existiendo UN SOLO CSS y UN SOLO JS. */
@@ -5836,7 +5836,7 @@ module.exports = QRCode;
   };
 
   const navPermission = {
-    dashboard:'PANEL_PRINCIPAL',office:'OFICINA_VIRTUAL',routes:'RUTAS',navigation:'RUTAS',checkin:'CHECKIN',checkinApprovals:'CHECKIN_APROBACIONES',checkinHistory:'CHECKIN',operations:'OPERACIONES',gps:'GPS',notifications:'NOTIFICACIONES',
+    dashboard:'PANEL_PRINCIPAL',office:'OFICINA_VIRTUAL',routes:'RUTAS',navigation:'PANEL_PRINCIPAL',checkin:'CHECKIN',checkinApprovals:'CHECKIN_APROBACIONES',checkinHistory:'CHECKIN',operations:'OPERACIONES',gps:'GPS',notifications:'NOTIFICACIONES',
     vehicles:'VEHICULOS',drivers:'CONDUCTORES',maintenance:'MANTENCIONES',fuel:'COMBUSTIBLE',documents:'DOCUMENTOS',history:'HISTORIAL',
     alerts:'ALERTAS',connections:'CONEXIONES',geofence:'GEOCERCA',users:'USUARIOS',company:'CONFIGURACION',reports:'REPORTES',audit:'BITACORA',appUpdates:'ACTUALIZACIONES_APP',settings:'CONFIGURACION'
   };
@@ -5945,10 +5945,12 @@ module.exports = QRCode;
     return ['SI','TRUE','1','AUTORIZADO','DESBLOQUEADO','HABILITADO'].includes(valor);
   }
   function puedeAbrirSeccion(section){
+    if(section==='navigation')return Boolean(currentUser);
     if(section==='geofence')return rolPuedeGeocerca();
     if(section==='settings')return configuracionCpanelHabilitada();
     return hasPermission(navPermission[section]||'PANEL_PRINCIPAL','LEER');
   }
+  function puedeUsarNavegacion(){return Boolean(currentUser);}
   function puedeDesconectarUsuariosConectados(){return esAdministrador()&&hasPermission('CONEXIONES','DESCONECTAR_USUARIO');}
   function puedeAdministrarPuntoOperacion(){return hasPermission('CONFIGURACION','GESTIONAR_PUNTO_BASE')&&['ROL-ADMIN','ROL-GERENCIA','ROL-OPERADOR','ROL-SUPERVISOR'].includes(String(currentUser?.ROL_ID||''));}
   function puedeGestionarPuntosRuta(){return ['ROL-ADMIN','ROL-GERENCIA'].includes(String(currentUser?.ROL_ID_CANONICO||currentUser?.ROL_ID||'').toUpperCase());}
@@ -7182,9 +7184,12 @@ module.exports = QRCode;
   }
 
   let navegacionWebMapa=null,navegacionWebMarcador=null,navegacionWebWatch=null,navegacionWebRuta=null,navegacionWebPasos=[],navegacionWebPaso=0,navegacionWebUltima=null,navegacionWebRumbo=0,navegacionWebRumboOk=false,navegacionWebDestino=null,navegacionWebRecalculo=0,navegacionWebCargando=false;
+  let navegacionWebMotor='';
   function limpiarNavegacionWeb(){
     if(navegacionWebWatch!==null&&navigator.geolocation){try{navigator.geolocation.clearWatch(navegacionWebWatch)}catch(_){}}navegacionWebWatch=null;
-    if(navegacionWebMarcador){try{navegacionWebMarcador.remove()}catch(_){}}navegacionWebMarcador=null;if(navegacionWebMapa){try{navegacionWebMapa.remove()}catch(_){}}navegacionWebMapa=null;navegacionWebRuta=null;navegacionWebPasos=[];navegacionWebPaso=0;navegacionWebUltima=null;navegacionWebCargando=false;
+    if(navegacionWebMarcador){try{if(typeof navegacionWebMarcador.remove==='function')navegacionWebMarcador.remove()}catch(_){}}navegacionWebMarcador=null;
+    if(navegacionWebMapa){try{if(typeof navegacionWebMapa.eliminar==='function')navegacionWebMapa.eliminar();else if(typeof navegacionWebMapa.remove==='function')navegacionWebMapa.remove()}catch(_){}}navegacionWebMapa=null;navegacionWebMotor='';navegacionWebRuta=null;navegacionWebPasos=[];navegacionWebPaso=0;navegacionWebUltima=null;navegacionWebCargando=false;
+    const host=$('#efnavMap');if(host){host.classList.remove('efnav-mapa-flotas');host.style.removeProperty('--efnav-map-rotation');}
   }
   function renderNavigation(){
     return `<section class="efnav-shell"><div id="efnavMap" class="efnav-map"></div><div class="efnav-top"><div class="efnav-turn" id="efnavInstruction">Navegación E-fleet</div><div class="efnav-street" id="efnavStreet">Seleccione una ruta, operación o Geo Local para iniciar la guía.</div></div><div class="efnav-speed" id="efnavSpeed"><b>0</b><span>km/h</span></div><div class="efnav-arrow" id="efnavArrow" aria-label="Dirección del vehículo"><i></i></div><div class="efnav-status" id="efnavStatus">Esperando GPS…</div><div class="efnav-bottom"><div><span>ETA</span><b id="efnavEta">—</b></div><div><span>RESTANTE</span><b id="efnavDistance">—</b></div><div><span>LLEGADA</span><b id="efnavArrival">—</b></div><button class="btn soft small" type="button" data-efnav-destination>⌕ Destino</button><button class="btn soft small" type="button" data-efnav-center>⌖ Centrar</button></div></section>`;
@@ -7205,12 +7210,29 @@ module.exports = QRCode;
   }
   async function efnavGeocodificar(direccion){const q=String(direccion||'').trim();if(!q)return null;try{const r=await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=cl&q=${encodeURIComponent(q)}`,{headers:{Accept:'application/json'}}),a=await r.json(),x=a?.[0];const lat=efnavNumero(x?.lat),lng=efnavNumero(x?.lon);return efnavValida(lat,lng)?{lat,lng}:null}catch(_){return null}}
   function efnavDibujarRuta(route=navegacionWebRuta){
-    if(!navegacionWebMapa||!route?.geometry)return;try{if(navegacionWebMapa.isStyleLoaded&& !navegacionWebMapa.isStyleLoaded())return;const id='efnav-route';if(navegacionWebMapa.getLayer(id))navegacionWebMapa.removeLayer(id);if(navegacionWebMapa.getSource(id))navegacionWebMapa.removeSource(id);navegacionWebMapa.addSource(id,{type:'geojson',data:{type:'Feature',geometry:route.geometry,properties:{}}});navegacionWebMapa.addLayer({id,type:'line',source:id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#2563eb','line-width':8,'line-opacity':.92}})}catch(_){}
+    if(!navegacionWebMapa)return;
+    try{
+      if(navegacionWebMotor==='MAPA_FLOTAS'){
+        let puntos=[];
+        if(route?.geometry?.coordinates?.length)puntos=route.geometry.coordinates.map(p=>({latitud:Number(p[1]),longitud:Number(p[0])})).filter(p=>efnavValida(p.latitud,p.longitud));
+        else if(navegacionWebUltima&&navegacionWebDestino)puntos=[{latitud:navegacionWebUltima.lat,longitud:navegacionWebUltima.lng},{latitud:navegacionWebDestino.lat,longitud:navegacionWebDestino.lng}];
+        navegacionWebMapa.actualizarRastros(puntos.length>1?[{id:'efnav-route',clase:'efnav-route',maxPuntos:2000,puntos}]:[]);return;
+      }
+      if(!route?.geometry)return;if(navegacionWebMapa.isStyleLoaded&&!navegacionWebMapa.isStyleLoaded())return;const id='efnav-route';if(navegacionWebMapa.getLayer(id))navegacionWebMapa.removeLayer(id);if(navegacionWebMapa.getSource(id))navegacionWebMapa.removeSource(id);navegacionWebMapa.addSource(id,{type:'geojson',data:{type:'Feature',geometry:route.geometry,properties:{}}});navegacionWebMapa.addLayer({id,type:'line',source:id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#2563eb','line-width':8,'line-opacity':.92}})
+    }catch(_){}
   }
-  function efnavMarcarDestino(){if(!navegacionWebMapa||!navegacionWebDestino||!window.maplibregl)return;try{if(navegacionWebMarcador)navegacionWebMarcador.remove();navegacionWebMarcador=new maplibregl.Marker({color:'#ef4444'}).setLngLat([navegacionWebDestino.lng,navegacionWebDestino.lat]).addTo(navegacionWebMapa)}catch(_){}}
+  function efnavMarcarDestino(){
+    if(!navegacionWebMapa||!navegacionWebDestino)return;
+    try{
+      if(navegacionWebMotor==='MAPA_FLOTAS'){
+        navegacionWebMapa.actualizarMarcadores([{id:'efnav-destino',latitud:navegacionWebDestino.lat,longitud:navegacionWebDestino.lng,nombre:'Destino',direccion:navegacionWebDestino.titulo||navegacionWebDestino.direccion||'',icono:'●',clase:'efnav-destino'}],false);return;
+      }
+      if(!window.maplibregl)return;if(navegacionWebMarcador)navegacionWebMarcador.remove();navegacionWebMarcador=new maplibregl.Marker({color:'#ef4444'}).setLngLat([navegacionWebDestino.lng,navegacionWebDestino.lat]).addTo(navegacionWebMapa)
+    }catch(_){}
+  }
   async function efnavCalcularRuta(origen,forzar=false){
     if(!navegacionWebDestino||!origen||navegacionWebCargando)return;if(!forzar&&Date.now()-navegacionWebRecalculo<25000)return;navegacionWebCargando=true;navegacionWebRecalculo=Date.now();
-    try{const u=`https://router.project-osrm.org/route/v1/driving/${origen.lng},${origen.lat};${navegacionWebDestino.lng},${navegacionWebDestino.lat}?overview=full&geometries=geojson&steps=true`,r=await fetch(u),j=await r.json(),route=j?.routes?.[0];if(!route)throw new Error('SIN_RUTA');navegacionWebRuta=route;navegacionWebPasos=(route.legs?.[0]?.steps||[]).map(step=>({lat:step.maneuver?.location?.[1],lng:step.maneuver?.location?.[0],dist:step.distance||0,text:efnavTextoPaso(step.maneuver),name:step.name||''})).filter(x=>efnavValida(x.lat,x.lng));navegacionWebPaso=0;efnavDibujarRuta(route);efnavActualizarDatos(origen)}catch(_){efnavActualizarDatos(origen,true)}finally{navegacionWebCargando=false}
+    try{const u=`https://router.project-osrm.org/route/v1/driving/${origen.lng},${origen.lat};${navegacionWebDestino.lng},${navegacionWebDestino.lat}?overview=full&geometries=geojson&steps=true`,r=await fetch(u),j=await r.json(),route=j?.routes?.[0];if(!route)throw new Error('SIN_RUTA');navegacionWebRuta=route;navegacionWebPasos=(route.legs?.[0]?.steps||[]).map(step=>({lat:step.maneuver?.location?.[1],lng:step.maneuver?.location?.[0],dist:step.distance||0,text:efnavTextoPaso(step.maneuver),name:step.name||''})).filter(x=>efnavValida(x.lat,x.lng));navegacionWebPaso=0;efnavDibujarRuta(route);efnavActualizarDatos(origen)}catch(_){efnavDibujarRuta(null);efnavActualizarDatos(origen,true)}finally{navegacionWebCargando=false}
   }
   function efnavActualizarDatos(pos,fallback=false){
     if(!pos||!navegacionWebDestino)return;let d=efnavDist(pos.lat,pos.lng,navegacionWebDestino.lat,navegacionWebDestino.lng),segundos=navegacionWebRuta?.duration||d/1000/35*3600;
@@ -7218,11 +7240,18 @@ module.exports = QRCode;
     if(navegacionWebPasos.length){let best=navegacionWebPaso,bestD=Infinity;for(let i=Math.max(0,navegacionWebPaso-1);i<Math.min(navegacionWebPasos.length,navegacionWebPaso+7);i++){const st=navegacionWebPasos[i],sd=efnavDist(pos.lat,pos.lng,st.lat,st.lng);if(sd<bestD){bestD=sd;best=i}}if(bestD<35&&best<navegacionWebPasos.length-1)best++;navegacionWebPaso=Math.max(navegacionWebPaso,best);const st=navegacionWebPasos[navegacionWebPaso],hasta=efnavDist(pos.lat,pos.lng,st.lat,st.lng);$('#efnavInstruction').textContent=`${efnavFormatDist(hasta)} · ${st.text}`;$('#efnavStreet').textContent=st.name||navegacionWebDestino.titulo}else{$('#efnavInstruction').textContent=fallback?'Siga hacia el destino':'Calculando ruta…';$('#efnavStreet').textContent=navegacionWebDestino.titulo||navegacionWebDestino.direccion||'Destino'}
     $('#efnavDistance').textContent=efnavFormatDist(d);const min=Math.max(1,Math.round(segundos/60));$('#efnavEta').textContent=`${min} min`;$('#efnavArrival').textContent=new Date(Date.now()+segundos*1000).toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
   }
-  function efnavMoverCamara(pos,instant=false){if(!navegacionWebMapa||!pos)return;const vel=Math.max(0,pos.speed||0),look=Math.min(230,55+vel*2),center=efnavProyectar(pos.lat,pos.lng,navegacionWebRumbo,look),zoom=vel>=90?15:vel>=55?15.6:vel>=25?16.2:16.8;const opts={center,zoom,bearing:navegacionWebRumbo,pitch:58,duration:instant?0:650,essential:true};try{instant?navegacionWebMapa.jumpTo(opts):navegacionWebMapa.easeTo(opts)}catch(_){}}
+  function efnavMoverCamara(pos,instant=false){if(!navegacionWebMapa||!pos)return;const vel=Math.max(0,pos.speed||0),look=Math.min(230,55+vel*2),center=efnavProyectar(pos.lat,pos.lng,navegacionWebRumbo,look),zoom=vel>=90?15:vel>=55?16:vel>=25?16:17;try{if(navegacionWebMotor==='MAPA_FLOTAS'){const host=$('#efnavMap');if(host)host.style.setProperty('--efnav-map-rotation',`${-navegacionWebRumbo}deg`);navegacionWebMapa.establecerVista(center[1],center[0],Math.round(zoom));return}const opts={center,zoom,bearing:navegacionWebRumbo,pitch:58,duration:instant?0:650,essential:true};instant?navegacionWebMapa.jumpTo(opts):navegacionWebMapa.easeTo(opts)}catch(_){}}
   async function initNavigationMap(){
     limpiarNavegacionWeb();const host=$('#efnavMap');if(!host)return;const qs=new URLSearchParams(location.search),lat=efnavNumero(qs.get('lat')),lng=efnavNumero(qs.get('lng')),direccion=qs.get('destino')||'',titulo=qs.get('titulo')||'Destino';if(efnavValida(lat,lng))navegacionWebDestino={lat,lng,direccion,titulo};else if(direccion){const g=await efnavGeocodificar(direccion);if(g)navegacionWebDestino={...g,direccion,titulo}}
-    try{const ml=await efnavCargarMapLibre();if(!host.isConnected)return;navegacionWebMapa=new ml.Map({container:host,style:'https://tiles.openfreemap.org/styles/liberty',center:navegacionWebDestino?[navegacionWebDestino.lng,navegacionWebDestino.lat]:[-70.6693,-33.4489],zoom:15,pitch:55,attributionControl:true});navegacionWebMapa.on('load',()=>{efnavMarcarDestino();efnavDibujarRuta()})}catch(e){$('#efnavStatus').textContent='No se pudo cargar el mapa visual; el GPS seguirá intentando conectarse.';return}
-    $('[data-efnav-destination]')?.addEventListener('click',async()=>{const actual=navegacionWebDestino?.direccion||'';const direccion=window.prompt('¿A dónde quieres ir?',actual);if(!direccion||!String(direccion).trim())return;const estado=$('#efnavStatus');if(estado)estado.textContent='Buscando destino…';const g=await efnavGeocodificar(String(direccion).trim());if(!g){if(estado)estado.textContent='No fue posible encontrar ese destino.';return}navegacionWebDestino={...g,direccion:String(direccion).trim(),titulo:String(direccion).trim()};navegacionWebRuta=null;navegacionWebPasos=[];navegacionWebPaso=0;navegacionWebRecalculo=0;efnavMarcarDestino();if(navegacionWebUltima)await efnavCalcularRuta(navegacionWebUltima,true)});
+    try{
+      if(!host.isConnected)return;
+      if(window.MapaFlotas){
+        const centro=navegacionWebDestino?[navegacionWebDestino.lat,navegacionWebDestino.lng]:[-33.4489,-70.6693];navegacionWebMapa=new window.MapaFlotas(host,{centro,nivel:16,estilo:'claro-rapido'});navegacionWebMotor='MAPA_FLOTAS';host.classList.add('efnav-mapa-flotas');efnavMarcarDestino();efnavDibujarRuta();$('#efnavStatus').textContent='Mapa E-fleet listo · esperando GPS…';
+      }else{
+        const ml=await efnavCargarMapLibre();navegacionWebMapa=new ml.Map({container:host,style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},center:navegacionWebDestino?[navegacionWebDestino.lng,navegacionWebDestino.lat]:[-70.6693,-33.4489],zoom:15,pitch:55,attributionControl:true});navegacionWebMotor='MAPLIBRE';navegacionWebMapa.on('load',()=>{efnavMarcarDestino();efnavDibujarRuta()});
+      }
+    }catch(e){$('#efnavStatus').textContent='No se pudo cargar el mapa visual; revise la conexión de mapas.';return}
+    $('[data-efnav-destination]')?.addEventListener('click',async()=>{const actual=navegacionWebDestino?.direccion||'';const direccion=window.prompt('¿A dónde quieres ir?',actual);if(!direccion||!String(direccion).trim())return;const estado=$('#efnavStatus');if(estado)estado.textContent='Buscando destino…';const g=await efnavGeocodificar(String(direccion).trim());if(!g){if(estado)estado.textContent='No fue posible encontrar ese destino.';return}navegacionWebDestino={...g,direccion:String(direccion).trim(),titulo:String(direccion).trim()};navegacionWebRuta=null;navegacionWebPasos=[];navegacionWebPaso=0;navegacionWebRecalculo=0;efnavMarcarDestino();efnavDibujarRuta(null);if(navegacionWebUltima)await efnavCalcularRuta(navegacionWebUltima,true)});
     $('[data-efnav-center]')?.addEventListener('click',()=>{if(navegacionWebUltima)efnavMoverCamara(navegacionWebUltima,true)});
     if(!navigator.geolocation){$('#efnavStatus').textContent='Este navegador no dispone de geolocalización.';return}
     navegacionWebWatch=navigator.geolocation.watchPosition(p=>{const c=p.coords,lat=c.latitude,lng=c.longitude;if(!efnavValida(lat,lng))return;let raw=Number.isFinite(c.heading)?c.heading:(navegacionWebUltima?efnavBearing(navegacionWebUltima.lat,navegacionWebUltima.lng,lat,lng):navegacionWebRumbo);if(!navegacionWebRumboOk){navegacionWebRumbo=raw;navegacionWebRumboOk=true}else navegacionWebRumbo=(navegacionWebRumbo+efnavDelta(navegacionWebRumbo,raw)*(c.speed&&c.speed>2?.30:.18)+360)%360;const speed=Math.max(0,(c.speed||0)*3.6),pos={lat,lng,speed,accuracy:c.accuracy||0};navegacionWebUltima=pos;$('#efnavSpeed b').textContent=String(Math.round(speed));$('#efnavStatus').textContent=`GPS ±${Math.round(c.accuracy||0)} m · ${Math.round(speed)} km/h`;const arrow=$('#efnavArrow');if(arrow)arrow.style.transform=`translateX(-50%) rotate(${Math.max(-42,Math.min(42,efnavDelta(navegacionWebRumbo,raw)))}deg)`;efnavMoverCamara(pos,false);efnavActualizarDatos(pos);if(navegacionWebDestino)efnavCalcularRuta(pos,Date.now()-navegacionWebRecalculo>45000)},err=>{$('#efnavStatus').textContent=`GPS: ${err.message||'ubicación no disponible'}`},{enableHighAccuracy:true,maximumAge:1000,timeout:15000});
@@ -7237,7 +7266,7 @@ module.exports = QRCode;
     const id=String(route?.ID||''),guardada=id?(registroFormulario('routes',id)||{}):{},planificada={...guardada,...(route||{})};
     const latitud=Number(planificada.DESTINO_LATITUD),longitud=Number(planificada.DESTINO_LONGITUD),coordenadas=Number.isFinite(latitud)&&Number.isFinite(longitud)&&String(planificada.DESTINO_LATITUD??'').trim()!==''&&String(planificada.DESTINO_LONGITUD??'').trim()!=='';
     if(!coordenadas&&!String(planificada.DESTINO||'').trim()){toast('Ruta iniciada','No se abrió la navegación porque esta ruta no tiene destino configurado.','warning');return false;}
-    if(!hasPermission('RUTAS','NAVEGAR')){toast('Ruta iniciada','La navegación automática no está habilitada para este perfil.','warning');return false;}
+    if(!puedeUsarNavegacion()){toast('Navegación','Debe iniciar sesión para utilizar el navegador.','warning');return false;}
     const rawProveedor=String(planificada.PROVEEDOR_NAVEGACION||'Google Maps').trim().toLowerCase(),proveedor=(rawProveedor==='e-fleet navegación'||rawProveedor==='e_fleet'||rawProveedor==='e-fleet')?'E-fleet Navegación':rawProveedor==='waze'?'Waze':'Google Maps';
     toast('Abriendo navegación',`${proveedor} utilizará el destino planificado.`,'success');
     window.location.assign(navigationUrl({...planificada,PROVEEDOR_NAVEGACION:proveedor}));
@@ -7454,7 +7483,7 @@ module.exports = QRCode;
     const canCancel=hasPermission('RUTAS','CANCELAR');
     const canEvidence=hasPermission('RUTAS','CARGAR_EVIDENCIA');
     const actions=[];
-    if(hasPermission('RUTAS','NAVEGAR'))actions.push(`<a class="btn soft small" href="${esc(navigationUrl(item))}" target="_blank" rel="noopener">Navegar</a>`);
+    if(puedeUsarNavegacion())actions.push(`<a class="btn soft small" href="${esc(navigationUrl(item))}" target="_blank" rel="noopener">Navegar</a>`);
     if(id&&state==='Asignada'&&canStart)actions.push(`<button class="btn primary small" type="button" data-route-state="${esc(id)}:En curso">Iniciar ruta</button>`);
     if(id&&['Asignada','En curso'].includes(state)&&canComplete)actions.push(`<button class="btn primary small" type="button" data-route-state="${esc(id)}:Completada" title="Disponible siempre. Si finaliza antes del destino, el sistema registrará auditoría y alertará a los roles autorizados.">Completar ruta</button>`);
     if(id&&['Asignada','En curso'].includes(state)&&canCancel)actions.push(`<button class="btn danger small" type="button" data-route-state="${esc(id)}:Cancelada">Cancelar</button>`);
@@ -9099,7 +9128,7 @@ module.exports = QRCode;
     const driverMap=Object.fromEntries(drivers.map(d=>[d.ID,d]));
     const routeMap=Object.fromEntries(routes.map(r=>[r.ID,r]));
 
-    const activeHtml=active.map(op=>`<article class="operation-card"><header><div><h4>${esc(op.ID)} · ${esc(vehicleMap[op.VEHICULO_ID]?.PATENTE||op.VEHICULO_ID)}</h4><small>${esc(driverMap[op.CONDUCTOR_ID]?.NOMBRE||op.CONDUCTOR_ID)}</small></div>${status(op.ESTADO)}</header><div class="operation-route">${esc(op.ORIGEN||op.BASE_DIRECCION||'Base')} → ${esc(op.DESTINO||op.PUNTO_RETORNO||'Base')}</div><div class="operation-meta"><div><span>INICIO</span><b>${fmtDate(op.FECHA_INICIO,true)}</b></div><div><span>KM INICIAL</span><b>${op.KM_INICIO!==''&&op.KM_INICIO!=null?number(op.KM_INICIO):'Opcional'}</b></div><div><span>TIPO</span><b>${esc(op.TIPO_OPERACION||'Regreso a base')}</b></div><div><span>RUTA</span><b>${esc(routeMap[op.RUTA_ID]?.NOMBRE||op.RUTA_ID||'Sin ruta')}</b></div><div><span>INICIO VALIDADO</span><b>${String(op.VALIDACION_INICIO||'').startsWith('CAPTURADA')||op.VALIDACION_INICIO==='VALIDADA'?`${number(op.DISTANCIA_INICIO_BASE_METROS)} m de base · ${esc(String(op.VALIDACION_INICIO||'').replaceAll('_',' ').toLowerCase())}`:'Pendiente'}</b></div><div><span>CHECK-IN</span><b>${esc(op.CHECKIN_ID||'Sin registro')}</b></div><div><span>RETORNO</span><b>${esc(op.PUNTO_RETORNO||op.BASE_DIRECCION||'Base operacional')}</b></div></div>${operationVerificationMarkup(op)}<div class="operation-card-actions">${hasPermission('RUTAS','NAVEGAR')?`<button class="btn soft small" data-operation-navigate="${esc(op.ID)}">➤ Navegar</button>`:''}${driverMap[op.CONDUCTOR_ID]?.TELEFONO?`<button class="btn whatsapp small" data-whatsapp-driver="${esc(op.CONDUCTOR_ID)}">◉ WhatsApp</button>`:''}${puedeReenviarAlertaAsignacion()?`<button class="btn soft small" data-resend-assignment="OPERACION:${esc(op.ID)}">🔔 Reenviar alerta</button>`:''}${hasPermission('OPERACIONES','EDITAR_ADMIN')?`<button class="btn soft small" data-edit-operation-admin="${op.ID}">Editar</button>`:''}${puedeFinalizarOperacion()?`<button class="btn danger small" data-finish-operation="${op.ID}">${esPerfilConductorOperativo()?'Finalizar en punto base':'Finalizar operación'}</button>`:''}${hasPermission('OPERACIONES','ELIMINAR_ADMIN')?`<button class="btn danger small" data-delete-operation-admin="${op.ID}">Eliminar</button>`:''}</div></article>`).join('');
+    const activeHtml=active.map(op=>`<article class="operation-card"><header><div><h4>${esc(op.ID)} · ${esc(vehicleMap[op.VEHICULO_ID]?.PATENTE||op.VEHICULO_ID)}</h4><small>${esc(driverMap[op.CONDUCTOR_ID]?.NOMBRE||op.CONDUCTOR_ID)}</small></div>${status(op.ESTADO)}</header><div class="operation-route">${esc(op.ORIGEN||op.BASE_DIRECCION||'Base')} → ${esc(op.DESTINO||op.PUNTO_RETORNO||'Base')}</div><div class="operation-meta"><div><span>INICIO</span><b>${fmtDate(op.FECHA_INICIO,true)}</b></div><div><span>KM INICIAL</span><b>${op.KM_INICIO!==''&&op.KM_INICIO!=null?number(op.KM_INICIO):'Opcional'}</b></div><div><span>TIPO</span><b>${esc(op.TIPO_OPERACION||'Regreso a base')}</b></div><div><span>RUTA</span><b>${esc(routeMap[op.RUTA_ID]?.NOMBRE||op.RUTA_ID||'Sin ruta')}</b></div><div><span>INICIO VALIDADO</span><b>${String(op.VALIDACION_INICIO||'').startsWith('CAPTURADA')||op.VALIDACION_INICIO==='VALIDADA'?`${number(op.DISTANCIA_INICIO_BASE_METROS)} m de base · ${esc(String(op.VALIDACION_INICIO||'').replaceAll('_',' ').toLowerCase())}`:'Pendiente'}</b></div><div><span>CHECK-IN</span><b>${esc(op.CHECKIN_ID||'Sin registro')}</b></div><div><span>RETORNO</span><b>${esc(op.PUNTO_RETORNO||op.BASE_DIRECCION||'Base operacional')}</b></div></div>${operationVerificationMarkup(op)}<div class="operation-card-actions">${puedeUsarNavegacion()?`<button class="btn soft small" data-operation-navigate="${esc(op.ID)}">➤ Navegar</button>`:''}${driverMap[op.CONDUCTOR_ID]?.TELEFONO?`<button class="btn whatsapp small" data-whatsapp-driver="${esc(op.CONDUCTOR_ID)}">◉ WhatsApp</button>`:''}${puedeReenviarAlertaAsignacion()?`<button class="btn soft small" data-resend-assignment="OPERACION:${esc(op.ID)}">🔔 Reenviar alerta</button>`:''}${hasPermission('OPERACIONES','EDITAR_ADMIN')?`<button class="btn soft small" data-edit-operation-admin="${op.ID}">Editar</button>`:''}${puedeFinalizarOperacion()?`<button class="btn danger small" data-finish-operation="${op.ID}">${esPerfilConductorOperativo()?'Finalizar en punto base':'Finalizar operación'}</button>`:''}${hasPermission('OPERACIONES','ELIMINAR_ADMIN')?`<button class="btn danger small" data-delete-operation-admin="${op.ID}">Eliminar</button>`:''}</div></article>`).join('');
 
     const opRows=operationRows.map(op=>`<tr data-filter-date="${esc(op.FECHA_INICIO||op.CREADO_EN||'')}" data-search-row="${esc(`${op.ID} ${vehicleMap[op.VEHICULO_ID]?.PATENTE||op.VEHICULO_ID} ${driverMap[op.CONDUCTOR_ID]?.NOMBRE||op.CONDUCTOR_ID} ${op.TIPO_OPERACION||''} ${routeMap[op.RUTA_ID]?.NOMBRE||op.RUTA_ID||''} ${op.ESTADO||''}`.toLowerCase())}"><td><strong>${esc(op.ID)}</strong></td><td>${esc(vehicleMap[op.VEHICULO_ID]?.PATENTE||op.VEHICULO_ID)}</td><td>${esc(driverMap[op.CONDUCTOR_ID]?.NOMBRE||op.CONDUCTOR_ID)}</td><td>${esc(op.TIPO_OPERACION||'—')}</td><td>${esc(routeMap[op.RUTA_ID]?.NOMBRE||op.RUTA_ID||'Sin ruta')}</td><td>${fmtDate(op.FECHA_INICIO,true)}</td><td>${op.KM_INICIO!==''&&op.KM_INICIO!=null?number(op.KM_INICIO):'—'} / ${op.KM_FIN!==''&&op.KM_FIN!=null?number(op.KM_FIN):'—'}</td><td><span class="operation-verified-badge ${['Finalizada','Completada'].includes(String(op.ESTADO||''))&&['VALIDADA','VALIDADA_PRECISION_BAJA'].includes(String(op.VALIDACION_FIN||''))?'complete':'progress'}"><i>${String(op.VALIDACION_INICIO||'').startsWith('CAPTURADA')||op.VALIDACION_INICIO==='VALIDADA'?'✓':'○'}</i>${['Finalizada','Completada'].includes(String(op.ESTADO||''))?'Cierre '+(['VALIDADA','VALIDADA_PRECISION_BAJA'].includes(String(op.VALIDACION_FIN||''))?'verificado':'pendiente'):'Inicio verificado'}</span></td><td>${status(op.ESTADO)}</td><td>${puedeReenviarAlertaAsignacion()||hasPermission('OPERACIONES','EDITAR_ADMIN')||hasPermission('OPERACIONES','ELIMINAR_ADMIN')?`<div class="row-button-stack">${puedeReenviarAlertaAsignacion()?`<button class="btn soft small" data-resend-assignment="OPERACION:${esc(op.ID)}">🔔 Reenviar</button>`:''}${hasPermission('OPERACIONES','EDITAR_ADMIN')?`<button class="btn soft small" data-edit-operation-admin="${op.ID}">Editar</button>`:''}${hasPermission('OPERACIONES','ELIMINAR_ADMIN')?`<button class="btn danger small" data-delete-operation-admin="${op.ID}">Eliminar</button>`:''}</div>`:'—'}</td></tr>`).join('');
 
@@ -9177,7 +9206,7 @@ module.exports = QRCode;
       const total=Number(route?.KPI_TRAZABILIDAD?.TIEMPO_TOTAL_CICLO_SEGUNDOS||route.TIEMPO_TRANSCURRIDO_SEGUNDOS||0);
       const actionButtons=[];
       if(puedeVerTrazabilidadRutas())actionButtons.push(`<button class="btn soft small" type="button" data-route-trace="${esc(route.ID)}">▤ Ver trazabilidad</button>`);
-      if(['Asignada','En curso'].includes(route.ESTADO)&&hasPermission('RUTAS','NAVEGAR'))actionButtons.push(`<a class="btn soft small" href="${esc(navigationUrl(route))}" target="_blank" rel="noopener">Navegar</a>`);
+      if(['Asignada','En curso'].includes(route.ESTADO)&&puedeUsarNavegacion())actionButtons.push(`<a class="btn soft small" href="${esc(navigationUrl(route))}" target="_blank" rel="noopener">Navegar</a>`);
       if(route.ESTADO==='Asignada'&&hasPermission('RUTAS','INICIAR'))actionButtons.push(`<button class="btn primary small" data-route-state="${esc(route.ID)}:En curso">Iniciar</button>`);
       if(['Asignada','En curso'].includes(route.ESTADO)&&hasPermission('RUTAS','COMPLETAR'))actionButtons.push(`<button class="btn primary small" data-route-state="${esc(route.ID)}:Completada" title="Disponible siempre. Un cierre antes del destino queda auditado y genera alertas.">Completar ruta</button>`);
       if(['Asignada','En curso'].includes(route.ESTADO)&&hasPermission('RUTAS','CANCELAR'))actionButtons.push(`<button class="btn danger small" data-route-state="${esc(route.ID)}:Cancelada">Anular</button>`);
@@ -19809,7 +19838,7 @@ window.CONFIGURACION_FLOTAS = Object.freeze({
       ['dashboard','⌂','Panel principal','panel-principal.html','PANEL_PRINCIPAL'],
       ['office','◆','NEXO IA','oficina-virtual.html','OFICINA_VIRTUAL'],
       ['routes','➜','Rutas asignadas','rutas.html','RUTAS'],
-      ['navigation','➤','Navegación','navegacion.html','RUTAS'],
+      ['navigation','➤','Navegación','navegacion.html',''],
       ['checkin','✓','Check-in vehicular','checkin-vehicular.html','CHECKIN'],
       ['operations','⇄','Operaciones','operaciones.html','OPERACIONES'],
       ['gps','⌖','Ubicación en tiempo real','ubicacion-tiempo-real.html','GPS'],
@@ -20018,6 +20047,7 @@ window.CONFIGURACION_FLOTAS = Object.freeze({
     if(!item)return false;
     // "Empresa" continúa siendo un módulo separado. Solo la opción específica
     // "Configuración" (settings) depende exclusivamente de cPanel.
+    if(item[0]==='navigation')return Boolean(usuario);
     if(item[0]==='settings')return configuracionCpanelHabilitada();
     if(item[0]==='company'){const rol=String(usuario?.ROL_ID_CANONICO||usuario?.ROL_ID||usuario?.ROL_NOMBRE||'').trim().toUpperCase();return ['ROL-ADMIN','ADMINISTRADOR','ROL-GERENCIA','GERENCIA'].includes(rol);}
     return permitido(item[4]);
@@ -20291,7 +20321,7 @@ window.CONFIGURACION_FLOTAS = Object.freeze({
 
   function mostrarToastAviso(item,tipo){if(!avisosEmergentesActivosMenu())return;const contenedor=$('#toastAvisosMenu'),nodo=document.createElement('article');nodo.className=`toast-aviso-menu ${tipo}`;nodo.innerHTML=`<i>${tipo==='alerta'?'!':'🔔'}</i><div><b>${escapar(tipo==='alerta'?'Nueva alerta':'Nueva notificación')}</b><small>${escapar(item.TITULO||item.MENSAJE||'Existe un nuevo aviso pendiente.')}</small></div><button type="button" aria-label="Cerrar">×</button>`;contenedor.append(nodo);nodo.querySelector('button').addEventListener('click',()=>nodo.remove());setTimeout(()=>nodo.remove(),5200);}
   function esAlertaAsignacion(item){return ['RUTA_ASIGNADA','OPERACION_ASIGNADA','VEHICULO_CHECKIN_ASIGNADO'].includes(String(item?.CATEGORIA_EMERGENTE||'').toUpperCase())&&String(item?.ESTADO_RESPUESTA||'PENDIENTE').toUpperCase()==='PENDIENTE';}
-function esAvisoSilencioso(item){return String(item?.CATEGORIA_EMERGENTE||item?.categoria_emergente||'').toUpperCase().startsWith('GEO_LOCAL_SILENCIOSA_')}
+function esAvisoSilencioso(item){const categoria=String(item?.CATEGORIA_EMERGENTE||item?.categoria_emergente||'').toUpperCase();return categoria.startsWith('GEO_LOCAL_SILENCIOSA_')||categoria==='VELOCIDAD_ADMIN_MENSAJE'}
   function anunciarAsignacionVoz(item){
     if(esRolAdministrativoAvisosMenu()||!('speechSynthesis'in window)||!avisosEmergentesActivosMenu()||!vozAsignacionesActivaMenu())return;
     const categoria=String(item.CATEGORIA_EMERGENTE||'').toUpperCase(),titulo=categoria.startsWith('VEHICULO_CHECKIN')?'Vehículo asignado':categoria.startsWith('OPERACION')?'Nueva operación asignada':'Nueva ruta asignada';

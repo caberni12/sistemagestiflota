@@ -10572,3 +10572,13 @@ tr.notice-detail-trigger:hover>td{background:#f3faff!important}
 .efnav-status{position:absolute;z-index:7;left:50%;bottom:102px;transform:translateX(-50%);background:rgba(255,255,255,.94);color:#17324d;border-radius:999px;padding:7px 12px;font-size:11px;font-weight:800;box-shadow:0 6px 20px rgba(15,23,42,.15);white-space:nowrap}
 .efnav-bottom{position:absolute;z-index:6;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr 1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:18px;background:rgba(255,255,255,.96);box-shadow:0 12px 30px rgba(15,23,42,.18);backdrop-filter:blur(10px)}.efnav-bottom>div{text-align:center;padding:3px 8px;border-right:1px solid #dbe5ef}.efnav-bottom span{display:block;font-size:10px;color:#64748b;font-weight:850}.efnav-bottom b{display:block;margin-top:3px;color:#17324d;font-size:16px}.navigation-provider-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:10px 0}
 @media(max-width:700px){.efnav-shell{height:calc(100vh - 110px);min-height:560px;border-radius:0;margin:-16px}.efnav-speed{width:88px;height:88px;bottom:158px}.efnav-speed b{font-size:29px}.efnav-arrow{bottom:225px}.efnav-bottom{grid-template-columns:repeat(6,1fr)}.efnav-bottom>div{grid-column:span 2}.efnav-bottom button{grid-column:span 3}.efnav-status{bottom:202px}.navigation-provider-grid{grid-template-columns:1fr}}
+
+/* R8.2.223 · Navegación Web autocontenida sobre MapaFlotas/OSM. */
+.efnav-map.efnav-mapa-flotas.mapa-flotas{background:#e8eef5!important;isolation:isolate;--efnav-map-rotation:0deg}
+.efnav-map.efnav-mapa-flotas .mapa-baldosas,.efnav-map.efnav-mapa-flotas .mapa-circulos,.efnav-map.efnav-mapa-flotas .mapa-rastros,.efnav-map.efnav-mapa-flotas .mapa-marcadores{transform-origin:50% 50%;transform:rotate(var(--efnav-map-rotation)) scale(1.42);transition:transform .48s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.efnav-map.efnav-mapa-flotas .mapa-baldosas img{filter:none!important;opacity:1!important;mix-blend-mode:normal!important}
+.efnav-map.efnav-mapa-flotas .mapa-controles,.efnav-map.efnav-mapa-flotas .mapa-aviso{display:none!important}
+.efnav-map.efnav-mapa-flotas .mapa-atribucion{z-index:5;opacity:.72;font-size:9px}
+.efnav-map.efnav-mapa-flotas .mapa-rastro.efnav-route{stroke:#2563eb!important;stroke-width:9!important;opacity:.96!important;filter:drop-shadow(0 2px 2px rgba(15,23,42,.28))}
+.efnav-map.efnav-mapa-flotas .mapa-marcador.efnav-destino>i{background:#dc2626!important;color:#fff!important;border-color:#fff!important;width:30px!important;height:30px!important}
+.efnav-map.efnav-mapa-flotas .mapa-marcador.efnav-destino>span{display:none!important}

@@ -1,0 +1,5 @@
+PUBLICAR E-FLEET WEB 4.5.37 · R8.2.223
+1. Subir todo el contenido de WEB.
+2. No mezclar archivos JS/CSS de 4.5.36: la clave de caché nueva es 4.5.37-navigation-map-r8223.
+3. Publicar flotas-api 4.5.68 junto con esta Web.
+4. No ejecutar SQL.

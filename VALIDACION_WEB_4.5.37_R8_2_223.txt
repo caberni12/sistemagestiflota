@@ -1,0 +1,8 @@
+VALIDACIÓN WEB 4.5.37 · R8.2.223
+- Navegación usa MapaFlotas/OSM ya incluido en efleet-4.5.32.js.
+- Ya no depende de descargar MapLibre/OpenFreeMap para pintar el mapa principal.
+- Ruta OSRM se dibuja como rastro E-fleet; si OSRM falla, se conserva línea directa de respaldo.
+- Cámara heading-up rota las capas del mapa con el rumbo GPS y mantiene la flecha hacia adelante.
+- Navegación habilitada para todos los perfiles autenticados, tanto en shell como en módulo.
+- VELOCIDAD_ADMIN_MENSAJE no genera toast/tarjeta emergente en Web administrativa.
+- node --check: OK.
