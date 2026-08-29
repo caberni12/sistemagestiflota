@@ -1,0 +1,5 @@
+PUBLICAR E-FLEET WEB 4.5.36 · R8.2.222
+1. Subir todo el contenido de WEB.
+2. La nueva clave de caché fuerza a descartar el bundle anterior del módulo Combustible.
+3. Mantener nexo-floating-4.5.35.js: no fue modificado en esta corrección.
+4. Requiere flotas-api 4.5.67 para identidad de vehículo autosuficiente en cada carga.

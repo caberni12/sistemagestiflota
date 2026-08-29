@@ -1,0 +1,13 @@
+E-FLEET WEB 4.5.35 · R8.2.221
+
+NUEVO
+- Módulo Navegación en GENERAL.
+- Navegación interna heading-up con MapLibre GL, GPS, velocímetro, ETA y ruta.
+- Botón Destino para usar el módulo directamente.
+- E-fleet Navegación agregado como opción en Rutas, Operaciones y Geo Local.
+- Waze y Google Maps se mantienen.
+- NEXO puede abrir un destino en E-fleet Navegación.
+
+PUBLICACIÓN
+Suba todo el contenido de esta carpeta WEB para asegurar navegacion.html, CSS, bundle y nexo-floating-4.5.35.js consistentes.
+API recomendada: flotas-api 4.5.66.
