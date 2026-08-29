@@ -1,0 +1,19 @@
+E-FLEET WEB 4.5.28 · R8.2.212
+API requerida: flotas-api 4.5.62
+Android compatible: 3.5.80 · V520
+
+MEJORA CHAT BOX NEXO WEB
+- Panel ampliado a 480 px en escritorio, con máximo responsivo para no salir de pantalla.
+- Mayor altura útil, padding y separación entre mensajes.
+- La conversación tiene scroll independiente y conserva el espacio principal.
+- Caja de texto más alta y cómoda.
+- Botones Voz, Enviar, Acciones y todas las acciones rápidas usan fondos neutros claros, bordes discretos y letras oscuras.
+- El menú “Acciones” queda debajo de la caja de texto y controles de envío.
+- Al abrir “Acciones”, la lista ocupa espacio propio dentro del panel y tiene scroll; NO se superpone ni tapa el chat.
+- Botones de Administración/Gerencia conservan sus permisos pero ya no usan fondos azules/oscuros.
+- Documentos y navegación Waze/Google Maps usan también botones neutros con texto oscuro.
+- En móvil el panel usa casi toda la altura disponible y mantiene scroll separado.
+
+No requiere SQL.
+No cambia flotas-api 4.5.62.
+No cambia Android 3.5.80 V520.

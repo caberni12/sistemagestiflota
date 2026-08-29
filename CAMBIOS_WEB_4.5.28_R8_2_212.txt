@@ -1,0 +1,17 @@
+E-FLEET WEB 4.5.28 · R8.2.212 · CHAT NEXO MÁS AMPLIO
+
+1. Ancho escritorio: hasta 480 px.
+2. Altura útil: hasta 78vh / 780 px respetando espacio disponible.
+3. Cuerpo del chat convertido a layout flex para separar conversación, entrada y acciones.
+4. Conversación con scroll propio; las acciones nunca se dibujan encima.
+5. “Acciones” pasa debajo de la caja de texto y de Voz/Enviar.
+6. Lista de acciones en flujo normal (position: static), max-height 200 px y scroll propio.
+7. Botones del Chat Box con fondo gris/claro y letras oscuras; sin diferenciación por colores intensos.
+8. Mensajes con mayor separación y mejor legibilidad.
+9. Adaptación móvil con altura dinámica y acciones con scroll de 180 px.
+10. Se mantienen intactos permisos y funciones de NEXO/Gemini.
+
+PUBLICACIÓN
+Suba TODO el contenido de WEB para evitar caché cruzada.
+Archivos principales: efleet-4.5.28.js, efleet-4.5.28.css, nexo-floating-4.5.28.js.
+No requiere SQL/API/Android adicionales.

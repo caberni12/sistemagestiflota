@@ -1,0 +1,11 @@
+PUBLICAR E-FLEET WEB 4.5.28 · R8.2.212
+
+1. Mantenga flotas-api 4.5.62 ya desplegada.
+2. Suba TODO el contenido de esta carpeta WEB al hosting, reemplazando la Web anterior.
+3. Verifique efleet-4.5.28.js, efleet-4.5.28.css y nexo-floating-4.5.28.js.
+4. Haga una recarga sin caché (Ctrl+F5) al probar por primera vez.
+5. Abra NEXO: confirme panel ancho, caja de texto visible y “Acciones” debajo.
+6. Abra “Acciones”: confirme que la lista tiene su propio scroll y no cubre mensajes.
+7. Confirme botones claros/neutros con letras oscuras.
+
+No ejecutar SQL. No es necesario volver a desplegar Android.

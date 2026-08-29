@@ -1,0 +1,13 @@
+VALIDACIÓN WEB 4.5.28 · R8.2.212
+[OK] JavaScript principal y NEXO pasan node --check.
+[OK] HTML apunta a efleet-4.5.28.css/js y nexo-floating-4.5.28.js.
+[OK] Panel NEXO escritorio configurado hasta 480 px.
+[OK] Cuerpo NEXO usa flex con conversación de scroll independiente.
+[OK] Menú Acciones usa position: static y scroll propio; no se superpone al chat.
+[OK] Acciones están debajo de textarea + Voz/Enviar.
+[OK] Botones del Chat Box usan fondos neutros claros y texto oscuro.
+[OK] Permisos Administración/Gerencia no fueron alterados.
+[OK] API compatible: 4.5.62. Android compatible: 3.5.80 V520.
+[OK] No requiere SQL.
+[OK] Referencias locales faltantes: 0.
+[OK] Orden DOM verificado: textarea > Voz/Enviar > Acciones.

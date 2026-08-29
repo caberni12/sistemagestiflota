@@ -1,3 +1,4 @@
-FLOTAS-API requerida: 4.5.62 · R8.2.211
-Web: 4.5.27
-Android compatible: 3.5.79 V519
+FLOTAS-API requerida: 4.5.62
+Web: 4.5.28 · R8.2.212
+Android compatible: 3.5.80 V520
+No requiere SQL adicional.
