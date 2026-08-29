@@ -1,0 +1,9 @@
+E-FLEET WEB 4.5.40 · R8.2.227
+
+NAVEGACIÓN
+- Corrige espacios/triángulos visibles al rotar el mapa en pantallas anchas.
+- Escala de cobertura calculada dinámicamente según ángulo y relación ancho/alto.
+- Mayor proyección hacia adelante durante la conducción.
+- Conserva navegación persistente, dirección real, velocímetro, ETA y Finalizar.
+
+No requiere SQL. API requerida: 4.5.69 o superior.
