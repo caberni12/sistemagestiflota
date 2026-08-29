@@ -1,0 +1,9 @@
+E-FLEET · FLOTAS-API 4.5.69 · R8.2.226
+
+Correcciones:
+- Resolver robusto de vehículo para Analizar con NEXO IA y Guardar Check-in.
+- Compatibilidad VEHICULO_ID / VEHÍCULO_ID / vehiculo_id / vehiculoId / PATENTE.
+- Aislamiento obligatorio por empresa_id.
+- Conserva Combustible identidad, Navegación y alerta >=100 km/h.
+
+NO REQUIERE SQL.

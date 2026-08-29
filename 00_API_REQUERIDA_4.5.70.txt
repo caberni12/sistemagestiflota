@@ -1,0 +1,3 @@
+WEB 4.5.41 / R8.2.228 requiere flotas-api 4.5.70.
+Correcciones: FOTOS_VEHICULO compatible sin tilde y contingencia manual del odómetro después de dos intentos.
+No requiere SQL.

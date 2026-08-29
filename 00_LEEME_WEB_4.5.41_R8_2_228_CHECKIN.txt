@@ -1,0 +1,10 @@
+E-FLEET WEB 4.5.41 · R8.2.228
+
+CHECK-IN
+- Corrige el falso mensaje “foto del vehículo requerida” cuando las 5 fotos ya fueron tomadas/subidas.
+- FOTOS_VEHICULO y FOTOS_VEHÍCULO son compatibles con flotas-api 4.5.70.
+- El odómetro continúa bloqueado para ingreso manual durante el primer intento.
+- Al completar la segunda lectura/foto, se habilita corrección manual si NEXO no trae el valor real.
+- La foto del tablero se conserva como evidencia y el KM manual queda auditado.
+- Requiere flotas-api 4.5.70.
+- No requiere SQL.
