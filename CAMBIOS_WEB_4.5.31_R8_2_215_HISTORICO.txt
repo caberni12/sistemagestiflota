@@ -1,0 +1,14 @@
+E-FLEET WEB 4.5.32 - R8.2.217
+
+CORRECCION CHAT BOX NEXO
+- Se agrega SCROLL VERTICAL GENERAL visible al cuerpo completo del Chat Box.
+- El encabezado NEXO permanece fijo.
+- Se puede desplazar desde los accesos superiores hasta Voz, Enviar, Acciones y todos sus botones.
+- La zona de mensajes conserva su propio scroll cuando la conversación crece.
+- La zona Acciones conserva su scroll interno cuando hay muchos botones.
+- Se evita que controles inferiores queden fuera de la pantalla en resoluciones bajas.
+- Se mantienen botones claros/neutros con texto oscuro.
+
+No requiere SQL.
+No cambia API 4.5.64.
+No cambia Android 3.5.80 / V520.

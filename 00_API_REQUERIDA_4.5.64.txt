@@ -1,0 +1,3 @@
+API REQUERIDA: flotas-api 4.5.64 o superior
+Web: 4.5.32 · R8.2.217
+Esta corrección es solo Web y no requiere volver a desplegar la API si ya está en 4.5.64.

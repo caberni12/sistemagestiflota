@@ -1,0 +1,11 @@
+E-FLEET WEB 4.5.32 / R8.2.217
+
+CORRECCIÓN NEXO CHAT BOX
+- La zona inferior del chat queda siempre visible.
+- Caja de texto, Voz, Enviar y ⚡ Acciones están fuera del área desplazable de conversación.
+- El contenido/mensajes se desplaza en una zona independiente.
+- Al abrir ⚡ Acciones, la lista aparece debajo del botón con scroll propio.
+- El menú ya no puede encogerse hasta desaparecer por Flexbox.
+- Panel usa casi todo el alto disponible de la ventana, adaptándose a pantallas bajas.
+- Mantiene botones claros con texto oscuro.
+- No requiere SQL ni cambios Android/API. Requiere flotas-api 4.5.64 o superior.

@@ -1,0 +1,7 @@
+PUBLICAR WEB 4.5.32 / R8.2.217
+
+1. Reemplace la carpeta Web anterior por el contenido de esta carpeta.
+2. Asegúrese de publicar nexo-floating-4.5.32.js, efleet-4.5.32.js y efleet-4.5.32.css.
+3. Haga una recarga forzada del navegador (Ctrl+F5) una vez publicada para evitar caché de archivos anteriores.
+4. No ejecute SQL.
+5. Mantenga flotas-api 4.5.64 o superior.

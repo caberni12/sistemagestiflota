@@ -1,0 +1,13 @@
+E-FLEET WEB 4.5.32 / R8.2.217
+
+CORRECCIÓN CHAT BOX NEXO
+La zona de composición queda fija dentro del panel:
+- Caja de texto siempre visible.
+- Voz y Enviar siempre visibles.
+- Botón ⚡ Acciones siempre visible debajo.
+- Al abrir Acciones, sus botones aparecen con scroll propio.
+- Mensajes/contenido superior usan un scroll independiente.
+- El menú de Acciones ya no puede comprimirse/ocultarse por Flexbox.
+
+Requiere flotas-api 4.5.64 o superior.
+No requiere SQL. No requiere recompilar Android.
