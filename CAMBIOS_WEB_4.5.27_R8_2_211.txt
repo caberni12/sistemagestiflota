@@ -1,0 +1,21 @@
+E-FLEET WEB 4.5.27 · CHAT NEXO COMPACTO
+
+1. El chat flotante muestra únicamente el botón “Acciones rápidas”.
+2. Al pulsarlo aparecen temporalmente estas cinco opciones:
+   - Documentos de mi flota.
+   - Documentos de mis vehículos.
+   - Abrir Combustible.
+   - Licencia por RUT.
+   - Papeles por patente.
+3. El menú se cierra después de elegir una acción, al pulsar Escape o al tocar fuera.
+4. Abrir Combustible usa el enrutador del panel principal y conserva la sesión activa.
+5. Si el usuario no tiene sesión o permiso, NEXO informa el problema sin enviarlo al login.
+
+PUBLICACIÓN
+Reemplace todo el contenido Web por esta versión para actualizar juntos:
+- efleet-4.5.27.js
+- efleet-4.5.27.css
+- nexo-floating-4.5.27.js
+- archivos HTML con referencias 4.5.27
+
+No requiere cambios en flotas-api, Android ni base de datos.

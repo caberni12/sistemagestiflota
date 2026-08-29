@@ -1,0 +1,14 @@
+E-FLEET WEB 4.5.27 · R8.2.211
+API requerida: flotas-api 4.5.62
+
+- Combustible: monto a cargar + precio/L => litros automáticos.
+- Administración/Gerencia: selector de vehículo administrativo y conductor opcional.
+- NEXO flotante: un solo botón “Acciones rápidas”, menú desplazable que no cubre el chat.
+- NEXO: direcciones con tarjeta y botones Waze / Google Maps.
+- Usuario: botón “Respaldo del sistema” para Administración/Gerencia.
+- Respaldo automático: cualquier sesión activa puede asegurar silenciosamente el respaldo del día de su empresa; no recibe URL ni puede forzarlo.
+- Monitor NEXO: Administración/Gerencia ejecuta diagnóstico y reparaciones seguras silenciosas.
+- KPI: Reportes, combustible, mantenciones, rutas y Geo consumen endpoints multiempresa reforzados.
+- Mantenciones conserva Orden de Trabajo PDF con correlativo.
+
+Publicar después de flotas-api 4.5.62.

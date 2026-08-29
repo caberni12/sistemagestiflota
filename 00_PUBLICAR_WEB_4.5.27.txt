@@ -1,0 +1,7 @@
+PUBLICAR E-FLEET WEB 4.5.27 · R8.2.211
+
+1. Despliegue primero flotas-api 4.5.62.
+2. Suba TODO el contenido de la carpeta WEB al hosting, reemplazando la versión anterior.
+3. Verifique efleet-4.5.27.js, efleet-4.5.27.css y nexo-floating-4.5.27.js.
+4. Haga una recarga sin caché la primera vez.
+5. En Mantenciones, abra una mantención y pruebe “Orden de Trabajo”.

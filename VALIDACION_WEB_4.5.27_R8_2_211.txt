@@ -1,0 +1,12 @@
+VALIDACIÓN WEB 4.5.27 · R8.2.211
+[OK] Todos los JavaScript pasan node --check.
+[OK] HTML principal apunta a efleet-4.5.27.css/js y nexo-floating-4.5.27.js.
+[OK] Combustible dispone de MONTO_CARGA, PRECIO_LITRO y LITROS readonly calculados automáticamente.
+[OK] Administración/Gerencia dispone de vehículo administrativo y conductor opcional.
+[OK] Chat flotante usa un único botón “Acciones rápidas”; el menú tiene scroll y no cubre la conversación.
+[OK] NAVEGACION_DIRECCION renderiza dirección + Waze + Google Maps.
+[OK] Usuario muestra “Respaldo del sistema” a perfiles de gestión.
+[OK] El arranque remoto solicita respaldoSistemaAutomatico una vez por fecha/empresa desde cualquier sesión activa.
+[OK] monitorNexoAplicacion se ejecuta silenciosamente solo para perfiles de gestión.
+[OK] Mantenciones conserva Orden de Trabajo PDF con correlativo.
+[OK] Referencias locales src/href válidas; endpoint Supabase //... es externo.
