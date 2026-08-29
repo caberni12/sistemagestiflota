@@ -1,0 +1,5 @@
+E-FLEET WEB 4.5.31 / R8.2.215
+
+Esta revisión corrige el scroll VERTICAL DEL CHAT BOX COMPLETO de NEXO.
+Si ya usa R8.2.214, publique/reemplace únicamente esta carpeta WEB.
+No requiere SQL, cambio de API ni recompilación Android.

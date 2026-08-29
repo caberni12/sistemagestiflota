@@ -1,0 +1,5 @@
+PUBLICAR WEB 4.5.31 / R8.2.215
+1. Reemplace el contenido Web anterior por esta carpeta WEB.
+2. No ejecute SQL.
+3. Mantenga flotas-api 4.5.63 ya desplegada.
+4. Android permanece 3.5.80 / versionCode 520.
