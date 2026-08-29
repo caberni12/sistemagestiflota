@@ -1,0 +1,5 @@
+CAMBIOS WEB 4.5.30 · R8.2.214
+- NEXO: bloque Acciones con altura controlada y scroll vertical dedicado.
+- Scrollbar visible en Chromium/Edge/Chrome y Firefox.
+- Evita que la lista de acciones se corte por overflow del cuerpo del chat.
+- Mantiene chat/mensajes con scroll independiente.

@@ -1,0 +1,14 @@
+E-FLEET MANAGEMENT SYSTEM
+WEB 4.5.30 · R8.2.214
+
+Correccion puntual NEXO Chat Box:
+- La zona "Acciones" tiene scroll vertical propio y siempre visible cuando corresponde.
+- Los botones ya no quedan cortados debajo del panel.
+- Scroll independiente del historial de mensajes.
+- Caja de texto, Voz y Enviar permanecen visibles.
+- Fondos claros/neutros y letras oscuras en controles.
+- Mantiene Listado de usuarios exclusivo de Administracion/Gerencia.
+
+NO REQUIERE SQL.
+NO REQUIERE CAMBIO DE API (continua flotas-api 4.5.63).
+NO REQUIERE CAMBIO ANDROID (continua 3.5.80 / V520).
