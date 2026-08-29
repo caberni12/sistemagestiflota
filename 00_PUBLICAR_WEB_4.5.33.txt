@@ -1,0 +1,6 @@
+PUBLICAR E-FLEET WEB 4.5.33 / R8.2.219
+1. Reemplazar/publicar el contenido completo de esta carpeta WEB.
+2. No modificar flotas-api 4.5.65.
+3. No ejecutar SQL.
+4. No recompilar Android.
+5. Luego de publicar, usar Ctrl+F5 una vez para limpiar cache del navegador.

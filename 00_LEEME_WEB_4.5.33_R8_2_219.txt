@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.33 / R8.2.219
+
+CORRECCION NEXO - SCROLL ACCIONES RAPIDAS A LA IZQUIERDA
+- La barra vertical del listado de Acciones queda en el lado izquierdo.
+- Los botones y textos siguen en direccion normal izquierda -> derecha.
+- El icono flotante de NEXO permanece a la derecha y ya no tapa la barra del scroll.
+- Se conserva el pie fijo con caja de texto, Voz, Enviar y Acciones.
+- Acciones mantiene su scroll independiente.
+
+Requiere flotas-api 4.5.65 o superior.
+No requiere SQL.
+No requiere recompilar Android.
