@@ -1,4 +1,4 @@
-/* E-fleet Web 4.5.20 · NEXO IA Multimodal · R8.2.229 · FOTOS + CONTINGENCIA KM */
+/* E-fleet Web 4.5.20 · NEXO IA Multimodal · R8.2.232 · NAVEGACIÓN + TRAZABILIDAD + EMPRESA_ID */
 (() => {
   'use strict';
   const VERSION='4.5.20';

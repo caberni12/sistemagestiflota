@@ -1,0 +1,16 @@
+E-FLEET WEB 4.5.44 · R8.2.232
+
+- Navegación muestra nombres reales de rutas; IDs técnicos quedan internos.
+- Trazabilidad de rutas recupera y muestra hitos reales de Check-in.
+- Destinos/Centrar/Finalizar usan loader circular.
+- Desasignación de ruta, Geo Local u operación retira el destino activo del mapa.
+- Llegada a Ruta/Geo Local/Operación abre la tarjeta de origen al aceptar.
+- Geo Local no avanza automáticamente al siguiente local.
+- Requiere flotas-api 4.5.74.
+
+AJUSTES FINALES R8.2.232
+- Trazabilidad y tarjetas muestran NOMBRE_VISIBLE/NOMBRE de la ruta, nunca RUTA_ID como sustituto visual.
+- Destinos, Centrar y Finalizar muestran loader circular y bloquean doble clic durante la acción.
+- Navegación comprueba si Ruta/Geo Local/Operación continúa asignada y limpia el mapa cuando deja de estar vigente.
+- Alerta de llegada abre el origen correspondiente; Geo Local abre su tarjeta y no avanza automáticamente a otro local.
+- Las rutas pueden continuar su secuencia de destinos; Geo Local y Operaciones no se autoencadenan.

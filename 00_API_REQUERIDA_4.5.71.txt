@@ -1,1 +1,1 @@
-WEB 4.5.42 / R8.2.229 requiere flotas-api 4.5.71.
+WEB 4.5.44 / R8.2.232 requiere flotas-api 4.5.71.

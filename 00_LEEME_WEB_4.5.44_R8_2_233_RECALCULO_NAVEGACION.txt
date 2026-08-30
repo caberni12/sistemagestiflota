@@ -1,0 +1,7 @@
+E-FLEET WEB 4.5.44 · R8.2.233
+- Recálculo de navegación por desvío real, no por temporizador fijo.
+- Umbral dinámico aprox. 24–42 m según precisión GPS.
+- Dos muestras consecutivas fuera de ruta disparan recálculo; >=75 m lo acelera.
+- Nueva ruta solicitada desde GPS real.
+- Animación de cámara reducida para disminuir desfase visual.
+- Requiere flotas-api 4.5.74 o superior.

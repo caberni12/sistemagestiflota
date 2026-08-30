@@ -1,0 +1,11 @@
+VALIDACIÓN WEB 4.5.44 · R8.2.232
+
+[OK] node --check efleet-4.5.44.js.
+[OK] HTML activo referencia efleet-4.5.44.js / efleet-4.5.44.css.
+[OK] Navegación usa NOMBRE_VISIBLE/NOMBRE para título de ruta.
+[OK] Trazabilidad de rutas no sustituye nombre por RUTA_ID.
+[OK] Botones Destinos/Centrar/Finalizar usan loader circular.
+[OK] Desasignación de Ruta/Geo Local/Operación limpia sesión y línea del mapa.
+[OK] Llegada a Geo Local abre la tarjeta correspondiente y no autoavanza.
+[OK] Sesión de navegación conserva origen lógico para volver a la tarjeta correcta.
+[OK] Requiere flotas-api 4.5.74 R8.2.232.
