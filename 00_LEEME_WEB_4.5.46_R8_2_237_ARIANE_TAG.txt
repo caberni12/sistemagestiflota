@@ -1,0 +1,12 @@
+E-FLEET WEB 4.5.46 · R8.2.237
+ARIANE + TAG/PEAJES
+
+- Botón 📣 Ariane / 🔇 Ariane sobre el mapa de Navegación.
+- Voz es-CL mediante Speech Synthesis del navegador, cuando esté disponible.
+- Avisos de maniobra a ~700 m, ~300 m y ~80 m, más recálculo/llegada.
+- Check "Usar TAG / peajes" persistente por empresa + usuario.
+- Al desmarcarlo se solicita una ruta sin peajes a flotas-api y NO se usa OSRM como respaldo no verificable.
+- El cambio del check durante una navegación activa recalcula inmediatamente.
+- Resumen de tráfico/incidentes, número de peajes y total TAG estimado cuando HERE entrega tarifa.
+
+REQUIERE flotas-api 4.5.78 R8.2.237 o superior.

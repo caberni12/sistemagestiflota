@@ -1,7 +1,7 @@
 VALIDACIÓN WEB 4.5.44 · R8.2.232
 
 [OK] node --check efleet-4.5.44.js.
-[OK] HTML activo referencia efleet-4.5.44.js / efleet-4.5.44.css.
+[OK] HTML activo referencia efleet-4.5.44.js / efleet-4.5.46.css.
 [OK] Navegación usa NOMBRE_VISIBLE/NOMBRE para título de ruta.
 [OK] Trazabilidad de rutas no sustituye nombre por RUTA_ID.
 [OK] Botones Destinos/Centrar/Finalizar usan loader circular.

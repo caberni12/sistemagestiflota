@@ -1,0 +1,6 @@
+VALIDACION WEB 4.5.46 · R8.2.237
+- [OK] node --check sobre efleet-4.5.46.js.
+- [OK] Todos los HTML apuntan a efleet-4.5.46.js / efleet-4.5.46.css.
+- [OK] Ariane y preferencia TAG aisladas por empresa + usuario.
+- [OK] PERMITIR_TAG se envía a flotas-api.
+- [OK] SIN TAG no usa OSRM como respaldo no verificable.
