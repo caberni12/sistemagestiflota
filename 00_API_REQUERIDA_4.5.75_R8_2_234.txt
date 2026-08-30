@@ -1,0 +1,1 @@
+Web 4.5.45 R8.2.234 requiere flotas-api 4.5.75 para mostrar correctamente la trazabilidad histórica de Check-in en Rutas y Geo Admin.

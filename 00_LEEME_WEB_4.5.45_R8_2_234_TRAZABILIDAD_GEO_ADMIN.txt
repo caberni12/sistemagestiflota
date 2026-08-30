@@ -1,0 +1,6 @@
+E-FLEET WEB 4.5.45 · R8.2.234
+
+- Geo Admin muestra trazabilidad histórica de Check-in por planificación.
+- El primer hito usa VEHICULO_ASIGNADO_EN con alias compatible con y sin tilde.
+- La trazabilidad histórica se mantiene aislada por empresa_id.
+- Requiere flotas-api 4.5.75.
