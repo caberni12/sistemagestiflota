@@ -1,0 +1,9 @@
+E-FLEET WEB 4.5.49 · R8_2_252
+================================
+GEO PLANIFICADOR / GEO ADMIN
+- Una planificación nueva crea un GPSOL nuevo.
+- Guardar de nuevo el mismo borrador envía el SOLICITUD_ID y conserva su GPSOL.
+- Si hay un borrador vigente, aparece "Nueva planificación desde cero" para crear otro GPSOL sin borrar el anterior.
+- Geo Admin muestra ID de solicitud y FECHA_DESDE / FECHA_HASTA.
+- Planificaciones antiguas no ejecutadas no bloquean una nueva solicitud.
+- Requiere flotas-api 4.5.85 + SQL R8_2_252.

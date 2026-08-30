@@ -1,0 +1,8 @@
+E-FLEET WEB 4.5.48 · R8.2.240
+
+CORRECCIÓN VISUAL DE NAVEGACIÓN
+- Se elimina del mapa la leyenda técnica “Guía local · sin consumo HERE/Google Routes”.
+- El botón Ariane permanece visible.
+- No cambia la lógica de navegación.
+- Compatible con flotas-api 4.5.80 R8.2.239 (OSRM + HERE Traffic solamente).
+- No requiere SQL.

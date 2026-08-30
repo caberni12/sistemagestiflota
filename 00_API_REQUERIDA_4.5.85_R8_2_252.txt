@@ -1,0 +1,1 @@
+E-fleet Web 4.5.49 / R8_2_252 requiere flotas-api 4.5.85 y ejecutar SQL_R8_2_252_GEO_SOLICITUDES_INDEPENDIENTES.sql antes del despliegue.

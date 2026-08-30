@@ -1,0 +1,9 @@
+VALIDACIÓN WEB 4.5.49 · R8_2_252
+================================
+[OK] Sintaxis JavaScript validada con node --check.
+[OK] Guardar borrador conserva SOLICITUD_ID cuando se edita el mismo GPSOL.
+[OK] Una planificación nueva sin GPSOL deja que API 4.5.85 genere otro identificador.
+[OK] Botón "Nueva planificación desde cero" permite separar un nuevo GPSOL sin borrar el borrador previo.
+[OK] Geo Admin muestra ID de solicitud y FECHA_DESDE / FECHA_HASTA.
+[OK] Referencias HTML y Service Worker apuntan a efleet-4.5.49.js/css.
+[OK] Requiere flotas-api 4.5.85 + SQL R8_2_252.

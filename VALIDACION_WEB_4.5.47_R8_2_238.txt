@@ -1,4 +1,4 @@
-VALIDACIÓN WEB 4.5.47 · R8.2.238
+VALIDACIÓN WEB 4.5.48 · R8.2.240
 [OK] Ariane permanece activa/desactivable por empresa + usuario.
 [OK] No existe selector TAG/peajes en Navegación.
 [OK] calcularRutaNavegacion no envía PERMITIR_TAG.

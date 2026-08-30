@@ -1,4 +1,4 @@
-E-FLEET WEB 4.5.47 · R8.2.238
+E-FLEET WEB 4.5.48 · R8.2.240
 ARIANE LOCAL · SIN HERE / GOOGLE ROUTES EN NAVEGACIÓN
 
 - Botón 📣 Ariane / 🔇 Ariane.
@@ -6,4 +6,4 @@ ARIANE LOCAL · SIN HERE / GOOGLE ROUTES EN NAVEGACIÓN
 - Rutas desde flotas-api/OSRM público.
 - Se retiró el selector TAG/peajes de Navegación.
 - No solicita HERE Traffic, HERE Incidents ni Google Routes.
-- Requiere flotas-api 4.5.79 R8.2.238.
+- Requiere flotas-api 4.5.79 R8.2.240.
