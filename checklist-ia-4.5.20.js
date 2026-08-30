@@ -1,4 +1,4 @@
-/* E-fleet Web 4.5.20 · NEXO IA Multimodal · R8.2.228 · FOTOS + CONTINGENCIA KM */
+/* E-fleet Web 4.5.20 · NEXO IA Multimodal · R8.2.229 · FOTOS + CONTINGENCIA KM */
 (() => {
   'use strict';
   const VERSION='4.5.20';
@@ -62,7 +62,7 @@
     <div class="checklist-ia-grid">${PHOTO_TYPES.map(([type,label,help])=>`<label class="checklist-ia-photo"><span>${escapeHtml(label)} *</span><input type="file" accept="image/*" capture="environment" data-ia-photo="${type}" ${type==='TABLERO'?'disabled':''} required><small>${escapeHtml(help)}</small><b data-ia-file-name="${type}">Sin fotografía</b></label>`).join('')}</div>
     <label class="field full checklist-ia-note"><span>Nota del conductor por voz o texto</span><textarea name="NOTA_IA_CONDUCTOR" data-ia-note placeholder="Ej. El freno suena raro al pisarlo a fondo"></textarea><button class="btn soft" type="button" data-ia-dictate>🎙 Dictar observación</button><small>La IA clasifica la observación, pero no reemplaza el diagnóstico del taller.</small></label>
     <input type="hidden" name="SESION_IA_ID"><input type="hidden" name="FOTOS_VEHICULO"><input type="hidden" name="IA_RESULTADO_CODIFICADO"><input type="hidden" name="IA_TRANSCRIPCION"><input type="hidden" name="KILOMETRAJE_CONFIRMADO_USUARIO" data-ia-km-confirm-value><input type="hidden" name="ODOMETRO_INTENTOS" value="0" data-ia-km-attempts><input type="hidden" name="KILOMETRAJE_CONTINGENCIA_MANUAL" value="NO" data-ia-km-manual-flag>
-    <div class="checklist-ia-km-confirm full" data-ia-km-confirm-wrap hidden><label><input type="checkbox" name="CONFIRMACION_KILOMETRAJE" value="SI" data-ia-km-confirm disabled><span data-ia-km-confirm-text>NEXO aún no ha propuesto el kilometraje.</span></label><small>Compare el número con la fotografía del tablero. Si no coincide, repita solamente la foto del odómetro. Después de 2 intentos se habilita corrección manual auditada.</small></div>
+    <div class="checklist-ia-km-confirm full" data-ia-km-confirm-wrap hidden><label><input type="checkbox" name="CONFIRMACION_KILOMETRAJE" value="SI" data-ia-km-confirm disabled><span data-ia-km-confirm-text>NEXO aún no ha propuesto el kilometraje.</span></label><small>Compare el número con la fotografía del tablero. Si no coincide, repita solamente la foto del odómetro. El KM puede corregirse manualmente desde el primer intento; la foto queda siempre como evidencia auditada.</small></div>
     <div class="checklist-ia-status full" data-ia-status><i>○</i><div><b>Esperando evidencias</b><span>Las fotos 1–4 son exteriores en cualquier orden. La foto 5 es obligatoriamente el tablero/odómetro.</span></div></div>
   </section>`;}
   function syncControlTile(card){
@@ -104,18 +104,18 @@
   }
   function setManualKmMode(form,attempts,reason=''){
     const km=form?.elements?.KILOMETRAJE;if(!km)return;
-    form.dataset.iaKmManualAvailable='1';form.dataset.iaOdometerAttempts=String(Math.max(2,Number(attempts)||2));
+    form.dataset.iaKmManualAvailable='1';form.dataset.iaOdometerAttempts=String(Math.max(1,Number(attempts)||1));
     const attemptsInput=form.querySelector('[data-ia-km-attempts]'),flag=form.querySelector('[data-ia-km-manual-flag]');if(attemptsInput)attemptsInput.value=form.dataset.iaOdometerAttempts;if(flag)flag.value='NO';
-    km.readOnly=false;km.removeAttribute('readonly');km.setAttribute('aria-readonly','false');km.inputMode='numeric';km.tabIndex=0;km.placeholder='Ingrese el KM real visible en la foto';km.title='Corrección manual habilitada después de dos intentos de lectura del odómetro';
+    km.readOnly=false;km.removeAttribute('readonly');km.setAttribute('aria-readonly','false');km.inputMode='numeric';km.tabIndex=0;km.placeholder='Ingrese el KM real visible en la foto';km.title='Kilometraje editable: confirme el valor real visible en la fotografía';
     const wrap=form.querySelector('[data-ia-km-confirm-wrap]'),confirm=form.querySelector('[data-ia-km-confirm]'),text=form.querySelector('[data-ia-km-confirm-text]');
-    if(wrap)wrap.hidden=false;if(confirm){confirm.checked=false;confirm.disabled=false;}if(text)text.textContent=`Dos lecturas de odómetro realizadas. Ingrese el kilometraje real visible en la fotografía y confirme.${reason?` ${reason}`:''}`;
+    if(wrap)wrap.hidden=false;if(confirm){confirm.checked=false;confirm.disabled=false;}if(text)text.textContent=`Ingrese o corrija el kilometraje real visible en la fotografía y confirme.${reason?` ${reason}`:''}`;
     km.addEventListener('input',()=>{const value=form.querySelector('[data-ia-km-confirm-value]');if(value)value.value=String(km.value||'');if(confirm)confirm.checked=false;},{once:false});
     km.focus();
   }
   function markKmContingencyIfChanged(form){
     const attempts=Number(form?.dataset?.iaOdometerAttempts||0),km=form?.elements?.KILOMETRAJE,flag=form?.querySelector?.('[data-ia-km-manual-flag]'),attemptsInput=form?.querySelector?.('[data-ia-km-attempts]');
     if(attemptsInput)attemptsInput.value=String(attempts);
-    if(!km||attempts<2)return false;
+    if(!km||attempts<1)return false;
     const original=Number(km.dataset.iaSuggestedKm||0),actual=Number(km.value||0),manual=form.dataset.iaKmManualAvailable==='1'&&actual>0&&(!(original>0)||Math.abs(actual-original)>.5||flag?.value==='SI');
     if(flag)flag.value=manual?'SI':'NO';return manual;
   }
@@ -126,10 +126,10 @@
     const observation=form.querySelector('textarea[name="OBSERVACIONES"]')?.closest('label')||form.querySelector('.form-actions');
     const holder=document.createElement('div');holder.className='full';holder.innerHTML=evidenceMarkup();
     if(observation)observation.before(holder.firstElementChild);else form.appendChild(holder.firstElementChild);
-    if(form.elements.KILOMETRAJE){const km=form.elements.KILOMETRAJE;km.required=false;km.readOnly=true;km.setAttribute('readonly','readonly');km.inputMode='none';km.tabIndex=-1;km.placeholder='Se carga automáticamente desde la foto del odómetro';km.title='Kilometraje validado por NEXO IA desde la fotografía del odómetro';}
+    if(form.elements.KILOMETRAJE){const km=form.elements.KILOMETRAJE;km.required=false;km.readOnly=false;km.removeAttribute('readonly');km.inputMode='numeric';km.tabIndex=0;km.placeholder='NEXO propone el KM; puede corregirlo según la foto';km.title='Kilometraje siempre editable; la fotografía del odómetro queda como evidencia';form.dataset.iaKmManualAvailable='1';}
     form.querySelectorAll('[data-checkin-control] input[type="radio"],[data-checkin-item],input[name="CONFIRMACION_CONDUCTOR"]').forEach(control=>{control.required=false;});
     bindControlModals(form);
-    form.querySelectorAll('[data-ia-photo]').forEach(input=>input.addEventListener('change',()=>{const file=input.files?.[0],name=form.querySelector(`[data-ia-file-name="${input.dataset.iaPhoto}"]`);if(name)name.textContent=file?file.name:'Sin fotografía';form.dataset.iaReady='';form.elements.SESION_IA_ID.value='';if(String(input.dataset.iaPhoto||'').toUpperCase()==='TABLERO'){const kmConfirm=form.querySelector('[data-ia-km-confirm]'),kmWrap=form.querySelector('[data-ia-km-confirm-wrap]'),kmValue=form.querySelector('[data-ia-km-confirm-value]'),flag=form.querySelector('[data-ia-km-manual-flag]');if(kmConfirm){kmConfirm.checked=false;kmConfirm.disabled=true;}if(kmValue)kmValue.value='';if(flag)flag.value='NO';form.dataset.iaKmManualAvailable='';if(kmWrap)kmWrap.hidden=true;}syncPhotoSequence(form);}));
+    form.querySelectorAll('[data-ia-photo]').forEach(input=>input.addEventListener('change',()=>{const file=input.files?.[0],name=form.querySelector(`[data-ia-file-name="${input.dataset.iaPhoto}"]`);if(name)name.textContent=file?file.name:'Sin fotografía';form.dataset.iaReady='';form.elements.SESION_IA_ID.value='';if(String(input.dataset.iaPhoto||'').toUpperCase()==='TABLERO'){const kmConfirm=form.querySelector('[data-ia-km-confirm]'),kmWrap=form.querySelector('[data-ia-km-confirm-wrap]'),kmValue=form.querySelector('[data-ia-km-confirm-value]'),flag=form.querySelector('[data-ia-km-manual-flag]');if(kmConfirm){kmConfirm.checked=false;kmConfirm.disabled=true;}if(kmValue)kmValue.value='';if(flag)flag.value='NO';form.dataset.iaKmManualAvailable='1';if(kmWrap)kmWrap.hidden=true;}syncPhotoSequence(form);}));
     syncPhotoSequence(form);
     form.querySelector('[data-ia-dictate]')?.addEventListener('click',event=>dictate(form.querySelector('[data-ia-note]'),event.currentTarget));
     const bulk=form.querySelector('[data-checkin-mark-all-ok]');
@@ -246,20 +246,14 @@
         resultSummary(form,analysis);
         if(analysis.KILOMETRAJE_REQUIERE_NUEVA_FOTO===true||analysis.KILOMETRAJE_VALIDADO!==true){
           const intentos=Number(form.dataset.iaOdometerAttempts||1),fotosAnalisis=analysis.FOTOS_VEHICULO||analysis['FOTOS_VEHÍCULO']||photos;
-          if(intentos>=2){
-            form.elements.SESION_IA_ID.value=sessionId;form.elements.FOTOS_VEHICULO.value=JSON.stringify(fotosAnalisis);form.elements.IA_RESULTADO_CODIFICADO.value=JSON.stringify(analysis.resultado||{});form.elements.IA_TRANSCRIPCION.value=analysis.TRANSCRIPCION||'';
-            const sugerido=Number(analysis.KILOMETRAJE_SUGERIDO||0);if(sugerido>0&&form.elements.KILOMETRAJE){form.elements.KILOMETRAJE.value=String(sugerido);form.elements.KILOMETRAJE.dataset.iaSuggestedKm=String(sugerido);}
-            setManualKmMode(form,intentos,`NEXO no logró validar una lectura confiable (${analysis.KILOMETRAJE_MOTIVO||'lectura insuficiente'}). La foto 5 queda guardada como evidencia.`);
-            const auto=applyAutomaticControls(form,analysis);form.dataset.iaAnalizado='1';setProcessProgress(form,78,'Corrección manual del odómetro habilitada',`Se conservaron las 5 fotos. Ingrese el KM real, confirme y complete la revisión humana 18/18.`);toast('Odómetro · contingencia habilitada','Tras dos intentos, puede escribir el kilometraje real visible en la foto. La corrección quedará auditada.','warning');return;
-          }
-          const conservadas=fotosAnalisis.filter(item=>String(item?.tipoEvidencia||item?.TIPO_EVIDENCIA||'').toUpperCase()!=='TABLERO');
-          form.elements.FOTOS_VEHICULO.value=JSON.stringify(conservadas);form.elements.SESION_IA_ID.value='';form.dataset.iaReady='';syncPhotoSequence(form);
-          const tablero=form.querySelector('[data-ia-photo="TABLERO"]');if(tablero){tablero.value='';const name=form.querySelector('[data-ia-file-name="TABLERO"]');if(name)name.textContent='Repita solo esta foto · odómetro/tablero';tablero.closest('.checklist-ia-photo')?.scrollIntoView({behavior:'smooth',block:'center'});}
-          setProcessProgress(form,55,'Odómetro pendiente','Las otras cuatro fotografías ya quedaron subidas y se reutilizarán.');
-          throw new Error(`Primer intento de lectura insuficiente (${analysis.KILOMETRAJE_MOTIVO||'lectura insuficiente'}). Repita únicamente tablero/odómetro; si el segundo intento tampoco coincide, se habilitará corrección manual.`);
+          form.elements.SESION_IA_ID.value=sessionId;form.elements.FOTOS_VEHICULO.value=JSON.stringify(fotosAnalisis);form.elements.IA_RESULTADO_CODIFICADO.value=JSON.stringify(analysis.resultado||{});form.elements.IA_TRANSCRIPCION.value=analysis.TRANSCRIPCION||'';
+          const sugerido=Number(analysis.KILOMETRAJE_SUGERIDO||0);if(sugerido>0&&form.elements.KILOMETRAJE&&!Number(form.elements.KILOMETRAJE.value||0)){form.elements.KILOMETRAJE.value=String(sugerido);form.elements.KILOMETRAJE.dataset.iaSuggestedKm=String(sugerido);}
+          setManualKmMode(form,intentos,`NEXO no logró validar una lectura confiable (${analysis.KILOMETRAJE_MOTIVO||'lectura insuficiente'}). La foto 5 queda guardada como evidencia y puede escribir el valor real ahora.`);
+          const flag=form.querySelector('[data-ia-km-manual-flag]');if(flag)flag.value='SI';
+          const auto=applyAutomaticControls(form,analysis);form.dataset.iaAnalizado='1';setProcessProgress(form,78,'Kilometraje editable',`Se conservaron las 5 fotos. Escriba o corrija el KM real, confírmelo y complete la revisión humana 18/18.`);toast('Odómetro · revisión manual disponible','Puede escribir el kilometraje real visible en la foto desde este primer intento. La foto queda guardada y la corrección será auditada.','warning');return;
         }
         form.elements.SESION_IA_ID.value=sessionId;form.elements.FOTOS_VEHICULO.value=JSON.stringify(analysis.FOTOS_VEHICULO||analysis['FOTOS_VEHÍCULO']||photos);form.elements.IA_RESULTADO_CODIFICADO.value=JSON.stringify(analysis.resultado||{});form.elements.IA_TRANSCRIPCION.value=analysis.TRANSCRIPCION||'';
-        const km=Number(analysis.KILOMETRAJE_SUGERIDO||0);if(!(km>0))throw new Error('NEXO IA no obtuvo un kilometraje válido desde la foto del odómetro.');if(form.elements.KILOMETRAJE){form.elements.KILOMETRAJE.value=String(km);form.elements.KILOMETRAJE.dataset.iaSuggestedKm=String(km);}if(Number(form.dataset.iaOdometerAttempts||0)>=2)setManualKmMode(form,Number(form.dataset.iaOdometerAttempts||2),'Si NEXO todavía no coincide con la foto, corrija el valor antes de confirmar.');const kmConfirm=form.querySelector('[data-ia-km-confirm]'),kmWrap=form.querySelector('[data-ia-km-confirm-wrap]'),kmText=form.querySelector('[data-ia-km-confirm-text]'),kmValue=form.querySelector('[data-ia-km-confirm-value]');if(kmValue)kmValue.value=String(km);if(kmText)kmText.textContent=`NEXO detectó ${Math.round(km).toLocaleString('es-CL')} km. Confirmo que este número coincide con la fotografía del odómetro.`;if(kmConfirm){kmConfirm.checked=false;kmConfirm.disabled=false;}if(kmWrap){kmWrap.hidden=false;kmWrap.scrollIntoView({behavior:'smooth',block:'center'});}
+        const km=Number(analysis.KILOMETRAJE_SUGERIDO||0);if(!(km>0))throw new Error('NEXO IA no obtuvo un kilometraje válido desde la foto del odómetro.');if(form.elements.KILOMETRAJE){form.elements.KILOMETRAJE.value=String(km);form.elements.KILOMETRAJE.dataset.iaSuggestedKm=String(km);}setManualKmMode(form,Number(form.dataset.iaOdometerAttempts||1),'Si NEXO no coincide con la foto, corrija el valor antes de confirmar.');const kmConfirm=form.querySelector('[data-ia-km-confirm]'),kmWrap=form.querySelector('[data-ia-km-confirm-wrap]'),kmText=form.querySelector('[data-ia-km-confirm-text]'),kmValue=form.querySelector('[data-ia-km-confirm-value]');if(kmValue)kmValue.value=String(km);if(kmText)kmText.textContent=`NEXO detectó ${Math.round(km).toLocaleString('es-CL')} km. Confirmo que este número coincide con la fotografía del odómetro.`;if(kmConfirm){kmConfirm.checked=false;kmConfirm.disabled=false;}if(kmWrap){kmWrap.hidden=false;kmWrap.scrollIntoView({behavior:'smooth',block:'center'});}
         const combustible=String(analysis.NIVEL_COMBUSTIBLE||analysis?.resultado?.nivel_combustible?.estado||'No determinado por IA').trim();if(form.elements.NIVEL_COMBUSTIBLE)form.elements.NIVEL_COMBUSTIBLE.value=combustible;
         const auto=applyAutomaticControls(form,analysis);
         analysedNow=true;form.dataset.iaAnalizado='1';
@@ -271,7 +265,7 @@
       const pending=controlsPending(form);if(pending.length){setProcessProgress(form,78,'Falta revisión humana',`${pending.length} de 18 punto(s) todavía no tienen una respuesta confirmada.`);throw new Error(`Revise los 18 puntos. Faltan ${pending.length} control(es) por confirmar.`);}
       const confirm=form.querySelector('input[name="CONFIRMACION_CONDUCTOR"]');if(confirm&&!confirm.checked)throw new Error('Confirme que realizó personalmente la revisión humana de los 18 puntos.');
       const kmValue=Number(form.elements.KILOMETRAJE?.value||0);if(!(kmValue>0))throw new Error('Ingrese o confirme el kilometraje real visible en la fotografía del odómetro.');const kmManual=markKmContingencyIfChanged(form);const kmConfirm=form.querySelector('[data-ia-km-confirm]');if(!kmConfirm||!kmConfirm.checked)throw new Error(`Confirme el kilometraje detectado (${Math.round(kmValue).toLocaleString('es-CL')} km) comparándolo con la fotografía del odómetro antes de guardar.`);const kmConfirmedValue=form.querySelector('[data-ia-km-confirm-value]');if(kmConfirmedValue)kmConfirmedValue.value=String(kmValue);
-      setProcessProgress(form,88,'Guardando Check-in',`KM ${Math.round(kmValue).toLocaleString('es-CL')} confirmado por el usuario${kmManual?' · corrección manual auditada tras 2 intentos':''} · revisión humana 18/18 completa · guardando en la base central…`);
+      setProcessProgress(form,88,'Guardando Check-in',`KM ${Math.round(kmValue).toLocaleString('es-CL')} confirmado por el usuario${kmManual?' · corrección manual auditada con foto':''} · revisión humana 18/18 completa · guardando en la base central…`);
       form.dataset.iaReady='1';handingOff=true;form.requestSubmit(submitter||undefined);
     }catch(error){setStatus(form,'error','No se completó el proceso',String(error?.message||error));toast('Checklist IA',String(error?.message||error),'error');}
     finally{if(submitter&&!handingOff){submitter.disabled=false;submitter.textContent=analysedNow?'✓ Revisar 18 puntos y confirmar':(form.elements.SESION_IA_ID?.value?'✓ Confirmar Check-in':original);}}

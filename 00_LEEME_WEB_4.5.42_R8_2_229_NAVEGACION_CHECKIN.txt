@@ -1,0 +1,4 @@
+E-FLEET WEB 4.5.42 · R8.2.229
+- Navegación con snap visual a ruta, sugerencias, limpieza de llegada, tráfico y destinos asignados.
+- Check-in: KM editable desde el primer intento y evidencia de odómetro conservada.
+- Requiere flotas-api 4.5.71.
