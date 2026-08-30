@@ -1,0 +1,6 @@
+VALIDACIÓN WEB 4.5.50 · R8_2_256
+[OK] Anular disponible en APROBADA/EMERGENCIA_ACTIVA además de borradores pendientes.
+[OK] Eliminar disponible durante ejecución.
+[OK] Mensaje advierte conservación de historial.
+[OK] Estado ELIMINADA se muestra como historial conservado.
+[OK] Requiere flotas-api 4.5.88.

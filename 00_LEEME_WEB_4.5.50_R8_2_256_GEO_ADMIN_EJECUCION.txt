@@ -1,0 +1,5 @@
+E-FLEET WEB 4.5.50 · R8_2_256
+
+Geo Admin permite Anular o Eliminar una planificación incluso si está en ejecución.
+Ambas acciones exigen motivo. La ejecución se detiene, pero visitas, evidencias, línea de tiempo y auditoría se conservan.
+Eliminar significa retirar del flujo operativo y conservar estado histórico ELIMINADA; no es borrado físico.
