@@ -1,0 +1,6 @@
+VALIDACION WEB R8_2_274
+- EFLEET_WEB_VERSION=4.5.52
+- assets activos: efleet-4.5.52.js / efleet-4.5.52.css
+- geo-local-admin.html actualizado a 4.5.52.
+- node --check: OK para efleet-4.5.52.js.
+- No cambia contrato de flotas-api.

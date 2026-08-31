@@ -1,0 +1,376 @@
+--- /mnt/data/r8_2_274_work/base/web/efleet-4.5.50.js	2026-08-30 15:00:47.000000000 +0000
++++ /mnt/data/r8_2_274_work/src/web/efleet-4.5.52.js	2026-08-31 15:23:12.503292338 +0000
+@@ -1,9 +1,9 @@
+ /* R8.2.256 GEO: cada nueva planificación obtiene GPSOL propio; editar requiere SOLICITUD_ID explícito; Geo Admin muestra FECHA_DESDE/FECHA_HASTA. */
+-/* E-fleet Management System Web 4.5.50 · R8.2.256 · GEO SOLICITUDES INDEPENDIENTES */
++/* E-fleet Management System Web 4.5.52 · R8.2.274 · GEO SOLICITUDES INDEPENDIENTES */
+ /* El mismo archivo actua como bundle de aplicacion y Service Worker segun el contexto. */
+ if(typeof document==='undefined'){
+-const SGF_CACHE='efleet-static-4.5.50-geo-solicitudes-r8252';
+-const PRECACHE=["./","./efleet-4.5.50.css","./efleet-4.5.50.js","./logo.svg","./logo-e-fleet.png","./logo-e-fleet-doc.jpg","./efleet-mark-compact.png","./favicon-efleet.png","./empresa-icono-neutro.svg","./nexo-ia-fab.png","./nexo-floating-4.5.35.js","./checklist-ia-4.5.20.js","./checklist-ia-4.5.19.css","./actualizaciones-app.html","./alertas.html","./auditoria.html","./checkin-aprobaciones.html","./checkin-historial.html","./checkin-vehicular.html","./combustible.html","./conductores.html","./conexiones-en-linea.html","./configuracion.html","./documentos.html","./empresa.html","./geo-local-admin.html","./geo-local.html","./geocerca.html","./historial.html","./index.html","./kpi-geo-locales.html","./main.html","./malla-turnos.html","./mantenciones.html","./mapa-geo-local.html","./notificaciones.html","./navegacion.html","./oficina-virtual.html","./operaciones.html","./panel-principal.html","./politica-privacidad.html","./reportes.html","./rutas.html","./terminos-condiciones.html","./ubicacion-tiempo-real.html","./usuarios.html","./vehiculos.html"];
++const SGF_CACHE='efleet-static-4.5.52-geo-admin-modal-r8274';
++const PRECACHE=["./","./efleet-4.5.52.css","./efleet-4.5.52.js","./logo.svg","./logo-e-fleet.png","./logo-e-fleet-doc.jpg","./efleet-mark-compact.png","./favicon-efleet.png","./empresa-icono-neutro.svg","./nexo-ia-fab.png","./nexo-floating-4.5.35.js","./checklist-ia-4.5.20.js","./checklist-ia-4.5.19.css","./actualizaciones-app.html","./alertas.html","./auditoria.html","./checkin-aprobaciones.html","./checkin-historial.html","./checkin-vehicular.html","./combustible.html","./conductores.html","./conexiones-en-linea.html","./configuracion.html","./documentos.html","./empresa.html","./geo-local-admin.html","./geo-local.html","./geocerca.html","./historial.html","./index.html","./kpi-geo-locales.html","./main.html","./malla-turnos.html","./mantenciones.html","./mapa-geo-local.html","./notificaciones.html","./navegacion.html","./oficina-virtual.html","./operaciones.html","./panel-principal.html","./politica-privacidad.html","./reportes.html","./rutas.html","./terminos-condiciones.html","./ubicacion-tiempo-real.html","./usuarios.html","./vehiculos.html"];
+ 
+ self.addEventListener('install',event=>{event.waitUntil(caches.open(SGF_CACHE).then(async cache=>{for(const url of PRECACHE){try{await cache.add(new Request(url,{cache:'reload'}));}catch(_){}}}).then(()=>self.skipWaiting()));});
+ self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>(k.startsWith('sgf-static-')||k.startsWith('efleet-static-'))&&k!==SGF_CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+@@ -13,12 +13,12 @@
+ self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin)return;if(url.pathname.includes('/functions/v1/'))return;if(req.mode==='navigate'||req.destination==='document'){event.respondWith(networkFirst(req));return;}if(['script','style','image','font'].includes(req.destination)||/\.(?:js|css|svg|png|jpg|jpeg|webp|ico)$/i.test(url.pathname))event.respondWith(staleStatic(req));});
+ }else{
+ 'use strict';
+-const EFLEET_WEB_VERSION='4.5.50';
++const EFLEET_WEB_VERSION='4.5.52';
+ /* 4.4.41 · recuperación temprana de CSS + retiro definitivo de caches/SW heredados.
+    Se usan nombres físicos versionados para que un Service Worker antiguo con ignoreSearch
+    no pueda devolver un efleet.css de otra versión. Sigue existiendo UN SOLO CSS y UN SOLO JS. */
+ (function efleetRecuperarAssetsUnicos(){
+-  const CSS='efleet-4.5.50.css';
++  const CSS='efleet-4.5.52.css';
+   try{
+     if('serviceWorker' in navigator){
+       navigator.serviceWorker.getRegistrations().then(regs=>Promise.all(regs.map(r=>r.unregister().catch(()=>false)))).catch(()=>{});
+@@ -24767,8 +24767,7 @@
+       adminMapCirculos=[{id:'radio-preview',latitud:lat,longitud:lng,radio,etiqueta:`Radio ${radio} m`}];sincronizarMapaAdmin(false);
+     }catch(e){console.debug('preview mapa local',e)}
+   };
+-  ensureLocalMap();
+-  requestAnimationFrame(()=>localMap?.redibujar?.());
++  if(geoAdminToolsDetails){geoAdminToolsDetails.addEventListener('toggle',()=>{if(geoAdminToolsDetails.open){ensureLocalMap();requestAnimationFrame(()=>localMap?.redibujar?.());setTimeout(()=>localMap?.redibujar?.(),180)}})}else{ensureLocalMap();requestAnimationFrame(()=>localMap?.redibujar?.())}
+   // Si el navegador entrega ubicación rápidamente, centramos el mapa sin bloquear la carga.
+   Promise.race([loc(),new Promise(r=>setTimeout(()=>r(null),900))]).then(g=>{if(!g||!localMap)return;const lat=numeroCoordenadaGeo(g.LATITUD),lng=numeroCoordenadaGeo(g.LONGITUD);if(coordenadaGeoValida(lat,lng)&&!String($('#localAddress')?.value||'').trim())localMap.establecerVista?.(lat,lng,13)}).catch(()=>{});
+   bindGeoAddressAutocomplete($('#localAddress'),$('#localLat'),$('#localLng'),updateLocalPreview);$('#localRadius').oninput=updateLocalPreview;$('#localLat').onchange=updateLocalPreview;$('#localLng').onchange=updateLocalPreview;
+@@ -25521,6 +25520,15 @@
+   const legacyPlanPanel=$('#planForm')?.closest('.geo-admin-panel');
+   if(legacyPlanPanel)legacyPlanPanel.innerHTML=`<div class="geo-section-head"><div><span class="geo-section-icon">📅</span><div><h2>Planificación mensual</h2><small>Seleccione Supervisor y mes. Los días se habilitan según su Malla de Turnos y toda planificación pasa por aprobación.</small></div></div></div><div class="geo-grid"><div class="geo-combo-grid"><label class="geo-field"><span>Filtro rápido de Supervisor</span><input id="supSearch" type="search" placeholder="Nombre, correo o ID"></label><label class="geo-field"><span>Supervisor</span><select id="supSelect"><option value="">Cargando Supervisores…</option></select></label></div><label class="geo-field"><span>Mes a planificar</span><input id="adminPlanMonth" type="month" value="${today().slice(0,7)}"></label><button class="geo-btn primary" id="adminOpenMonthlyPlan" type="button">📅 Abrir calendario de planificación</button></div>`;
+   $('#companyContext')?.insertAdjacentHTML('afterend',`<section class="geo-card geo-approval-inbox" id="geoApprovalInbox"><div class="geo-section-head"><div><span class="geo-section-icon">✓</span><div><h2>Planificaciones por aprobar</h2><small>Solicitudes mensuales enviadas por Supervisores y pendientes de revisión.</small></div></div></div><div id="geoApprovalInboxBody" class="geo-muted">Cargando solicitudes…</div></section><section class="geo-card geo-admin-month-program" id="geoAdminMonthProgram"><div class="geo-section-head"><div><span class="geo-section-icon">📅</span><div><h2>Programación mensual detallada</h2><small>Detalle completo por Supervisor, día y Local. Incluye planificaciones normales, reabiertas y turnos de emergencia.</small></div></div></div><div class="geo-toolbar"><label class="geo-field"><span>Mes</span><input id="geoAdminMonthView" type="month" value="${today().slice(0,7)}"></label><label class="geo-field"><span>Buscar Supervisor</span><input id="geoAdminMonthSupSearch" type="search" placeholder="Nombre, correo o ID"></label><label class="geo-field"><span>Supervisor</span><select id="geoAdminMonthSupView"><option value="">Todos los Supervisores</option></select></label></div><div id="geoAdminMonthProgramBody" class="geo-muted">Cargando programación mensual…</div></section>`);
++  // R8_2_274: la tabla operacional es la vista principal. Herramientas y programación
++  // secundaria quedan plegadas para evitar una pantalla administrativa interminable.
++  const geoAdminControl=$('.geo-admin-control'),geoAdminCompany=$('#companyContext'),geoAdminInbox=$('#geoApprovalInbox');
++  if(geoAdminInbox&&geoAdminCompany)geoAdminCompany.insertAdjacentElement('afterend',geoAdminInbox);
++  if(geoAdminControl){if(geoAdminInbox)geoAdminInbox.insertAdjacentElement('afterend',geoAdminControl);else if(geoAdminCompany)geoAdminCompany.insertAdjacentElement('afterend',geoAdminControl)}
++  const geoAdminWorkspace=$('.geo-admin-workspace');let geoAdminToolsDetails=null;
++  if(geoAdminWorkspace){geoAdminToolsDetails=document.createElement('details');geoAdminToolsDetails.className='geo-card geo-admin-tools-details';geoAdminToolsDetails.innerHTML='<summary><b>Herramientas de configuración</b><span>Locales, mapa y planificación mensual</span></summary>';geoAdminWorkspace.replaceWith(geoAdminToolsDetails);geoAdminToolsDetails.appendChild(geoAdminWorkspace);geoAdminControl?.insertAdjacentElement('afterend',geoAdminToolsDetails)}
++  const geoAdminMonthProgram=$('#geoAdminMonthProgram');
++  if(geoAdminMonthProgram){const d=document.createElement('details');d.className='geo-card geo-admin-secondary-details';d.innerHTML='<summary><b>Programación mensual detallada</b><span>Consultar solicitudes y gestionar períodos</span></summary>';geoAdminMonthProgram.replaceWith(d);d.appendChild(geoAdminMonthProgram);geoAdminToolsDetails?.insertAdjacentElement('afterend',d)}
+   let localMap=null,adminMapProgramados=[],adminMapPreview=[],adminMapCirculos=[];
+   const cargarDatalistLocales=()=>{const dl=$('#bdLocalesList');if(!dl)return;const ls=state.catalog?.LOCALES||state.data?.LOCALES||[];dl.innerHTML=ls.map(l=>`<option value="${esc(l.CODIGO||'')}">${esc(l.NOMBRE||'')} · ${esc(l.DIRECCION||'')}</option>`).join('')};
+   const completarLocalPorCodigo=async()=>{const code=$('#localCode')?.value.trim();if(!code)return;try{const r=await request('geoLocalResolverLocal',{CODIGO:code});const l=r.LOCAL;if(!l)return;const f=$('#localForm');if(!f)return;['NOMBRE','DIRECCION','REFERENCIA','LATITUD','LONGITUD','RADIO_METROS','TIEMPO_OBJETIVO_MIN'].forEach(k=>{const e=f.elements.namedItem(k);if(e&&l[k]!=null)e.value=l[k]});updateLocalPreview();toast('Local cargado desde BD Locales.')}catch(e){console.debug('bd locales',e)}};
+@@ -25590,215 +25598,117 @@
+   async function load(){try{setLoading(true);const rango=adminDateRange(),r=await request('geoLocalAdminResumen',{FECHA_DESDE:rango.desde,FECHA_HASTA:rango.hasta});state.data=r;$('#companyContext').innerHTML=empresaBar(r);const status=$('#adminDateFilterStatus');if(status)status.textContent=`Período activo: ${rango.desde} a ${rango.hasta}`;const supervisors=r.SUPERVISORES||[];poblarSelectFiltrable($('#supSearch'),$('#supSelect'),supervisors,x=>{const v=x.MOVILIDAD?.VEHICULO;return `${x.NOMBRE||x.CORREO||x.ID} · ${x.JORNADA_REGIMEN||''}${x.ARTICULO_22==='SI'?' · Art. 22':''}${v?.ID?` · ${v.PATENTE||''} ${v.MODELO||''}`:''}`},{valueFn:x=>x.ID});poblarSelectFiltrable($('#adminSupSearch'),$('#adminSupFilter'),supervisors,x=>x.NOMBRE||x.CORREO||x.ID,{todos:'Todos los Supervisores',valueFn:x=>x.ID,onChange:renderControl});if($('#planLocales')){$('#planLocales').innerHTML=(r.LOCALES||[]).map(l=>geoPlanLocalRow(l)).join('');filtrarNodos($('#localSearch'),$$('#planLocales .geo-check'))}renderControl();await Promise.all([cargarBandejaAprobaciones(),cargarProgramacionMensualAdmin()])}catch(e){error(e)}finally{setLoading(false)}}
+   async function cargarProgramacionMensualAdmin(){
+     const body=$('#geoAdminMonthProgramBody');if(!body)return;const mes=$('#geoAdminMonthView')?.value||today().slice(0,7),supervisor=$('#geoAdminMonthSupView')?.value||'';
+-    body.innerHTML='<div class="geo-muted">Cargando detalle del mes…</div>';
+-    try{const r=await request('geoLocalPlanificacionSolicitudesAdmin',{MES:mes,SUPERVISOR_USUARIO_ID:supervisor}),sols=r.SOLICITUDES||[];if(!sols.length){body.innerHTML='<div class="geo-muted">No existen planificaciones registradas para este mes y filtro.</div>';return}const detalles=await Promise.all(sols.map(async x=>{try{return await request('geoLocalPlanificacionDetalle',{SOLICITUD_ID:x.ID})}catch(_){return{SOLICITUD:x,ITEMS:[],LINEA_TIEMPO:[]}}}));body.innerHTML=`<div class="geo-admin-month-list">${detalles.map(d=>{const x=d.SOLICITUD||{},em=String(x.TIPO_PLANIFICACION||'NORMAL').toUpperCase()==='EMERGENCIA',periodo=em?`Emergencia · ${String(x.FECHA_EMERGENCIA||'').slice(0,10)} · ${esc(x.HORA_EMERGENCIA_INICIO||'')}–${esc(x.HORA_EMERGENCIA_FIN||'')}`:(x.FECHA_DESDE?`Solicitud ${esc(x.ID||'')} · ${esc(String(x.FECHA_DESDE||'').slice(0,10))}${x.FECHA_HASTA&&x.FECHA_HASTA!==x.FECHA_DESDE?` → ${esc(String(x.FECHA_HASTA).slice(0,10))}`:''}`:`Solicitud ${esc(x.ID||'')} · mes ${esc(String(x.MES||'').slice(0,7))}`),motivo=em&&x.MOTIVO_EMERGENCIA?`<p class="geo-emergency-reason"><b>Motivo:</b> ${esc(x.MOTIVO_EMERGENCIA)}</p>`:'';return `<article class="geo-admin-month-card ${em?'emergency':''}"><header><div><span class="geo-badge ${geoPlanEstadoClase(x.ESTADO)}">${esc(geoPlanEstadoTexto(x.ESTADO))}</span>${em?'<span class="geo-badge emergency">EMERGENCIA · SIN APROBACIÓN</span>':''}<h3>${esc(d.SUPERVISOR?.NOMBRE||d.SUPERVISOR?.CORREO||x.SUPERVISOR_USUARIO_ID)}</h3><p>${periodo} · ${(d.ITEMS||[]).length} Local(es)</p>${motivo}</div><button class="geo-btn" data-admin-month-manage="${esc(x.ID)}">Gestionar</button></header><details open><summary>Detalle programado</summary>${geoPlanAgruparItemsHtml(d.ITEMS||[])}</details></article>`}).join('')}</div>`;$$('[data-admin-month-manage]',body).forEach(b=>b.onclick=()=>abrirDetalleSolicitudGeoAdmin(b.dataset.adminMonthManage,async()=>{await Promise.all([cargarBandejaAprobaciones(),cargarProgramacionMensualAdmin()])}))}catch(e){body.innerHTML='<div class="geo-alert warn">No fue posible cargar la programación mensual detallada.</div>';console.debug('geo admin monthly',e)}
++    body.innerHTML='<div class="geo-muted">Cargando programación…</div>';
++    try{
++      const r=await request('geoLocalPlanificacionSolicitudesAdmin',{MES:mes,SUPERVISOR_USUARIO_ID:supervisor}),sols=r.SOLICITUDES||[];
++      if(!sols.length){body.innerHTML='<div class="geo-muted">No existen planificaciones registradas para este mes y filtro.</div>';return}
++      const detalles=await Promise.all(sols.map(async x=>{try{return await request('geoLocalPlanificacionDetalle',{SOLICITUD_ID:x.ID})}catch(_){return{SOLICITUD:x,ITEMS:[],LINEA_TIEMPO:[]}}}));
++      const rows=detalles.map(d=>{const x=d.SOLICITUD||{},em=String(x.TIPO_PLANIFICACION||'NORMAL').toUpperCase()==='EMERGENCIA',periodo=em?String(x.FECHA_EMERGENCIA||'').slice(0,10):(x.FECHA_DESDE?`${String(x.FECHA_DESDE||'').slice(0,10)}${x.FECHA_HASTA&&x.FECHA_HASTA!==x.FECHA_DESDE?` → ${String(x.FECHA_HASTA).slice(0,10)}`:''}`:String(x.MES||'').slice(0,7));return `<tr class="geo-admin-data-row" tabindex="0" role="button" data-admin-month-manage="${esc(x.ID)}"><td><b>${esc(d.SUPERVISOR?.NOMBRE||d.SUPERVISOR?.CORREO||x.SUPERVISOR_USUARIO_ID)}</b></td><td>${esc(periodo||'—')}</td><td>${(d.ITEMS||[]).length}</td><td>${em?'<span class="geo-badge emergency">EMERGENCIA</span>':esc(String(x.TIPO_PLANIFICACION||'NORMAL'))}</td><td>${`<span class="geo-badge ${geoPlanEstadoClase(x.ESTADO)}">${esc(geoPlanEstadoTexto(x.ESTADO))}</span>`}</td><td><button class="geo-btn mini" type="button" data-admin-month-open="${esc(x.ID)}">Gestionar</button></td></tr>`}).join('');
++      body.innerHTML=`<div class="geo-table-wrap geo-admin-main-table"><table class="geo-table"><thead><tr><th>Supervisor</th><th>Período</th><th>Locales</th><th>Tipo</th><th>Estado</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;
++      const abrir=id=>abrirDetalleSolicitudGeoAdmin(id,async()=>{await Promise.all([cargarBandejaAprobaciones(),cargarProgramacionMensualAdmin()])});
++      $$('[data-admin-month-open]',body).forEach(b=>b.onclick=e=>{e.stopPropagation();abrir(b.dataset.adminMonthOpen)});
++      $$('[data-admin-month-manage]',body).forEach(row=>{row.onclick=()=>abrir(row.dataset.adminMonthManage);row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();abrir(row.dataset.adminMonthManage)}}});
++    }catch(e){body.innerHTML='<div class="geo-alert warn">No fue posible cargar la programación mensual detallada.</div>';console.debug('geo admin monthly',e)}
+   }
+   async function cargarBandejaAprobaciones(){
+     const body=$('#geoApprovalInboxBody');if(!body)return;
+-    try{const r=await request('geoLocalPlanificacionSolicitudesAdmin',{}),pend=r.PENDIENTES||[],rec=(r.RECIENTES||[]).filter(x=>['APROBADA','REABIERTA'].includes(String(x.ESTADO||'').toUpperCase())).slice(0,6);
+-      const pendientes=pend.length?`<div class="geo-approval-list">${pend.map(x=>`<article class="geo-approval-card pending"><div><span class="geo-badge warning">Pendiente por aprobar</span><h3>${esc(x.SUPERVISOR_NOMBRE||x.SUPERVISOR_USUARIO_ID)}</h3><p>${esc(String(x.MES||'').slice(0,7))} · ${Number(x.TOTAL_LOCALES||0)} Local(es)</p></div><button class="geo-btn primary" data-approval-view="${esc(x.ID)}">Ver</button></article>`).join('')}</div>`:'<div class="geo-muted">No hay planificaciones pendientes por aprobar.</div>';
+-      const recientes=rec.length?`<details class="geo-approval-recent"><summary>Planificaciones aprobadas / reabiertas recientes</summary><div class="geo-approval-list compact">${rec.map(x=>`<article class="geo-approval-card"><div><span class="geo-badge ${geoPlanEstadoClase(x.ESTADO)}">${esc(geoPlanEstadoTexto(x.ESTADO))}</span><h3>${esc(x.SUPERVISOR_NOMBRE||x.SUPERVISOR_USUARIO_ID)}</h3><p>${esc(String(x.MES||'').slice(0,7))} · ${Number(x.TOTAL_LOCALES||0)} Local(es)</p></div><button class="geo-btn" data-approval-view="${esc(x.ID)}">Ver</button></article>`).join('')}</div></details>`:'';
+-      body.innerHTML=pendientes+recientes;$$('[data-approval-view]',body).forEach(b=>b.onclick=()=>abrirDetalleSolicitudGeoAdmin(b.dataset.approvalView,async()=>{await Promise.all([cargarBandejaAprobaciones(),cargarProgramacionMensualAdmin()])}));
++    try{
++      const r=await request('geoLocalPlanificacionSolicitudesAdmin',{}),pend=r.PENDIENTES||[],rec=(r.RECIENTES||[]).filter(x=>['APROBADA','REABIERTA'].includes(String(x.ESTADO||'').toUpperCase())).slice(0,6),rows=[...pend.map(x=>({...x,__grupo:'PENDIENTE'})),...rec.map(x=>({...x,__grupo:'RECIENTE'}))];
++      if(!rows.length){body.innerHTML='<div class="geo-muted">No hay planificaciones pendientes ni recientes.</div>';return}
++      body.innerHTML=`<div class="geo-table-wrap geo-admin-main-table"><table class="geo-table"><thead><tr><th>Supervisor</th><th>Período</th><th>Locales</th><th>Estado</th><th></th></tr></thead><tbody>${rows.map(x=>`<tr class="geo-admin-data-row ${x.__grupo==='PENDIENTE'?'is-pending':''}" tabindex="0" role="button" data-approval-row="${esc(x.ID)}"><td><b>${esc(x.SUPERVISOR_NOMBRE||x.SUPERVISOR_USUARIO_ID)}</b></td><td>${esc(x.FECHA_DESDE?`${String(x.FECHA_DESDE).slice(0,10)}${x.FECHA_HASTA&&x.FECHA_HASTA!==x.FECHA_DESDE?` → ${String(x.FECHA_HASTA).slice(0,10)}`:''}`:String(x.MES||'').slice(0,7))}</td><td>${Number(x.TOTAL_LOCALES||0)}</td><td>${x.__grupo==='PENDIENTE'?'<span class="geo-badge warning">PENDIENTE</span>':`<span class="geo-badge ${geoPlanEstadoClase(x.ESTADO)}">${esc(geoPlanEstadoTexto(x.ESTADO))}</span>`}</td><td><button class="geo-btn mini ${x.__grupo==='PENDIENTE'?'primary':''}" type="button" data-approval-view="${esc(x.ID)}">${x.__grupo==='PENDIENTE'?'Revisar':'Ver'}</button></td></tr>`).join('')}</tbody></table></div>`;
++      const abrir=id=>abrirDetalleSolicitudGeoAdmin(id,async()=>{await Promise.all([cargarBandejaAprobaciones(),cargarProgramacionMensualAdmin()])});
++      $$('[data-approval-view]',body).forEach(b=>b.onclick=e=>{e.stopPropagation();abrir(b.dataset.approvalView)});
++      $$('[data-approval-row]',body).forEach(row=>{row.onclick=()=>abrir(row.dataset.approvalRow);row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();abrir(row.dataset.approvalRow)}}});
+     }catch(e){body.innerHTML='<div class="geo-alert warn">No fue posible cargar las solicitudes de planificación.</div>';console.debug('geo approvals',e)}
+   }
+-  function renderControl(){
+-    const r=state.data||{},sid=$('#adminSupFilter')?.value||'',qLocal=normalizarFiltro($('#adminLocalFilter')?.value||''),supMap=new Map((r.SUPERVISORES||[]).map(x=>[x.ID,x])),lm=new Map((r.LOCALES||[]).map(x=>[x.ID,x]));
+-    const plans=(r.PLANIFICACIONES||[]).filter(p=>!sid||p.SUPERVISOR_USUARIO_ID===sid).sort((a,b)=>String(a.FECHA||'').localeCompare(String(b.FECHA||''))||String(a.SUPERVISOR_USUARIO_ID||'').localeCompare(String(b.SUPERVISOR_USUARIO_ID||'')));
+-    const planIds=new Set(plans.map(p=>p.ID)),details=(r.DETALLES||[]).filter(d=>planIds.has(d.PLANIFICACION_ID)),detailIds=new Set(details.map(d=>d.ID)),visits=(r.VISITAS||[]).filter(v=>detailIds.has(v.DETALLE_ID)),evidences=(r.EVIDENCIAS||[]).filter(e=>detailIds.has(e.DETALLE_ID)),vm=new Map(visits.map(v=>[v.DETALLE_ID,v])),em=new Map();for(const e of evidences)if(!em.has(e.DETALLE_ID))em.set(e.DETALLE_ID,e);
+-    const summary=`<div class="geo-table-wrap"><table class="geo-table"><thead><tr><th>Fecha</th><th>Supervisor</th><th>Movilidad</th><th>Jornada</th><th>Locales visitados</th><th>Completados</th><th>En visita</th><th>Evidencia</th><th>Estado</th></tr></thead><tbody>${plans.map(p=>{const ds=details.filter(d=>d.PLANIFICACION_ID===p.ID),ids=new Set(ds.map(d=>d.ID)),vs=visits.filter(v=>ids.has(v.DETALLE_ID)),visitados=ds.filter(d=>String(d.ESTADO||'').toUpperCase()==='VISITADO').length,enVisita=ds.filter(d=>String(d.ESTADO||'').toUpperCase().includes('EN_VIS')).length,evid=vs.filter(v=>String(v.EVIDENCIA_ESTADO||'').toUpperCase()==='COMPLETA').length,sup=supMap.get(p.SUPERVISOR_USUARIO_ID)||{};return `<tr><td>${esc(p.FECHA)}</td><td><b>${esc(sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID)}</b></td><td>${movilidadHtml(sup)}</td><td>${p.ARTICULO_22_SNAPSHOT==='SI'?'Art. 22':esc(p.JORNADA_REGIMEN_SNAPSHOT||'')}</td><td>${ds.length}<br><small>${p.MINUTOS_PLANIFICADOS||0}/${p.MINUTOS_DISPONIBLES||0} min</small></td><td>${visitados}/${ds.length}</td><td>${enVisita}</td><td>${evid}/${Math.max(vs.length,ds.length)}</td><td>${badge(p.ESTADO)}</td></tr>`}).join('')||`<tr><td colspan="9">Sin planificaciones para el filtro seleccionado.</td></tr>`}</tbody></table></div>`;
+-    const timelineCards=plans.map(p=>{const sup=supMap.get(p.SUPERVISOR_USUARIO_ID)||{},supervisor=sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID||'Supervisor',checkinTrace=p.CHECKIN_TRAZABILIDAD||{},ds=details.filter(d=>d.PLANIFICACION_ID===p.ID).sort((a,b)=>Number(a.ORDEN||0)-Number(b.ORDEN||0)),visibles=ds.filter(d=>{if(!qLocal)return true;const l=lm.get(d.LOCAL_ID)||{},v=vm.get(d.ID)||{};return normalizarFiltro([l.NOMBRE,l.DIRECCION,l.REFERENCIA,d.ESTADO,v.OBSERVACIONES].join(' ')).includes(qLocal)});if(qLocal&&!visibles.length)return'';const visitados=ds.filter(d=>String(d.ESTADO||'').toUpperCase()==='VISITADO').length,enVisita=ds.filter(d=>String(d.ESTADO||'').toUpperCase().includes('EN_VIS')).length,llegadas=ds.map(d=>vm.get(d.ID)?.LLEGADA_EFECTIVA_EN).filter(Boolean).sort(),salidas=ds.map(d=>vm.get(d.ID)?.SALIDA_EFECTIVA_EN).filter(Boolean).sort(),totalPerm=ds.reduce((a,d)=>a+Number((d.TIEMPO_TOTAL_VISITAS_MINUTOS??vm.get(d.ID)?.PERMANENCIA_MINUTOS) || 0),0),totalTras=ds.reduce((a,d)=>a+Number(vm.get(d.ID)?.TRASLADO_DESDE_ANTERIOR_MINUTOS||0),0),visitasFisicas=ds.reduce((a,d)=>a+Number(d.VISITAS_DIA||0),0);
+-      const stages=visibles.map((d,index)=>{
+-        const l=lm.get(d.LOCAL_ID)||{},
+-              v=vm.get(d.ID)||{},
+-              e=em.get(d.ID),
+-              llegada=v.LLEGADA_EFECTIVA_EN||'',
+-              salida=v.SALIDA_EFECTIVA_EN||'',
+-              done=Boolean(salida)&&String(d.ESTADO||'').toUpperCase()==='VISITADO',
+-              started=Boolean(llegada),
+-              estadoDetalle=String(d.ESTADO||'').toUpperCase(),
+-              pending=estadoDetalle==='PENDIENTE',
+-              gestionable=!['VISITADO','CANCELADO','CANCELADA'].includes(estadoDetalle),
+-              origenSalida=v.SALIDA_MANUAL_EN?'Manual':v.SALIDA_AUTOMATICA_EN?'Geocerca automática':'Pendiente',
+-              cierreFuera=String(v.CIERRE_FUERA_UBICACION||'').toUpperCase()==='SI',
+-              cierreDireccion=v.CIERRE_DIRECCION||'',
+-              cierreLat=v.CIERRE_LATITUD??v.SALIDA_LATITUD,
+-              cierreLng=v.CIERRE_LONGITUD??v.SALIDA_LONGITUD,
+-              cierreDist=v.DISTANCIA_CIERRE_METROS??v.DISTANCIA_SALIDA_METROS,
+-              cierreFueraRadio=v.DISTANCIA_FUERA_RADIO_METROS,
+-              traceId=`geo-local-trace-${String(d.ID||index).replace(/[^a-zA-Z0-9_-]/g,'-')}`;
+-
+-        return `<div class="${done?'completed':started?'active':'pending'} geo-local-trace-card" data-local-trace-card="${esc(String(d.ID||''))}">
+-          <i>${done?'✓':d.ORDEN||index+1}</i>
+-          <span class="geo-local-trace-content">
+-            <div class="geo-local-trace-summary">
+-              <div class="geo-local-trace-title">
+-                <b>${esc(l.NOMBRE||'Local visitado')}</b>
+-                ${geoStageStatus(d.ESTADO,started)}
+-              </div>
+-
+-              <div class="geo-local-trace-mini-times">
+-                <span><small>Llegada</small><strong>${esc(time(llegada))}</strong></span>
+-                <span><small>Salida</small><strong>${esc(time(salida))}</strong></span>
+-              </div>
+-
+-              <button type="button"
+-                class="geo-btn mini geo-local-trace-toggle"
+-                data-local-trace-toggle="${esc(String(d.ID||''))}"
+-                aria-expanded="false"
+-                aria-controls="${esc(traceId)}">Ver información</button>
+-            </div>
+-
+-            <div class="geo-local-trace-detail" id="${esc(traceId)}" data-local-trace-detail hidden>
+-              <small class="geo-stage-address">${esc(l.DIRECCION||'')}</small>
+-
+-              <div class="geo-stage-times">
+-                <span>
+-                  <small>Llegada</small>
+-                  <strong>${esc(time(llegada))}</strong>
+-                  <em>${esc(dateOnly(llegada))}</em>
+-                </span>
+-                <span>
+-                  <small>Permanencia total</small>
+-                  <strong>${d.TIEMPO_TOTAL_VISITAS_TEXTO||((d.TIEMPO_TOTAL_VISITAS_MINUTOS??v.PERMANENCIA_MINUTOS)!=null?`${d.TIEMPO_TOTAL_VISITAS_MINUTOS??v.PERMANENCIA_MINUTOS} min`:(started?'En curso':'—'))}</strong>
+-                  <em>Sumatoria dentro del perímetro</em>
+-                </span>
+-                <span>
+-                  <small>Traslado</small>
+-                  <strong>${v.TRASLADO_DESDE_ANTERIOR_MINUTOS??'—'}${v.TRASLADO_DESDE_ANTERIOR_MINUTOS!=null?' min':''}</strong>
+-                  <em>Desde punto anterior</em>
+-                </span>
+-                <span>
+-                  <small>Salida</small>
+-                  <strong>${esc(time(salida))}</strong>
+-                  <em>${esc(origenSalida)}</em>
+-                </span>
+-              </div>
+-
+-              ${cierreFuera?`<div class="geo-close-outside">
+-                <b>Finalización fuera de ubicación planificada</b>
+-                <span>${esc(cierreDireccion||'Dirección no resuelta')}</span>
+-                <span>Coordenadas de término: ${Number(cierreLat).toFixed(6)}, ${Number(cierreLng).toFixed(6)}</span>
+-                <span>Distancia al Local: ${Number(cierreDist||0).toFixed(0)} m${cierreFueraRadio!=null?` · fuera del radio: ${Number(cierreFueraRadio).toFixed(0)} m`:''}</span>
+-              </div>`:''}
+-
+-              <div class="geo-local-trace-detail-actions">
+-                ${e?`<button class="geo-btn mini" data-evidence="${esc(e.ID)}">Ver foto</button>`:`<em class="geo-evidence-label">Evidencia: ${esc(v.EVIDENCIA_ESTADO||'PENDIENTE')}</em>`}
+-                <em class="geo-evidence-label"><b>Visitas detectadas hoy: ${Number(d.VISITAS_DIA||0)}</b></em>
+-              </div>
+-
+-              ${geoAdminLineaTiempoDetalle(d)}
+-
+-              <div class="geo-local-trace-admin-actions">
+-                ${pending?`<button class="geo-btn mini" data-reassign-detail="${esc(d.ID)}" data-plan="${esc(p.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar visita</button>`:''}
+-                ${gestionable?`<button class="geo-btn mini warn" data-cancel-detail="${esc(d.ID)}">Cancelar punto</button><button class="geo-btn mini danger" data-delete-detail="${esc(d.ID)}">Eliminar punto</button>`:''}
+-              </div>
+-
+-              ${v.OBSERVACIONES||d.MOTIVO_NO_VISITA?`<em class="geo-local-trace-observation">${esc(v.OBSERVACIONES||d.MOTIVO_NO_VISITA)}</em>`:''}
+-            </div>
+-          </span>
+-        </div>`;
+-      }).join('');
+-      const traceId=`geo-trace-${String(p.ID||`${p.SUPERVISOR_USUARIO_ID||'sup'}-${p.FECHA||''}`).replace(/[^a-zA-Z0-9_-]/g,'-')}`;
+-      return `<article class="geo-trace-card geo-trace-compact" data-trace-card="${esc(String(p.ID||''))}">
+-        <div class="geo-trace-compact-bar">
+-          <div class="geo-trace-compact-main">
+-            <div class="geo-eyebrow">Trazabilidad · ${esc(p.FECHA||'')}</div>
+-            <h3>${esc(supervisor)}</h3>
+-            <div class="geo-trace-compact-chips">
+-              <span><b>${visitados}/${ds.length}</b> visitados</span>
+-              <span><b>${enVisita}</b> en visita</span>
+-              <span><b>${visitasFisicas}</b> visita${visitasFisicas===1?'':'s'} detectada${visitasFisicas===1?'':'s'}</span>
+-              ${qLocal?`<span class="geo-trace-filter-chip"><b>${visibles.length}</b> coincidencia${visibles.length===1?'':'s'}</span>`:''}
+-            </div>
+-          </div>
+-          <div class="geo-trace-compact-side">
+-            ${badge(p.ESTADO)}
+-            <button
+-              type="button"
+-              class="geo-btn geo-trace-toggle"
+-              data-trace-toggle="${esc(String(p.ID||''))}"
+-              aria-expanded="false"
+-              aria-controls="${esc(traceId)}">Ver información</button>
+-          </div>
++  function datosPlanAdmin(planId){
++    const r=state.data||{},p=(r.PLANIFICACIONES||[]).find(x=>String(x.ID)===String(planId));
++    if(!p)return null;
++    const sup=(r.SUPERVISORES||[]).find(x=>String(x.ID)===String(p.SUPERVISOR_USUARIO_ID))||{};
++    const lm=new Map((r.LOCALES||[]).map(x=>[String(x.ID),x]));
++    const ds=(r.DETALLES||[]).filter(d=>String(d.PLANIFICACION_ID)===String(p.ID)).sort((a,b)=>Number(a.ORDEN||0)-Number(b.ORDEN||0));
++    const dids=new Set(ds.map(d=>String(d.ID)));
++    const vs=(r.VISITAS||[]).filter(v=>dids.has(String(v.DETALLE_ID)));
++    const es=(r.EVIDENCIAS||[]).filter(e=>dids.has(String(e.DETALLE_ID)));
++    const vm=new Map(vs.map(v=>[String(v.DETALLE_ID),v]));
++    const em=new Map();for(const e of es)if(!em.has(String(e.DETALLE_ID)))em.set(String(e.DETALLE_ID),e);
++    return{r,p,sup,lm,ds,vs,vm,em};
++  }
++  function htmlDetallePlanAdmin(planId){
++    const z=datosPlanAdmin(planId);if(!z)return'';
++    const {p,sup,lm,ds,vs,vm,em}=z,supervisor=sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID||'Supervisor',checkinTrace=p.CHECKIN_TRAZABILIDAD||{};
++    const visitados=ds.filter(d=>String(d.ESTADO||'').toUpperCase()==='VISITADO').length,
++      enVisita=ds.filter(d=>String(d.ESTADO||'').toUpperCase().includes('EN_VIS')).length,
++      llegadas=ds.map(d=>vm.get(String(d.ID))?.LLEGADA_EFECTIVA_EN).filter(Boolean).sort(),
++      salidas=ds.map(d=>vm.get(String(d.ID))?.SALIDA_EFECTIVA_EN).filter(Boolean).sort(),
++      totalPerm=ds.reduce((a,d)=>a+Number((d.TIEMPO_TOTAL_VISITAS_MINUTOS??vm.get(String(d.ID))?.PERMANENCIA_MINUTOS)||0),0),
++      totalTras=ds.reduce((a,d)=>a+Number(vm.get(String(d.ID))?.TRASLADO_DESDE_ANTERIOR_MINUTOS||0),0),
++      visitasFisicas=ds.reduce((a,d)=>a+Number(d.VISITAS_DIA||0),0),
++      evidencias=ds.filter(d=>em.has(String(d.ID))||String(vm.get(String(d.ID))?.EVIDENCIA_ESTADO||'').toUpperCase()==='COMPLETA').length;
++    const stages=ds.map((d,index)=>{
++      const l=lm.get(String(d.LOCAL_ID))||{},v=vm.get(String(d.ID))||{},e=em.get(String(d.ID)),estado=String(d.ESTADO||'PENDIENTE').toUpperCase(),llegada=v.LLEGADA_EFECTIVA_EN||'',salida=v.SALIDA_EFECTIVA_EN||'',done=Boolean(salida)&&estado==='VISITADO',started=Boolean(llegada),pending=estado==='PENDIENTE',gestionable=!['VISITADO','CANCELADO','CANCELADA','ELIMINADO_ADMIN'].includes(estado),origenSalida=v.SALIDA_MANUAL_EN?'Manual':v.SALIDA_AUTOMATICA_EN?'Geocerca automática':'Pendiente',cierreFuera=String(v.CIERRE_FUERA_UBICACION||'').toUpperCase()==='SI';
++      return `<article class="geo-admin-modal-stop ${done?'completed':started?'active':'pending'}">
++        <header><span class="geo-admin-modal-order">${done?'✓':d.ORDEN||index+1}</span><div><h4>${esc(l.NOMBRE||'Local visitado')}</h4><p>${esc(l.DIRECCION||'')}</p></div>${geoStageStatus(d.ESTADO,started)}</header>
++        <div class="geo-stage-times">
++          <span><small>Llegada</small><strong>${esc(time(llegada))}</strong><em>${esc(dateOnly(llegada))}</em></span>
++          <span><small>Permanencia</small><strong>${d.TIEMPO_TOTAL_VISITAS_TEXTO||((d.TIEMPO_TOTAL_VISITAS_MINUTOS??v.PERMANENCIA_MINUTOS)!=null?`${d.TIEMPO_TOTAL_VISITAS_MINUTOS??v.PERMANENCIA_MINUTOS} min`:(started?'En curso':'—'))}</strong><em>Dentro del perímetro</em></span>
++          <span><small>Traslado</small><strong>${v.TRASLADO_DESDE_ANTERIOR_MINUTOS??'—'}${v.TRASLADO_DESDE_ANTERIOR_MINUTOS!=null?' min':''}</strong><em>Desde punto anterior</em></span>
++          <span><small>Salida</small><strong>${esc(time(salida))}</strong><em>${esc(origenSalida)}</em></span>
+         </div>
+-        <div class="geo-trace-body" id="${esc(traceId)}" data-trace-body hidden>
+-          <div class="geo-trace-detail-intro">
+-            ${movilidadHtml(sup)}
+-            <p>Llegada, traslado, permanencia, salida, evidencia y acciones administrativas de cada Local visitado.</p>
+-          </div>
+-          ${checkinTrace.CHECKIN_ID?`<div class="geo-stage-times geo-admin-checkin-trace">
+-            <span><small>Vehículo asignado para Check-in</small><strong>${esc(time(checkinTrace.VEHICULO_ASIGNADO_EN||checkinTrace['VEHÍCULO_ASIGNADO_EN']))}</strong><em>${esc(dateOnly(checkinTrace.VEHICULO_ASIGNADO_EN||checkinTrace['VEHÍCULO_ASIGNADO_EN']))}</em></span>
+-            <span><small>Check-in aceptado</small><strong>${esc(time(checkinTrace.CHECKIN_ACEPTADO_EN))}</strong><em>${esc(dateOnly(checkinTrace.CHECKIN_ACEPTADO_EN))}</em></span>
+-            <span><small>Check-in terminado</small><strong>${esc(time(checkinTrace.CHECKIN_TERMINADO_EN))}</strong><em>${esc(dateOnly(checkinTrace.CHECKIN_TERMINADO_EN))}</em></span>
+-          </div>`:''}
+-          <div class="geo-trace-kpis">
+-            <span><small>Asignados</small><b>${ds.length}</b></span>
+-            <span><small>Visitados</small><b>${visitados}</b></span>
+-            <span><small>En visita</small><b>${enVisita}</b></span>
+-            <span><small>Primera llegada</small><b>${esc(time(llegadas[0]))}</b></span>
+-            <span><small>Última salida</small><b>${esc(time(salidas.at(-1)))}</b></span>
+-            <span><small>Permanencia total</small><b>${totalPerm} min</b></span>
+-            <span><small>Traslado total</small><b>${totalTras} min</b></span>
+-            <span><small>Visitas detectadas</small><b>${visitasFisicas}</b></span>
+-          </div>
+-          <div class="geo-trace-actions">
+-            <button class="geo-btn" data-notify-sup="${esc(p.SUPERVISOR_USUARIO_ID)}" data-plan="${esc(p.ID)}">Enviar alerta</button>
+-            <button class="geo-btn" data-reassign-day="${esc(p.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar pendientes del día</button>
+-            <button class="geo-btn dark" data-reassign-week="${esc(p.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar semana</button>
+-          </div>
+-          <div class="geo-route-timeline" aria-label="Trazabilidad de Locales visitados de ${esc(supervisor)}">${stages||empty('Sin Locales visitados que coincidan con el filtro.')}</div>
++        ${cierreFuera?`<div class="geo-close-outside"><b>Finalización fuera de ubicación planificada</b><span>${esc(v.CIERRE_DIRECCION||'Dirección no resuelta')}</span>${Number.isFinite(Number(v.CIERRE_LATITUD??v.SALIDA_LATITUD))&&Number.isFinite(Number(v.CIERRE_LONGITUD??v.SALIDA_LONGITUD))?`<span>${Number(v.CIERRE_LATITUD??v.SALIDA_LATITUD).toFixed(6)}, ${Number(v.CIERRE_LONGITUD??v.SALIDA_LONGITUD).toFixed(6)}</span>`:''}</div>`:''}
++        <div class="geo-admin-modal-stop-actions">
++          ${e?`<button class="geo-btn mini" data-evidence="${esc(e.ID)}">Ver foto</button>`:`<span class="geo-evidence-label">Evidencia: ${esc(v.EVIDENCIA_ESTADO||'PENDIENTE')}</span>`}
++          <span class="geo-evidence-label">Visitas detectadas: <b>${Number(d.VISITAS_DIA||0)}</b></span>
++          ${pending?`<button class="geo-btn mini" data-reassign-detail="${esc(d.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar</button>`:''}
++          ${gestionable?`<button class="geo-btn mini warn" data-cancel-detail="${esc(d.ID)}">Cancelar</button><button class="geo-btn mini danger" data-delete-detail="${esc(d.ID)}">Eliminar</button>`:''}
+         </div>
+-      </article>`}).filter(Boolean).join('');
+-    $('#adminTable').innerHTML=summary+`<h3 class="geo-trace-title">Trazabilidad por Supervisor</h3><p class="geo-trace-subtitle">Vista compacta. Pulse <b>Ver información</b> para desplegar la trazabilidad completa de un Supervisor.</p>${timelineCards||empty('Sin trazabilidad para el filtro seleccionado.')}`;reconstruirPuntosProgramados(adminMapProgramados.length===0);
+-    $$('[data-trace-toggle]').forEach(b=>b.onclick=()=>{
+-      const card=b.closest('.geo-trace-card'),body=card?.querySelector('[data-trace-body]');
+-      if(!card||!body)return;
+-      const abrir=body.hidden;
+-      if(abrir){
+-        $$('.geo-trace-card.geo-trace-expanded').forEach(otra=>{
+-          if(otra===card)return;
+-          otra.classList.remove('geo-trace-expanded');
+-          const otroBody=otra.querySelector('[data-trace-body]'),otroBtn=otra.querySelector('[data-trace-toggle]');
+-          if(otroBody)otroBody.hidden=true;
+-          if(otroBtn){otroBtn.setAttribute('aria-expanded','false');otroBtn.textContent='Ver información'}
+-        });
+-      }
+-      body.hidden=!abrir;
+-      card.classList.toggle('geo-trace-expanded',abrir);
+-      b.setAttribute('aria-expanded',abrir?'true':'false');
+-      b.textContent=abrir?'Ocultar información':'Ver información';
+-      if(abrir){
+-        requestAnimationFrame(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}));
+-      }
+-    });
+-    $$('[data-local-trace-toggle]').forEach(b=>b.onclick=()=>{
+-      const card=b.closest('.geo-local-trace-card');
+-      const detail=card?.querySelector('[data-local-trace-detail]');
+-      if(!card||!detail)return;
+-
+-      const abrir=detail.hidden;
+-
+-      if(abrir){
+-        const timeline=card.closest('.geo-route-timeline');
+-        timeline?.querySelectorAll('.geo-local-trace-card.geo-local-trace-expanded').forEach(otra=>{
+-          if(otra===card)return;
+-          otra.classList.remove('geo-local-trace-expanded');
+-          const d=otra.querySelector('[data-local-trace-detail]');
+-          const bt=otra.querySelector('[data-local-trace-toggle]');
+-          if(d)d.hidden=true;
+-          if(bt){
+-            bt.setAttribute('aria-expanded','false');
+-            bt.textContent='Ver información';
+-          }
+-        });
+-      }
+-
+-      detail.hidden=!abrir;
+-      card.classList.toggle('geo-local-trace-expanded',abrir);
+-      b.setAttribute('aria-expanded',abrir?'true':'false');
+-      b.textContent=abrir?'Ocultar información':'Ver información';
+-    });
+-    $$('[data-evidence]').forEach(b=>b.onclick=async()=>{try{const x=await request('geoLocalEvidenciaUrl',{EVIDENCIA_ID:b.dataset.evidence});if(x.url)window.open(x.url,'_blank','noopener')}catch(e){error(e)}});$$('[data-notify-sup]').forEach(b=>b.onclick=()=>abrirAvisoAdmin(b.dataset.notifySup,b.dataset.plan));$$('[data-reassign-detail]').forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'VISITAS_PENDIENTES',detailIds:[b.dataset.reassignDetail]}));$$('[data-cancel-detail]').forEach(b=>b.onclick=()=>abrirGestionPunto(b.dataset.cancelDetail,'CANCELAR'));$$('[data-delete-detail]').forEach(b=>b.onclick=()=>abrirGestionPunto(b.dataset.deleteDetail,'ELIMINAR'));$$('[data-reassign-day]').forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'DIA_COMPLETO'}));$$('[data-reassign-week]').forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'SEMANA_COMPLETA'}));
++        ${geoAdminLineaTiempoDetalle(d)}
++        ${v.OBSERVACIONES||d.MOTIVO_NO_VISITA?`<p class="geo-local-trace-observation">${esc(v.OBSERVACIONES||d.MOTIVO_NO_VISITA)}</p>`:''}
++      </article>`;
++    }).join('');
++    return `<div class="geo-admin-detail-shell">
++      <div class="geo-admin-detail-summary">
++        <div><span>Fecha</span><b>${esc(p.FECHA||'—')}</b></div><div><span>Supervisor</span><b>${esc(supervisor)}</b></div><div><span>Estado</span>${badge(p.ESTADO)}</div><div><span>Jornada</span><b>${p.ARTICULO_22_SNAPSHOT==='SI'?'Art. 22':esc(p.JORNADA_REGIMEN_SNAPSHOT||'—')}</b></div>
++      </div>
++      <div class="geo-admin-detail-mobility">${movilidadHtml(sup)}</div>
++      ${checkinTrace.CHECKIN_ID?`<div class="geo-stage-times geo-admin-checkin-trace"><span><small>Vehículo asignado</small><strong>${esc(time(checkinTrace.VEHICULO_ASIGNADO_EN||checkinTrace['VEHÍCULO_ASIGNADO_EN']))}</strong><em>${esc(dateOnly(checkinTrace.VEHICULO_ASIGNADO_EN||checkinTrace['VEHÍCULO_ASIGNADO_EN']))}</em></span><span><small>Check-in aceptado</small><strong>${esc(time(checkinTrace.CHECKIN_ACEPTADO_EN))}</strong><em>${esc(dateOnly(checkinTrace.CHECKIN_ACEPTADO_EN))}</em></span><span><small>Check-in terminado</small><strong>${esc(time(checkinTrace.CHECKIN_TERMINADO_EN))}</strong><em>${esc(dateOnly(checkinTrace.CHECKIN_TERMINADO_EN))}</em></span></div>`:''}
++      <div class="geo-trace-kpis"><span><small>Asignados</small><b>${ds.length}</b></span><span><small>Visitados</small><b>${visitados}</b></span><span><small>En visita</small><b>${enVisita}</b></span><span><small>Evidencias</small><b>${evidencias}/${ds.length}</b></span><span><small>Primera llegada</small><b>${esc(time(llegadas[0]))}</b></span><span><small>Última salida</small><b>${esc(time(salidas.at(-1)))}</b></span><span><small>Permanencia</small><b>${totalPerm} min</b></span><span><small>Traslado</small><b>${totalTras} min</b></span></div>
++      <div class="geo-admin-modal-actions"><button class="geo-btn" data-notify-sup="${esc(p.SUPERVISOR_USUARIO_ID)}" data-plan="${esc(p.ID)}">Enviar alerta</button><button class="geo-btn" data-reassign-day="${esc(p.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar pendientes del día</button><button class="geo-btn dark" data-reassign-week="${esc(p.ID)}" data-source="${esc(p.SUPERVISOR_USUARIO_ID)}" data-date="${esc(p.FECHA)}">Reasignar semana</button><button class="geo-btn danger" data-delete-day="${esc(p.ID)}">Eliminar rutas del día</button></div>
++      <section class="geo-admin-modal-trace"><div class="geo-section-head"><div><span class="geo-section-icon">↗</span><div><h3>Trazabilidad completa</h3><small>Llegadas, salidas, permanencia, traslados, evidencias y acciones de cada Local.</small></div></div></div>${stages||empty('◎','Sin Locales asociados','Esta planificación no tiene Locales para mostrar.')}</section>
++    </div>`;
++  }
++  function enlazarAccionesDetallePlanAdmin(ov,planId){
++    $$('[data-evidence]',ov).forEach(b=>b.onclick=async()=>{try{const x=await request('geoLocalEvidenciaUrl',{EVIDENCIA_ID:b.dataset.evidence});if(x.url)window.open(x.url,'_blank','noopener')}catch(e){error(e)}});
++    $$('[data-notify-sup]',ov).forEach(b=>b.onclick=()=>abrirAvisoAdmin(b.dataset.notifySup,b.dataset.plan));
++    $$('[data-reassign-detail]',ov).forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'VISITAS_PENDIENTES',detailIds:[b.dataset.reassignDetail]}));
++    $$('[data-cancel-detail]',ov).forEach(b=>b.onclick=()=>abrirGestionPunto(b.dataset.cancelDetail,'CANCELAR'));
++    $$('[data-delete-detail]',ov).forEach(b=>b.onclick=()=>abrirGestionPunto(b.dataset.deleteDetail,'ELIMINAR'));
++    $$('[data-reassign-day]',ov).forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'DIA_COMPLETO'}));
++    $$('[data-reassign-week]',ov).forEach(b=>b.onclick=()=>abrirReasignacion({source:b.dataset.source,date:b.dataset.date,scope:'SEMANA_COMPLETA'}));
++    $$('[data-delete-day]',ov).forEach(b=>b.onclick=()=>abrirEliminarRutasDiaWeb(planId,ov));
++  }
++  function abrirDetallePlanAdmin(planId){
++    const z=datosPlanAdmin(planId);if(!z)return toast('Planificación no encontrada.');
++    const p=z.p,sup=z.sup,supervisor=sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID||'Supervisor';
++    const ov=document.createElement('div');ov.className='geo-forced-overlay';ov.innerHTML=`<div class="geo-forced-card geo-admin-detail-modal">${geoDialogHead('▦','Geo Planificador Admin',`${esc(p.FECHA||'')} · ${esc(supervisor)}`,'Toda la gestión y la trazabilidad de esta planificación se concentran en esta ventana.')}<div class="geo-dialog-body">${htmlDetallePlanAdmin(planId)}</div><div class="buttons"><button class="geo-btn" data-close-admin-detail>Cerrar</button></div></div>`;document.body.appendChild(ov);$('[data-close-admin-detail]',ov).onclick=()=>ov.remove();ov.addEventListener('click',e=>{if(e.target===ov)ov.remove()});enlazarAccionesDetallePlanAdmin(ov,planId);
++  }
++  async function abrirEliminarRutasDiaWeb(planId,owner){
++    const z=datosPlanAdmin(planId);if(!z)return;const {p,sup}=z,supervisor=sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID||'Supervisor';
++    const motivo=window.prompt(`Motivo obligatorio para eliminar todas las rutas de ${supervisor} del ${p.FECHA}:`,'');if(motivo==null)return;if(String(motivo).trim().length<3)return toast('Ingrese un motivo válido.');
++    if(!window.confirm(`¿Confirma retirar todas las rutas de ${supervisor} del ${p.FECHA}? El historial y la auditoría se conservarán.`))return;
++    try{setLoading(true);await request('geoLocalEliminarRutasDiaSupervisor',{SUPERVISOR_USUARIO_ID:p.SUPERVISOR_USUARIO_ID,FECHA:p.FECHA,MOTIVO:String(motivo).trim()});owner?.remove();toast('Rutas del día eliminadas administrativamente. El historial se conserva.');await load()}catch(e){error(e)}finally{setLoading(false)}
++  }
++  function renderControl(){
++    const r=state.data||{},sid=$('#adminSupFilter')?.value||'',qLocal=normalizarFiltro($('#adminLocalFilter')?.value||''),supMap=new Map((r.SUPERVISORES||[]).map(x=>[String(x.ID),x])),lm=new Map((r.LOCALES||[]).map(x=>[String(x.ID),x]));
++    let plans=(r.PLANIFICACIONES||[]).filter(p=>!sid||String(p.SUPERVISOR_USUARIO_ID)===String(sid)).sort((a,b)=>String(a.FECHA||'').localeCompare(String(b.FECHA||''))||String(a.SUPERVISOR_USUARIO_ID||'').localeCompare(String(b.SUPERVISOR_USUARIO_ID||'')));
++    if(qLocal)plans=plans.filter(p=>(r.DETALLES||[]).filter(d=>String(d.PLANIFICACION_ID)===String(p.ID)).some(d=>{const l=lm.get(String(d.LOCAL_ID))||{};return normalizarFiltro([l.NOMBRE,l.DIRECCION,l.REFERENCIA,d.ESTADO].join(' ')).includes(qLocal)}));
++    const allDetails=r.DETALLES||[],allVisits=r.VISITAS||[],allEvidences=r.EVIDENCIAS||[];
++    const rows=plans.map(p=>{const ds=allDetails.filter(d=>String(d.PLANIFICACION_ID)===String(p.ID)),ids=new Set(ds.map(d=>String(d.ID))),vs=allVisits.filter(v=>ids.has(String(v.DETALLE_ID))),es=allEvidences.filter(e=>ids.has(String(e.DETALLE_ID))),visitados=ds.filter(d=>String(d.ESTADO||'').toUpperCase()==='VISITADO').length,enVisita=ds.filter(d=>String(d.ESTADO||'').toUpperCase().includes('EN_VIS')).length,evid=new Set(es.map(e=>String(e.DETALLE_ID))).size,sup=supMap.get(String(p.SUPERVISOR_USUARIO_ID))||{};return `<tr class="geo-admin-data-row" tabindex="0" role="button" data-admin-plan-row="${esc(p.ID)}"><td><b>${esc(p.FECHA||'—')}</b></td><td><b>${esc(sup.NOMBRE||sup.CORREO||p.SUPERVISOR_USUARIO_ID)}</b><small>${esc(sup.CORREO||'')}</small></td><td>${ds.length}</td><td>${visitados}/${ds.length}</td><td>${enVisita}</td><td>${evid}/${ds.length}</td><td>${badge(p.ESTADO)}</td><td><button class="geo-btn mini" type="button" data-admin-plan-open="${esc(p.ID)}">Ver detalle</button></td></tr>`}).join('');
++    $('#adminTable').innerHTML=`<div class="geo-admin-table-intro"><div><h3>Planificaciones y ejecución</h3><p>Vista compacta. Pulse una fila para abrir todos los datos, acciones y la trazabilidad.</p></div><span>${plans.length} registro(s)</span></div><div class="geo-table-wrap geo-admin-main-table"><table class="geo-table"><thead><tr><th>Fecha</th><th>Supervisor</th><th>Locales</th><th>Visitados</th><th>En visita</th><th>Evidencia</th><th>Estado</th><th></th></tr></thead><tbody>${rows||`<tr><td colspan="8">Sin planificaciones para el filtro seleccionado.</td></tr>`}</tbody></table></div>`;
++    reconstruirPuntosProgramados(adminMapProgramados.length===0);
++    const abrir=id=>abrirDetallePlanAdmin(id);
++    $$('[data-admin-plan-open]',$('#adminTable')).forEach(b=>b.onclick=e=>{e.stopPropagation();abrir(b.dataset.adminPlanOpen)});
++    $$('[data-admin-plan-row]',$('#adminTable')).forEach(row=>{row.onclick=()=>abrir(row.dataset.adminPlanRow);row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();abrir(row.dataset.adminPlanRow)}}});
+   }
+   async function abrirGestionPunto(detalleId,operacion){
+     const eliminar=operacion==='ELIMINAR',overlay=document.createElement('div');overlay.className='geo-forced-overlay';overlay.innerHTML=`<div class="geo-forced-card">${geoDialogHead(eliminar?'🗑':'×','Geo Planificador Admin',eliminar?'Eliminar punto':'Cancelar punto',eliminar?'El punto se retirará de la planificación. La acción queda auditada y no se permite sobre puntos ya visitados.':'El punto quedará cancelado, visible en trazabilidad y se notificará al Supervisor.')}<div class="geo-dialog-body"><div class="geo-dialog-alert ${eliminar?'warn':''}">Acción exclusiva de Administración/Gerencia dentro de la misma empresa.</div><label class="geo-field"><span>Motivo obligatorio</span><textarea id="pointManageReason" placeholder="Indique el motivo de esta acción"></textarea></label></div><div class="buttons"><button class="geo-btn ${eliminar?'danger':'warn'}" id="pointManageConfirm">${eliminar?'Eliminar punto':'Cancelar punto'}</button><button class="geo-btn" id="pointManageBack">Volver</button></div></div>`;document.body.appendChild(overlay);$('#pointManageBack').onclick=()=>overlay.remove();$('#pointManageConfirm').onclick=async()=>{const motivo=$('#pointManageReason').value.trim();if(motivo.length<3)return toast('Ingrese el motivo de la acción.');try{setLoading(true);await request('geoLocalGestionarPunto',{DETALLE_ID:detalleId,OPERACION:operacion,MOTIVO:motivo});overlay.remove();toast(eliminar?'Punto eliminado y auditado.':'Punto cancelado y auditado.');await load()}catch(e){error(e)}finally{setLoading(false)}};

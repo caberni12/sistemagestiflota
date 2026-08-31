@@ -1,0 +1,13 @@
+E-FLEET WEB 4.5.52 · R8_2_274
+GEO PLANIFICADOR ADMIN · TABLA DE DATOS + MODAL DE DETALLE
+
+Cambios:
+- Control de Supervisores pasa a ser la vista principal tabular.
+- Cada fila de planificación es clicable y abre un modal amplio con datos, acciones y trazabilidad completa.
+- La trazabilidad ya no se despliega debajo de la tabla ni alarga la pantalla principal.
+- Dentro del modal: estado, jornada, movilidad, Check-in, KPIs, Locales, llegada/salida, permanencia, traslado, evidencias, línea de tiempo, alertas, reasignación, cancelar/eliminar punto y eliminar rutas del día.
+- Bandeja de aprobaciones convertida a tabla compacta; Revisar abre el modal de aprobación existente.
+- Programación mensual convertida a tabla compacta y queda en sección plegable.
+- Herramientas de configuración (Locales/mapa/planificación) quedan plegadas para reducir saturación visual.
+
+Backend requerido: flotas-api 4.5.96, sin cambios.
