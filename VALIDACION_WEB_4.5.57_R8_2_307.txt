@@ -1,0 +1,7 @@
+VALIDACIÓN WEB 4.5.58 · R8_2_307
+- node --check efleet-4.5.58.js: OK.
+- 11 iconos PNG presentes en nav-incidents/.
+- Panel ¿Qué ves? renderiza los iconos de referencia en cuadrícula de 3 columnas.
+- Marcadores MapaFlotas/MapLibre usan el icono de la categoría.
+- Pulsación larga 620 ms y clic derecho abren menú contextual de incidencia.
+- Resolver envía LATITUD/LONGITUD del GPS actual.

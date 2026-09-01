@@ -1,0 +1,8 @@
+VALIDACIÓN WEB R8_2_306
+- efleet-4.5.58.js: node --check = OK.
+- HTML referencia efleet-4.5.58.css / efleet-4.5.58.js.
+- listarIncidenciasNavegacion declarado como acción de lectura.
+- reportar/resolver incidencias conectados a la API.
+- Umbral llegada EFNAV_RADIO_LLEGADA_M = 100.
+- Halo y llegada usan la posición ajustada a ruta.
+- Bandera de meta visible después de llegada automática.
