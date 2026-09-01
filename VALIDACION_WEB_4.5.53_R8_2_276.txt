@@ -1,7 +1,7 @@
-VALIDACION E-FLEET WEB 4.5.55 - R8_2_276
+VALIDACION E-FLEET WEB 4.5.56 - R8_2_276
 
-- node --check efleet-4.5.55.js: OK
-- geo-local-admin.html carga efleet-4.5.55.js y efleet-4.5.55.css: OK
+- node --check efleet-4.5.56.js: OK
+- geo-local-admin.html carga efleet-4.5.56.js y efleet-4.5.56.css: OK
 - Rama activa de Geo Admin contiene vista geo-admin-main-table: OK
 - Rama activa contiene modal geo-admin-detail-modal: OK
 - geoAdminToolsDetails está declarado antes de usarse: OK

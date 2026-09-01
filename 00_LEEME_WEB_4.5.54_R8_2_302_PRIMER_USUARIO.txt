@@ -1,0 +1,5 @@
+WEB 4.5.56 / R8.2.302
+- Después de validar RUT + clave de instalación, consulta estadoSistema.
+- Si la empresa tiene 0 usuarios, abre el formulario PRIMERA INSTALACIÓN.
+- Si estadoSistema falla, ya no muestra falsamente el formulario de iniciar sesión.
+- Compatible con flotas-api 4.6.12.

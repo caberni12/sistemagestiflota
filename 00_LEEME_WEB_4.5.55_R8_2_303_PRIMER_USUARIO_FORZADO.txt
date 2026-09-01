@@ -1,0 +1,11 @@
+E-FLEET WEB 4.5.56 · R8.2.303
+
+CORRECCION PRIMERA INSTALACION
+- Cuando la empresa exige la clave de instalación y la clave es aceptada, la Web abre INMEDIATAMENTE el formulario Crear administrador inicial.
+- Guarda un indicador local por empresa para que una recarga del navegador no mande al login antes de crear el primer usuario.
+- estadoSistema sigue siendo la autoridad: si devuelve 0 usuarios, mantiene el formulario de registro.
+- El indicador solo se elimina cuando bootstrap termina correctamente, cuando el servidor confirma SISTEMA_YA_INICIALIZADO, o al limpiar/cambiar empresa.
+- No modifica datos ni crea usuarios automáticamente.
+
+REQUISITO
+- Mantener flotas-api 4.6.12 R8.2.302 o posterior.
