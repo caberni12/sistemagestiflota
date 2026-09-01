@@ -1,0 +1,5 @@
+[OK] version
+[OK] flag
+[OK] force_key
+[OK] clear_success
+[OK] asset_index
